@@ -1,10 +1,10 @@
 "use client";
+
 import Image from "next/image";
 import { Container } from "@/components/container";
 import { motion } from "framer-motion";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Users, MapPin } from "lucide-react";
-
 import { VENUES_DATA } from "@/constants";
 import { AnimatedDecorativeBar } from "@/components/animated-decorative-bar";
 
@@ -82,18 +82,17 @@ export default function EventsIntro({ dict, lang }: EventsIntroProps) {
               {t("events.venuesTitle")}
             </h2>
           </div>
-
           <p className="main-paragraph-light text-center mb-8 max-w-3xl mx-auto">
             {t("events.venuesDescription")}
           </p>
 
           <Tabs defaultValue="salaBankietowa" className="w-full">
-            <TabsList className="grid w-full max-w-4xl mx-auto grid-cols-2 md:grid-cols-4 mb-12 bg-gray-100 rounded-2xl p-2 h-auto md:h-14">
+            <TabsList className="flex flex-wrap justify-center gap-2 w-full max-w-5xl mx-auto mb-12 bg-gray-100 rounded-2xl p-3 h-auto min-h-[60px]">
               {Object.keys(VENUES_DATA).map((venueKey) => (
                 <TabsTrigger
                   key={venueKey}
                   value={venueKey}
-                  className="data-[state=active]:bg-white data-[state=active]:text-avangarda data-[state=active]:shadow-md rounded-xl font-semibold"
+                  className="data-[state=active]:bg-white data-[state=active]:text-avangarda data-[state=active]:shadow-md rounded-xl font-semibold px-4 py-2.5 text-sm whitespace-nowrap transition-all duration-200 hover:bg-white/50"
                 >
                   {t(VENUES_DATA[venueKey].nameKey)}
                 </TabsTrigger>
@@ -105,13 +104,12 @@ export default function EventsIntro({ dict, lang }: EventsIntroProps) {
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-start">
                   <div className="relative aspect-[4/3] md:h-[480px] w-full overflow-hidden">
                     <Image
-                      src={venue.image}
+                      src={venue.image || "/placeholder.svg"}
                       alt={t(venue.nameKey)}
                       fill
                       className="object-cover"
                     />
                   </div>
-
                   <div className="space-y-6">
                     <div>
                       <h3 className="text-2xl font-semibold mb-2">
@@ -121,7 +119,6 @@ export default function EventsIntro({ dict, lang }: EventsIntroProps) {
                         {t(`events.venues.${key}.description`)}
                       </p>
                     </div>
-
                     <div className="grid grid-cols-2 gap-4">
                       <div className="bg-avangarda/10 p-4 rounded-none text-center">
                         <Users className="h-5 w-5 mx-auto mb-1 text-avangarda" />
@@ -132,7 +129,6 @@ export default function EventsIntro({ dict, lang }: EventsIntroProps) {
                           {venue.capacity} {t("events.venueInfo.people")}
                         </p>
                       </div>
-
                       <div className="bg-avangarda/10 p-4 rounded-none text-center">
                         <MapPin className="h-5 w-5 mx-auto mb-1 text-avangarda" />
                         <p className="text-sm text-avangarda">
@@ -143,7 +139,6 @@ export default function EventsIntro({ dict, lang }: EventsIntroProps) {
                         </p>
                       </div>
                     </div>
-
                     <div>
                       <h4 className="font-medium mb-2">
                         {t("events.venueInfo.amenities")}:

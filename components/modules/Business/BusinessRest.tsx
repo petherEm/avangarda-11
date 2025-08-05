@@ -1,25 +1,21 @@
 "use client";
-import { useState } from "react";
 
+import { useState } from "react";
 import Image from "next/image";
-import Link from "next/link";
 import { motion } from "framer-motion";
-import { Button } from "@/components/ui/button";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import {
   Wine,
   Clock,
   Music,
-  Coffee,
   Users,
   Utensils,
   Flame,
   TreePine,
   Fish,
-  Pizza,
   Waves,
-  Hamburger,
-  Volleyball,
+  SandwichIcon as Hamburger,
+  VibrateIcon as Volleyball,
   Bike,
   Cherry,
 } from "lucide-react";
@@ -51,7 +47,7 @@ export default function BusinessEntertainment({
             transition={{ delay: 0.3, duration: 0.5 }}
             className="h-auto"
           >
-            <div className="relative aspect-square w-full h-[660px]  overflow-hidden">
+            <div className="relative aspect-square w-full h-[660px] overflow-hidden">
               <Image
                 src="/conference/team-building.png"
                 alt="Klub Coola"
@@ -70,7 +66,6 @@ export default function BusinessEntertainment({
           >
             <AnimatedDecorativeBar />
             <h1 className="title-light">Integracje i Team Building</h1>
-
             <p className="main-paragraph-light">
               Zamień zwykłe spotkanie firmowe w niezapomnianą przygodę!
               Integracje w Hotelu Avangarda to połączenie świetnej zabawy,
@@ -105,34 +100,34 @@ export default function BusinessEntertainment({
             className="w-full"
             onValueChange={setSelectedTab}
           >
-            <TabsList className="grid w-full max-w-4xl mx-auto grid-cols-4 mb-12 bg-gray-100 rounded-2xl p-2 h-14">
+            <TabsList className="flex flex-wrap justify-center gap-2 w-full max-w-5xl mx-auto mb-12 bg-gray-100 rounded-2xl p-3 h-auto min-h-[60px]">
               <TabsTrigger
                 value="club"
-                className="data-[state=active]:bg-white data-[state=active]:text-avangarda data-[state=active]:shadow-md rounded-xl font-semibold"
+                className="data-[state=active]:bg-white data-[state=active]:text-avangarda data-[state=active]:shadow-md rounded-xl font-semibold px-4 py-2.5 text-sm whitespace-nowrap transition-all duration-200 hover:bg-white/50"
               >
                 Klub Coola
               </TabsTrigger>
               <TabsTrigger
                 value="outdoor"
-                className="data-[state=active]:bg-white data-[state=active]:text-avangarda data-[state=active]:shadow-md rounded-xl font-semibold"
+                className="data-[state=active]:bg-white data-[state=active]:text-avangarda data-[state=active]:shadow-md rounded-xl font-semibold px-4 py-2.5 text-sm whitespace-nowrap transition-all duration-200 hover:bg-white/50"
               >
                 Outdoor
               </TabsTrigger>
               <TabsTrigger
                 value="fort"
-                className="data-[state=active]:bg-white data-[state=active]:text-avangarda data-[state=active]:shadow-md rounded-xl font-semibold"
+                className="data-[state=active]:bg-white data-[state=active]:text-avangarda data-[state=active]:shadow-md rounded-xl font-semibold px-4 py-2.5 text-sm whitespace-nowrap transition-all duration-200 hover:bg-white/50"
               >
                 Fort No. 4
               </TabsTrigger>
               <TabsTrigger
                 value="dymna"
-                className="data-[state=active]:bg-white data-[state=active]:text-avangarda data-[state=active]:shadow-md rounded-xl font-semibold"
+                className="data-[state=active]:bg-white data-[state=active]:text-avangarda data-[state=active]:shadow-md rounded-xl font-semibold px-4 py-2.5 text-sm whitespace-nowrap transition-all duration-200 hover:bg-white/50"
               >
                 Dymna Polana
               </TabsTrigger>
               <TabsTrigger
                 value="przystan"
-                className="data-[state=active]:bg-white data-[state=active]:text-avangarda data-[state=active]:shadow-md rounded-xl font-semibold"
+                className="data-[state=active]:bg-white data-[state=active]:text-avangarda data-[state=active]:shadow-md rounded-xl font-semibold px-4 py-2.5 text-sm whitespace-nowrap transition-all duration-200 hover:bg-white/50"
               >
                 Przystań Avangarda
               </TabsTrigger>
@@ -156,54 +151,39 @@ export default function BusinessEntertainment({
                       swobodny networking i wspólne świętowanie sukcesów.
                     </p>
                   </div>
-
                   <div className="grid grid-cols-2 sm:grid-cols-3 gap-4">
                     <div className="bg-avangarda/10 p-4 text-center">
                       <Users className="h-5 w-5 mx-auto mb-1 text-avangarda" />
                       <p className="text-sm font-medium">Kręgle</p>
                       <p className="text-xs">2 tory do gry</p>
                     </div>
-
                     <div className="bg-avangarda/10 p-4 text-center">
                       <Users className="h-5 w-5 mx-auto mb-1 text-avangarda" />
                       <p className="text-sm font-medium">Bilard</p>
                       <p className="text-xs">Strefa gier</p>
                     </div>
-
                     <div className="bg-avangarda/10 p-4 text-center">
                       <Users className="h-5 w-5 mx-auto mb-1 text-avangarda" />
                       <p className="text-sm font-medium">Sport</p>
                       <p className="text-xs">na dużym ekranie</p>
                     </div>
-
                     <div className="bg-avangarda/10 p-4 text-center">
                       <Wine className="h-5 w-5 mx-auto mb-1 text-avangarda" />
                       <p className="text-sm font-medium">Wyłączność</p>
                       <p className="text-xs">zapytaj o możliwość</p>
                     </div>
-
                     <div className="bg-avangarda/10 p-4 text-center">
                       <Wine className="h-5 w-5 mx-auto mb-1 text-avangarda" />
                       <p className="text-sm font-medium">Bar</p>
                       <p className="text-xs">Szeroki wybór drinków</p>
                     </div>
-
                     <div className="bg-avangarda/10 p-4 text-center">
                       <Music className="h-5 w-5 mx-auto mb-1 text-avangarda" />
                       <p className="text-sm font-medium">Muzyka</p>
                       <p className="text-xs">DJ lub koncerty</p>
                     </div>
                   </div>
-
-                  {/* <div className="mt-6">
-                    <Link href={`/${lang}/rozrywka`}>
-                      <Button className="bg-avangarda hover:bg-avangarda/90 flex items-center gap-2">
-                        Więcej o Klubie Coola
-                      </Button>
-                    </Link>
-                  </div> */}
                 </div>
-
                 <div className="space-y-6">
                   <div className="relative aspect-video w-full h-[500px] overflow-hidden ">
                     <Image
@@ -239,7 +219,6 @@ export default function BusinessEntertainment({
                       zespole.
                     </p>
                   </div>
-
                   <div className="grid grid-cols-2 sm:grid-cols-3 gap-4">
                     <div className="bg-avangarda/10 p-4 text-center ">
                       <Waves className="h-5 w-5 mx-auto mb-1 text-avangarda" />
@@ -248,7 +227,6 @@ export default function BusinessEntertainment({
                       </p>
                       <p className="text-xs">Nasza flagowa gra terenowa</p>
                     </div>
-
                     <div className="bg-avangarda/10 p-4 text-center ">
                       <Hamburger className="h-5 w-5 mx-auto mb-1 text-avangarda" />
                       <p className="text-sm font-medium">
@@ -256,41 +234,28 @@ export default function BusinessEntertainment({
                       </p>
                       <p className="text-xs">Rywalizacja w zespole</p>
                     </div>
-
                     <div className="bg-avangarda/10 p-4 text-center ">
                       <Volleyball className="h-5 w-5 mx-auto mb-1 text-avangarda" />
                       <p className="text-sm font-medium">Paintball</p>
                       <p className="text-xs">Wyrzuć z siebie złość</p>
                     </div>
-
                     <div className="bg-avangarda/10 p-4 text-center ">
                       <Clock className="h-5 w-5 mx-auto mb-1 text-avangarda" />
                       <p className="text-sm font-medium">Quady</p>
                       <p className="text-xs">Zastrzyk adrenaliny</p>
                     </div>
-
                     <div className="bg-avangarda/10 p-4 text-center ">
                       <Bike className="h-5 w-5 mx-auto mb-1 text-avangarda" />
                       <p className="text-sm font-medium">Nordic Walking</p>
                       <p className="text-xs">Urocza okolica Dolnej Narwi</p>
                     </div>
-
                     <div className="bg-avangarda/10 p-4 text-center ">
                       <Cherry className="h-5 w-5 mx-auto mb-1 text-avangarda" />
                       <p className="text-sm font-medium">CSR</p>
                       <p className="text-xs">Bo warto pomagać</p>
                     </div>
                   </div>
-
-                  {/* <div className="mt-6">
-                    <Link href={`/${lang}/rozrywka`}>
-                      <Button className="bg-avangarda hover:bg-avangarda/90 flex items-center gap-2">
-                        Dowiedz się więcej
-                      </Button>
-                    </Link>
-                  </div> */}
                 </div>
-
                 <div className="space-y-6">
                   {/* Full-width image for outdoor tab */}
                   <div className="relative aspect-video w-full h-[500px] overflow-hidden ">
@@ -328,14 +293,12 @@ export default function BusinessEntertainment({
                       zespołu.
                     </p>
                   </div>
-
                   <div className="grid grid-cols-2 sm:grid-cols-3 gap-4">
                     <div className="bg-avangarda/10 p-4 text-center">
                       <Flame className="h-5 w-5 mx-auto mb-1 text-avangarda" />
                       <p className="text-sm font-medium">Dostępność</p>
                       <p className="text-xs">maj-wrzesień</p>
                     </div>
-
                     <div className="bg-avangarda/10 p-4 text-center">
                       <Users className="h-5 w-5 mx-auto mb-1 text-avangarda" />
                       <p className="text-sm font-medium">Kamienny amfiteatr</p>
@@ -343,13 +306,11 @@ export default function BusinessEntertainment({
                         Przestrzeń dla wyjątkowych zdjęć
                       </p>
                     </div>
-
                     <div className="bg-avangarda/10 p-4 text-center">
                       <TreePine className="h-5 w-5 mx-auto mb-1 text-avangarda" />
                       <p className="text-sm font-medium">Pokazy kulinarne</p>
                       <p className="text-xs">Stacja live cooking</p>
                     </div>
-
                     <div className="bg-avangarda/10 p-4 text-center">
                       <Clock className="h-5 w-5 mx-auto mb-1 text-avangarda" />
                       <p className="text-sm font-medium">
@@ -357,29 +318,18 @@ export default function BusinessEntertainment({
                       </p>
                       <p className="text-xs">Patent na niepogodę</p>
                     </div>
-
                     <div className="bg-avangarda/10 p-4 text-center">
                       <Utensils className="h-5 w-5 mx-auto mb-1 text-avangarda" />
                       <p className="text-sm font-medium">Wciągające animacje</p>
                       <p className="text-xs">Tematyczne imprezy</p>
                     </div>
-
                     <div className="bg-avangarda/10 p-4 text-center">
                       <Music className="h-5 w-5 mx-auto mb-1 text-avangarda" />
                       <p className="text-sm font-medium">Muzyka</p>
                       <p className="text-xs">DJ lub muzyka na żywo</p>
                     </div>
                   </div>
-
-                  {/* <div className="mt-6">
-                    <Link href={`/${lang}/rozrywka`}>
-                      <Button className="bg-avangarda hover:bg-avangarda/90 flex items-center gap-2">
-                        Więcej o Fort No. 4
-                      </Button>
-                    </Link>
-                  </div> */}
                 </div>
-
                 <div className="space-y-6">
                   <div className="relative aspect-video w-full h-[500px] overflow-hidden">
                     <Image
@@ -418,14 +368,12 @@ export default function BusinessEntertainment({
                       klimatyczne i wygodne.
                     </p>
                   </div>
-
                   <div className="grid grid-cols-2 sm:grid-cols-3 gap-4">
                     <div className="bg-avangarda/10 p-4 text-center">
                       <Fish className="h-5 w-5 mx-auto mb-1 text-avangarda" />
                       <p className="text-sm font-medium">Dostępność</p>
                       <p className="text-xs">maj - wrzesień</p>
                     </div>
-
                     <div className="bg-avangarda/10 p-4 text-center">
                       <Utensils className="h-5 w-5 mx-auto mb-1 text-avangarda" />
                       <p className="text-sm font-medium">Ognisko</p>
@@ -433,41 +381,23 @@ export default function BusinessEntertainment({
                         Spotkania w swobodnej atmosferze
                       </p>
                     </div>
-
                     <div className="bg-avangarda/10 p-4 text-center">
                       <Wine className="h-5 w-5 mx-auto mb-1 text-avangarda" />
                       <p className="text-sm font-medium">Zadaszone altany</p>
                       <p className="text-xs">Komfort niezależnie od pogody</p>
                     </div>
-
                     <div className="bg-avangarda/10 p-4 text-center">
                       <Clock className="h-5 w-5 mx-auto mb-1 text-avangarda" />
                       <p className="text-sm font-medium">Leżaki i hamaki</p>
                       <p className="text-xs">Dla pełni relaksu</p>
                     </div>
-
                     <div className="bg-avangarda/10 p-4 text-center">
                       <TreePine className="h-5 w-5 mx-auto mb-1 text-avangarda" />
                       <p className="text-sm font-medium">Naturalne otoczenie</p>
                       <p className="text-xs">Przyroda w zasięgu ręki</p>
                     </div>
-
-                    {/* <div className="bg-avangarda/10 p-4 text-center">
-                      <Users className="h-5 w-5 mx-auto mb-1 text-avangarda" />
-                      <p className="text-sm font-medium">Muzyka</p>
-                      <p className="text-xs">DJ lub na żywo</p>
-                    </div> */}
                   </div>
-
-                  {/* <div className="mt-6">
-                    <Link href={`/${lang}/restauracja`}>
-                      <Button className="bg-avangarda hover:bg-avangarda/90 flex items-center gap-2">
-                        Więcej o Bar Przystań
-                      </Button>
-                    </Link>
-                  </div> */}
                 </div>
-
                 <div className="space-y-6">
                   <div className="relative aspect-video w-full h-[500px] overflow-hidden">
                     <Image
@@ -480,6 +410,7 @@ export default function BusinessEntertainment({
                 </div>
               </div>
             </TabsContent>
+
             <TabsContent value="przystan" className="space-y-0">
               <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-start">
                 <div className="space-y-6">
@@ -499,20 +430,17 @@ export default function BusinessEntertainment({
                       wyjątkowych wieczorów na tarasie pod żaglami.
                     </p>
                   </div>
-
                   <div className="grid grid-cols-2 sm:grid-cols-3 gap-4">
                     <div className="bg-avangarda/10 p-4 text-center">
                       <Fish className="h-5 w-5 mx-auto mb-1 text-avangarda" />
                       <p className="text-sm font-medium">Dostępność</p>
                       <p className="text-xs">maj - wrzesień</p>
                     </div>
-
                     <div className="bg-avangarda/10 p-4 text-center">
                       <Utensils className="h-5 w-5 mx-auto mb-1 text-avangarda" />
                       <p className="text-sm font-medium">Spływy kajakowe</p>
                       <p className="text-xs">pod opieką ratowników</p>
                     </div>
-
                     <div className="bg-avangarda/10 p-4 text-center">
                       <Wine className="h-5 w-5 mx-auto mb-1 text-avangarda" />
                       <p className="text-sm font-medium">
@@ -520,35 +448,23 @@ export default function BusinessEntertainment({
                       </p>
                       <p className="text-xs">Siatkówka & badminton</p>
                     </div>
-
                     <div className="bg-avangarda/10 p-4 text-center">
                       <Clock className="h-5 w-5 mx-auto mb-1 text-avangarda" />
                       <p className="text-sm font-medium">Plażing nad Narwią</p>
                       <p className="text-xs">Łóżka i kosze plażowe</p>
                     </div>
-
                     <div className="bg-avangarda/10 p-4 text-center">
                       <TreePine className="h-5 w-5 mx-auto mb-1 text-avangarda" />
                       <p className="text-sm font-medium">Kolacje</p>
                       <p className="text-xs">W śródziemnomorskim stylu</p>
                     </div>
-
                     <div className="bg-avangarda/10 p-4 text-center">
                       <Users className="h-5 w-5 mx-auto mb-1 text-avangarda" />
                       <p className="text-sm font-medium">Muzyka</p>
                       <p className="text-xs">DJ lub na żywo</p>
                     </div>
                   </div>
-
-                  {/* <div className="mt-6">
-                    <Link href={`/${lang}/restauracja`}>
-                      <Button className="bg-avangarda hover:bg-avangarda/90 flex items-center gap-2">
-                        Więcej o Bar Przystań
-                      </Button>
-                    </Link>
-                  </div> */}
                 </div>
-
                 <div className="space-y-6">
                   <div className="relative aspect-video w-full h-[500px] overflow-hidden">
                     <Image

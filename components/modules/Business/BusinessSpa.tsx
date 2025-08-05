@@ -1,9 +1,13 @@
 "use client";
 
 import Image from "next/image";
-import Link from "next/link";
 import { motion, useScroll, useTransform, useSpring } from "framer-motion";
+import { Container } from "@/components/container";
 import { Button } from "@/components/ui/button";
+import { useEffect, useState, useRef } from "react";
+import Link from "next/link";
+import BackgroundLogoBottomDark from "@/components/background-logo-bottom-dark";
+import { AnimatedDecorativeBar } from "@/components/animated-decorative-bar";
 import {
   Clock,
   Heart,
@@ -13,17 +17,12 @@ import {
   SmilePlus,
   Waves,
 } from "lucide-react";
-import { Badge } from "@/components/ui/badge";
-import { AnimatedDecorativeBar } from "@/components/animated-decorative-bar";
-import BackgroundLogoBottomDark from "@/components/background-logo-bottom-dark";
-import { useRef } from "react";
 
 interface BusinessSpaProps {
-  dict?: any;
   lang?: string;
+  dict?: any;
 }
 
-// Animation variants - same as BusinessBanquets
 const fadeInUp = {
   initial: { opacity: 0, y: 20 },
   animate: { opacity: 1, y: 0 },
@@ -44,40 +43,37 @@ const fadeInRight = {
   animate: { opacity: 1, x: 0 },
 };
 
-export default function BusinessSpa({ dict, lang = "pl" }: BusinessSpaProps) {
-  const sectionRef = useRef<HTMLDivElement>(null);
+const slideInFromRight = {
+  initial: { opacity: 0, x: 20 },
+  animate: { opacity: 1, x: 0 },
+};
 
-  // Parallax scroll effects
+const BusinessSpa = ({ lang = "pl", dict }: BusinessSpaProps) => {
+  const [windowWidth, setWindowWidth] = useState(0);
+  const contentRef = useRef<HTMLDivElement>(null);
+  const sectionRef = useRef<HTMLDivElement>(null);
+  const spaUrl = lang === "en" ? "/en/business-spa" : "/pl/biznes-spa";
+
+  // Parallax scroll effects - Images move inside static frames
   const { scrollYProgress } = useScroll({
     target: sectionRef,
     offset: ["start end", "end start"],
   });
 
-  // Smooth spring animations with no bouncing
+  // Faster, more responsive spring animations
   const springConfig = { stiffness: 400, damping: 40, restDelta: 0.001 };
 
-  // Parallax movements for images
-  const heroImageY = useSpring(
-    useTransform(scrollYProgress, [0, 1], ["12%", "-12%"]),
-    springConfig
-  );
+  // Extreme parallax - images move way beyond frame boundaries
   const mainImageY = useSpring(
-    useTransform(scrollYProgress, [0, 1], ["15%", "-15%"]),
+    useTransform(scrollYProgress, [0, 1], ["40%", "-40%"]),
     springConfig
   );
   const secondaryImageY = useSpring(
-    useTransform(scrollYProgress, [0, 1], ["-12%", "12%"]),
-    springConfig
-  );
-  const mobileImage1Y = useSpring(
-    useTransform(scrollYProgress, [0, 1], ["10%", "-10%"]),
-    springConfig
-  );
-  const mobileImage2Y = useSpring(
-    useTransform(scrollYProgress, [0, 1], ["-8%", "8%"]),
+    useTransform(scrollYProgress, [0, 1], ["-40%", "40%"]),
     springConfig
   );
 
+  // Services with icons
   const services = [
     {
       icon: Waves,
@@ -91,7 +87,7 @@ export default function BusinessSpa({ dict, lang = "pl" }: BusinessSpaProps) {
     },
     {
       icon: SmilePlus,
-      title: "•	Zabiegi na ciało",
+      title: "Zabiegi na ciało",
       subtitle: "Pielęgnacja od stóp do głów",
     },
     {
@@ -111,324 +107,336 @@ export default function BusinessSpa({ dict, lang = "pl" }: BusinessSpaProps) {
     },
   ];
 
-  const treatments = [
-    "Masaż antystresowy (50 min)",
-    "Ekspresowy zabieg na twarz (30 min)",
-    "Relaks w strefie saun (bez limitu)",
-    "Aromaterapia i relaksacja (45 min)",
-  ];
+  useEffect(() => {
+    setWindowWidth(window.innerWidth);
+    const handleResize = () => {
+      setWindowWidth(window.innerWidth);
+    };
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
 
   return (
-    <div
-      ref={sectionRef}
-      className=" text-white w-full py-16 md:py-24 relative"
-    >
-      {/* Background Image - Add z-index to push it behind content */}
-      <div className="absolute inset-0 -z-10">
-        <BackgroundLogoBottomDark position="right" />
-      </div>
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 overflow-visible">
-        {/* Hero Section */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center mb-20">
-          <motion.div
-            initial="initial"
-            whileInView="animate"
-            viewport={{ once: true }}
-            variants={fadeInUp}
-            transition={{ duration: 0.6, delay: 0.2 }}
-            className="lg:col-span-6 space-y-6"
-          >
-            <AnimatedDecorativeBar />
-            <motion.h1
-              variants={fadeInUp}
-              transition={{ delay: 0.3, duration: 0.6 }}
-              className="title-dark"
-            >
-              Biznes Spa
-            </motion.h1>
-            <div className="space-y-4">
-              <motion.p
-                variants={fadeInUp}
-                transition={{ delay: 0.4, duration: 0.6 }}
-                className="main-paragraph-dark"
+    <div ref={sectionRef} className="relative overflow-hidden">
+      <Container className="relative w-full py-8 sm:py-12 md:py-16 lg:py-20 xl:py-24 mt-8 sm:mt-12 md:mt-16 lg:mt-20 mb-8 sm:mb-12 md:mb-16 lg:mb-20">
+        {/* Static Background - No Parallax */}
+        <div className="absolute inset-0 lg:max-h-[1200px] z-0">
+          <BackgroundLogoBottomDark />
+        </div>
+
+        <section className="relative z-20">
+          <div className="max-w-7xl mx-auto">
+            {/* Mobile Layout - Stacked */}
+            <div className="block lg:hidden">
+              {/* Content Section - Mobile First */}
+              <motion.div
+                ref={contentRef}
+                className="space-y-4 sm:space-y-6 md:space-y-8 mb-8 sm:mb-12"
+                initial="initial"
+                whileInView="animate"
+                viewport={{ once: true }}
               >
-                Strefa SPA w Hotelu Avangarda to przestrzeń zaprojektowana do
-                relaksu i wyciszenia po dniu pełnym wyzwań. Z myślą o potrzebach
-                Gości biznesowych przygotowaliśmy szybką regenerację po
-                intensywnym dniu pracy – ekspresowe zabiegi, które nie tylko
-                relaksują, ale również wspierają koncentrację, poprawiają
-                samopoczucie i sprzyjają utrzymaniu wysokiej efektywności.
-              </motion.p>
-              <motion.p
-                variants={fadeInUp}
+                <div className="text-center">
+                  <AnimatedDecorativeBar />
+                  <motion.h1
+                    variants={fadeInUp}
+                    transition={{ delay: 0.2, duration: 0.6 }}
+                    className="title-dark"
+                  >
+                    Biznes Spa
+                  </motion.h1>
+                </div>
+
+                <div className="space-y-3 sm:space-y-4 md:space-y-6">
+                  <motion.p
+                    variants={fadeInUp}
+                    transition={{ delay: 0.3, duration: 0.6 }}
+                    className="main-paragraph-dark"
+                  >
+                    Strefa SPA w Hotelu Avangarda to przestrzeń zaprojektowana
+                    do relaksu i wyciszenia po dniu pełnym wyzwań. Z myślą o
+                    potrzebach Gości biznesowych przygotowaliśmy szybką
+                    regenerację po intensywnym dniu pracy – ekspresowe zabiegi,
+                    które nie tylko relaksują, ale również wspierają
+                    koncentrację, poprawiają samopoczucie i sprzyjają utrzymaniu
+                    wysokiej efektywności.
+                  </motion.p>
+                </div>
+              </motion.div>
+
+              {/* Mobile Images */}
+              <motion.div
+                className="relative mb-4 sm:mb-12"
+                initial="initial"
+                whileInView="animate"
+                viewport={{ once: true }}
+              >
+                <div className="relative z-50 -mt-4 space-y-4 overflow-hidden">
+                  <div className="w-full aspect-[6/5] sm:aspect-[4/3] relative overflow-hidden">
+                    <motion.div
+                      className="relative w-full"
+                      style={{
+                        y: mainImageY,
+                        height: "140%",
+                        top: "-20%",
+                      }}
+                      initial={{ opacity: 0 }}
+                      whileInView={{ opacity: 1 }}
+                      transition={{ duration: 0.8, delay: 0.2 }}
+                    >
+                      <Image
+                        src="/spa/spa-06.jpg"
+                        alt="Spa & Wellness"
+                        fill
+                        priority
+                        className="object-cover"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"></div>
+                    </motion.div>
+                  </div>
+
+                  <div className="w-full aspect-[4/3] relative overflow-hidden">
+                    <motion.div
+                      className="relative w-full"
+                      style={{
+                        y: secondaryImageY,
+                        height: "140%",
+                        top: "-20%",
+                      }}
+                      initial={{ opacity: 0 }}
+                      whileInView={{ opacity: 1 }}
+                      transition={{ duration: 0.8, delay: 0.4 }}
+                    >
+                      <Image
+                        src="/spa/spa-01.jpeg"
+                        alt="Strefa relaksu"
+                        fill
+                        className="object-cover"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"></div>
+                    </motion.div>
+                  </div>
+                </div>
+              </motion.div>
+
+              {/* Services Grid - Mobile */}
+              <motion.div
+                className="grid grid-cols-2 gap-3 sm:gap-4 mb-6"
+                initial="initial"
+                whileInView="animate"
+                viewport={{ once: true }}
+              >
+                {services.slice(0, 4).map((service, index) => (
+                  <motion.div
+                    key={index}
+                    variants={slideInFromRight}
+                    transition={{ delay: 0.1 * index, duration: 0.6 }}
+                    className="p-3 sm:p-4 border-b-2 border-avangarda bg-white/10 backdrop-blur-sm"
+                    whileHover={{ scale: 1.05 }}
+                  >
+                    <service.icon className="h-5 w-5 text-avangarda mb-2" />
+                    <div className="text-sm font-medium text-white mb-1">
+                      {service.title}
+                    </div>
+                    <div className="text-xs text-white/80">
+                      {service.subtitle}
+                    </div>
+                  </motion.div>
+                ))}
+              </motion.div>
+
+              {/* CTA Button - Mobile */}
+              <motion.div
+                variants={slideInFromRight}
                 transition={{ delay: 0.5, duration: 0.6 }}
-                className="main-paragraph-dark"
+                className="flex justify-center pt-4 sm:pt-6"
+                initial="initial"
+                whileInView="animate"
+                viewport={{ once: true }}
               >
-                Nasi wykwalifikowani terapeuci zaoferują starannie dobrany
-                wachlarz masaży i rytuałów, dostosowanych do indywidualnych
-                potrzeb, by zapewnić maksymalny efekt w optymalnym czasie.
-              </motion.p>
+                <Link href={spaUrl}>
+                  <Button
+                    size="lg"
+                    variant="fillRight"
+                    className="px-6 sm:px-8 py-2 sm:py-3"
+                  >
+                    Więcej o Wellness & Spa
+                    <ArrowRight className="ml-2 h-4 w-4" />
+                  </Button>
+                </Link>
+              </motion.div>
             </div>
-          </motion.div>
-          <motion.div
-            initial="initial"
-            whileInView="animate"
-            viewport={{ once: true }}
-            variants={fadeInScale}
-            transition={{ delay: 0.3, duration: 0.8 }}
-            className="hidden lg:block lg:col-span-6 relative"
-          >
-            <motion.div
-              whileHover={{
-                scale: 1.05,
-                transition: { duration: 0.3 },
-              }}
-              className="relative aspect-[4/3] w-full overflow-hidden shadow-xl sm:-mr-8 lg:-mr-16 -mt-20 md:-mt-32 lg:-mt-40 z-30"
-            >
-              <motion.div
-                className="relative h-full w-full overflow-hidden"
-                style={{
-                  y: heroImageY,
-                  height: "125%", // Larger for parallax movement
-                  top: "-12%", // Center the oversized image
-                }}
-                initial={{ rotateY: -15, opacity: 0 }}
-                whileInView={{ rotateY: 0, opacity: 1 }}
-                transition={{ duration: 0.8, delay: 0.4 }}
-              >
-                <Image
-                  src="/spa/spa-01.jpeg"
-                  alt="Spa & Wellness"
-                  fill
-                  className="object-cover transition-all duration-1000 hover:scale-110"
-                />
-                <motion.div
-                  className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent"
-                  initial={{ opacity: 0 }}
-                  whileInView={{ opacity: 1 }}
-                  transition={{ duration: 1, delay: 0.6 }}
-                ></motion.div>
-              </motion.div>
-            </motion.div>
-          </motion.div>
-        </div>
 
-        {/* Main Content Section */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12">
-          {/* Left Images - moved from right side with Parallax */}
-          <motion.div
-            className="hidden lg:block lg:col-span-5 relative h-[700px] overflow-visible"
-            initial="initial"
-            whileInView="animate"
-            viewport={{ once: true }}
-          >
-            {/* Large Image - Top with Parallax */}
-            <motion.div
-              variants={fadeInRight}
-              transition={{ duration: 1.2, delay: 0.2, ease: "easeOut" }}
-              whileHover={{
-                scale: 1.05,
-                transition: { duration: 0.3 },
-              }}
-              className="absolute -top-16 -left-8 lg:-left-16 w-[110%] h-[60%] z-40 shadow-xl overflow-hidden"
-            >
-              <motion.div
-                className="relative h-full w-full overflow-hidden"
-                style={{
-                  y: mainImageY,
-                  height: "130%", // Larger for parallax movement
-                  top: "-15%", // Center the oversized image
-                }}
-                initial={{ y: 50, opacity: 0 }}
-                whileInView={{ y: 0, opacity: 1 }}
-                transition={{ duration: 0.8, delay: 0.3 }}
-              >
-                <Image
-                  src="/spa/spa-06.jpg"
-                  alt="Strefa relaksu"
-                  fill
-                  className="object-cover transition-all duration-1000 hover:scale-110"
-                />
-                <motion.div
-                  className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent"
-                  initial={{ opacity: 0 }}
-                  whileInView={{ opacity: 1 }}
-                  transition={{ duration: 1, delay: 0.5 }}
-                ></motion.div>
-              </motion.div>
-            </motion.div>
+            {/* Desktop Layout - Title moved to left, single images per column */}
+            <div className="hidden lg:block">
+              {/* Two Column Layout */}
+              <div className="grid lg:grid-cols-2 gap-12 xl:gap-16 relative">
+                {/* Left Column */}
+                <div className="space-y-8">
+                  {/* Title moved to left column */}
+                  <motion.div
+                    initial="initial"
+                    whileInView="animate"
+                    viewport={{ once: true }}
+                  >
+                    <AnimatedDecorativeBar />
+                    <motion.h1
+                      variants={fadeInUp}
+                      transition={{ delay: 0.2, duration: 0.6 }}
+                      className="title-dark text-left"
+                    >
+                      Biznes Spa
+                    </motion.h1>
+                  </motion.div>
 
-            {/* Small Image - Bottom with Parallax */}
-            <motion.div
-              variants={fadeInLeft}
-              transition={{ duration: 1.2, delay: 0.6, ease: "easeOut" }}
-              whileHover={{
-                scale: 1.05,
-                transition: { duration: 0.3 },
-              }}
-              className="absolute -bottom-16 md:-bottom-24 lg:-bottom-38 right-0 w-[85%] h-[65%] z-30 shadow-xl overflow-hidden"
-            >
-              <motion.div
-                className="relative h-full w-full overflow-hidden"
-                style={{
-                  y: secondaryImageY,
-                  height: "125%", // Larger for parallax movement
-                  top: "-12%", // Center the oversized image
-                }}
-                initial={{ y: -50, opacity: 0 }}
-                whileInView={{ y: 0, opacity: 1 }}
-                transition={{ duration: 0.8, delay: 0.7 }}
-              >
-                <Image
-                  src="/spa/pool-01.jpg"
-                  alt="Zabiegi spa"
-                  fill
-                  className="object-cover transition-all duration-1000 hover:scale-110"
-                />
-                <motion.div
-                  className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent"
-                  initial={{ opacity: 0 }}
-                  whileInView={{ opacity: 1 }}
-                  transition={{ duration: 1, delay: 0.9 }}
-                ></motion.div>
-              </motion.div>
-            </motion.div>
-          </motion.div>
+                  {/* Text Content */}
+                  <motion.div
+                    className="space-y-6"
+                    initial="initial"
+                    whileInView="animate"
+                    viewport={{ once: true }}
+                  >
+                    <motion.p
+                      variants={fadeInLeft}
+                      transition={{ delay: 0.3, duration: 0.6 }}
+                      className="text-lg leading-relaxed text-white"
+                    >
+                      Strefa SPA w Hotelu Avangarda to przestrzeń zaprojektowana
+                      do relaksu i wyciszenia po dniu pełnym wyzwań. Z myślą o
+                      potrzebach Gości biznesowych przygotowaliśmy szybką
+                      regenerację po intensywnym dniu pracy – ekspresowe
+                      zabiegi, które nie tylko relaksują, ale również wspierają
+                      koncentrację, poprawiają samopoczucie i sprzyjają
+                      utrzymaniu wysokiej efektywności.
+                    </motion.p>
 
-          {/* Mobile Layout - Simple stacked images with Parallax */}
-          <div className="lg:hidden space-y-6">
-            <motion.div
-              initial="initial"
-              whileInView="animate"
-              viewport={{ once: true }}
-              variants={fadeInScale}
-              transition={{ delay: 0.2, duration: 0.8 }}
-              className="relative aspect-[4/3] w-full overflow-hidden shadow-xl"
-            >
-              <motion.div
-                className="relative h-full w-full overflow-hidden"
-                style={{
-                  y: mobileImage1Y,
-                  height: "120%", // Larger for parallax movement
-                  top: "-10%", // Center the oversized image
-                }}
-                initial={{ rotateY: -15, opacity: 0 }}
-                whileInView={{ rotateY: 0, opacity: 1 }}
-                transition={{ duration: 0.8, delay: 0.3 }}
-              >
-                <Image
-                  src="/spa/spa-06.jpg"
-                  alt="Strefa relaksu"
-                  fill
-                  className="object-cover"
-                />
-              </motion.div>
-            </motion.div>
-            <motion.div
-              initial="initial"
-              whileInView="animate"
-              viewport={{ once: true }}
-              variants={fadeInScale}
-              transition={{ delay: 0.4, duration: 0.8 }}
-              className="relative aspect-[4/3] w-full overflow-hidden shadow-xl"
-            >
-              <motion.div
-                className="relative h-full w-full overflow-hidden"
-                style={{
-                  y: mobileImage2Y,
-                  height: "120%", // Larger for parallax movement
-                  top: "-10%", // Center the oversized image
-                }}
-                initial={{ rotateY: 15, opacity: 0 }}
-                whileInView={{ rotateY: 0, opacity: 1 }}
-                transition={{ duration: 0.8, delay: 0.5 }}
-              >
-                <Image
-                  src="/spa/pool-01.jpg"
-                  alt="Zabiegi spa"
-                  fill
-                  className="object-cover"
-                />
-              </motion.div>
-            </motion.div>
+                    <motion.p
+                      variants={fadeInLeft}
+                      transition={{ delay: 0.4, duration: 0.6 }}
+                      className="text-lg leading-relaxed text-white"
+                    >
+                      Nasi wykwalifikowani terapeuci zaoferują starannie dobrany
+                      wachlarz masaży i rytuałów, dostosowanych do
+                      indywidualnych potrzeb, by zapewnić maksymalny efekt w
+                      optymalnym czasie.
+                    </motion.p>
+
+                    <motion.div
+                      variants={fadeInLeft}
+                      transition={{ delay: 0.5, duration: 0.6 }}
+                    >
+                      <Link href={spaUrl}>
+                        <Button
+                          size="lg"
+                          variant="fillRight"
+                          className="border-none"
+                        >
+                          Więcej o Wellness & Spa
+                          <ArrowRight className="ml-2 h-4 w-4" />
+                        </Button>
+                      </Link>
+                    </motion.div>
+                  </motion.div>
+
+                  {/* Tall Narrow Image - Lower width, bigger height, extending beyond gray */}
+                  <motion.div
+                    className="relative mt-12"
+                    initial="initial"
+                    whileInView="animate"
+                    viewport={{ once: true }}
+                  >
+                    <div className="relative h-[600px] xl:h-[700px] w-[100%] overflow-hidden">
+                      <motion.div
+                        className="relative w-full"
+                        style={{
+                          y: mainImageY,
+                          height: "140%",
+                          top: "-20%",
+                        }}
+                        initial={{ opacity: 0 }}
+                        whileInView={{ opacity: 1 }}
+                        transition={{ duration: 0.6, delay: 0.6 }}
+                      >
+                        <Image
+                          src="/spa/spa-06.jpg"
+                          alt="Spa & Wellness"
+                          fill
+                          priority
+                          className="object-cover object-right"
+                          quality={100}
+                        />
+                        <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent"></div>
+                      </motion.div>
+                    </div>
+                  </motion.div>
+                </div>
+
+                {/* Right Column */}
+                <div className="space-y-8">
+                  {/* Single Top Image - Lower width, bigger height, extending beyond gray */}
+                  <motion.div
+                    className="relative -mt-36 overflow-hidden"
+                    initial="initial"
+                    whileInView="animate"
+                    viewport={{ once: true }}
+                  >
+                    <div className="relative h-[500px] xl:h-[700px] w-[100%] mr-auto overflow-hidden">
+                      <motion.div
+                        className="relative w-full"
+                        style={{
+                          y: secondaryImageY,
+                          height: "120%",
+                          top: "0%",
+                        }}
+                        initial={{ opacity: 0 }}
+                        whileInView={{ opacity: 1 }}
+                        transition={{ duration: 0.6, delay: 0.2 }}
+                      >
+                        <Image
+                          src="/spa/spa-01.jpeg"
+                          alt="Strefa relaksu"
+                          fill
+                          className="object-cover object-centert"
+                          quality={100}
+                        />
+                        <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"></div>
+                      </motion.div>
+                    </div>
+                  </motion.div>
+
+                  {/* Services Grid - Desktop */}
+                  <motion.div
+                    className="grid grid-cols-2 gap-4 pt-8"
+                    initial="initial"
+                    whileInView="animate"
+                    viewport={{ once: true }}
+                  >
+                    {services.slice(0, 4).map((service, index) => (
+                      <motion.div
+                        key={index}
+                        variants={slideInFromRight}
+                        transition={{ delay: 0.1 * index, duration: 0.6 }}
+                        className="p-4 border-b-2 border-avangarda bg-white/10 backdrop-blur-sm"
+                        whileHover={{ scale: 1.05 }}
+                      >
+                        <service.icon className="h-5 w-5 text-avangarda mb-2" />
+                        <div className="text-lg font-medium text-white mb-1">
+                          {service.title}
+                        </div>
+                        <div className="text-sm text-white/80">
+                          {service.subtitle}
+                        </div>
+                      </motion.div>
+                    ))}
+                  </motion.div>
+                </div>
+              </div>
+            </div>
           </div>
-
-          {/* Right Content - moved from left side */}
-          <motion.div
-            initial="initial"
-            whileInView="animate"
-            viewport={{ once: true }}
-            className="order-1 lg:order-2 lg:col-span-7 space-y-8"
-          >
-            {/* Section Header */}
-            <div className="space-y-4">
-              <motion.div
-                variants={fadeInUp}
-                transition={{ delay: 0.2, duration: 0.6 }}
-                className="flex items-center gap-3 mb-3"
-              >
-                <h2 className="text-2xl md:text-3xl font-semibold text-white">
-                  Usługi Spa dla firm
-                </h2>
-                <Badge className="bg-avangarda/20 text-avangarda border-avangarda/30">
-                  Relaks
-                </Badge>
-              </motion.div>
-              <motion.p
-                variants={fadeInUp}
-                transition={{ delay: 0.3, duration: 0.6 }}
-                className="main-paragraph-dark"
-              >
-                W naszym Hotelu doskonale rozumiemy, jak ważna jest równowaga
-                między pracą a relaksem, dlatego przygotowaliśmy specjalną
-                ofertę usług SPA dla biznesu Zapoznaj się z ofertą warsztatów
-                SPA dla firm, które będą atrakcyjnym urozmaiceniem standardowych
-                konferencji, wyróżnij najlepszych pracowników obdarowując ich
-                voucherem do SPA lub skorzystaj z propozycji zorganizowania dla
-                swojej firmy Biznes Day SPA, gdzie w relaksującej atmosferze
-                wzmocnicie relacje w zespole.
-              </motion.p>
-            </div>
-
-            {/* Services Grid */}
-            <motion.div
-              variants={fadeInUp}
-              transition={{ delay: 0.4, duration: 0.6 }}
-              className="grid grid-cols-2 md:grid-cols-3 gap-4"
-            >
-              {services.map((service, index) => (
-                <motion.div
-                  key={index}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: 0.5 + 0.1 * index, duration: 0.6 }}
-                  className="bg-white/10 backdrop-blur-sm p-4 text-center hover:bg-white/15 transition-colors"
-                >
-                  <service.icon className="h-6 w-6 mx-auto mb-2 text-avangarda" />
-                  <p className="text-sm font-medium text-white mb-1">
-                    {service.title}
-                  </p>
-                  <p className="text-xs text-white/70">{service.subtitle}</p>
-                </motion.div>
-              ))}
-            </motion.div>
-
-            {/* CTA Button */}
-            <motion.div
-              variants={fadeInUp}
-              transition={{ delay: 0.9, duration: 0.6 }}
-            >
-              <Link href={`/${lang}/spa`}>
-                <Button variant="fillRight" className="w-fit border-none">
-                  Więcej o Wellness & Spa
-                  <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
-                </Button>
-              </Link>
-            </motion.div>
-          </motion.div>
-        </div>
-      </div>
+        </section>
+      </Container>
     </div>
   );
-}
+};
+
+export default BusinessSpa;
