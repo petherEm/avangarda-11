@@ -7,14 +7,11 @@ import {
   Trees,
   Footprints,
   FishIcon as Swimming,
-  Clock,
   Baby,
   PlayIcon as Playground,
-  Leaf,
   Users,
   Target,
   Gamepad2,
-  Flame,
   UtensilsCrossed,
   VolleyballIcon,
   Circle,
@@ -29,7 +26,7 @@ import {
 import { AnimatedDecorativeBar } from "@/components/animated-decorative-bar";
 import BackgroundLogoBottomDark from "@/components/background-logo-bottom-dark";
 
-export default function OutdoorEntertainment({
+export default function ForKidsIntro({
   dict,
   lang,
 }: {
@@ -40,7 +37,7 @@ export default function OutdoorEntertainment({
     <>
       <Container className="mt-6 sm:mt-6 md:mt-4 lg:mt-0 mb-6 lg:mb-0 bg-white w-full text-primary lg:py-20">
         <div className="max-w-7xl mx-auto sm:px-4">
-          {/* 1. HOTEL PEŁEN MOŻLIWOŚCI SECTION */}
+          {/* 1. HOTEL PRZYJAZNY DZIECIOM */}
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-stretch mb-16 sm:px-0">
             {/* Main Featured Image */}
             <motion.div
@@ -68,7 +65,7 @@ export default function OutdoorEntertainment({
                   viewport={{ once: true }}
                   className="title-light"
                 >
-                  Hotel pełen możliwości
+                  Hotel przyjazny dzieciom
                 </motion.h1>
 
                 <motion.p
@@ -78,18 +75,14 @@ export default function OutdoorEntertainment({
                   transition={{ delay: 0.2 }}
                   className="main-paragraph-light"
                 >
-                  W Hotelu Avangarda nie ma czasu na nudę – tu coś się dzieje
-                  przez cały rok! Na najmłodszych i całe rodziny czeka Klub
-                  Coola, czyli rodzinne centrum rozrywki z salą zabaw,
-                  kręgielnią i mnóstwem atrakcji. Dla szukających relaksu
-                  przygotowaliśmy strefę wellness z basenem, jacuzzi, grotą
-                  solną i dwiema saunami oraz pełną paletę masaży i zabiegów
-                  pielęgnacyjnych. Miłośnikom aktywnego wypoczynku polecamy
-                  spływy malowniczą Narwią, mecze siatkówki plażowej,
-                  wypożyczenie rowerów czy kijów nordic walking. W weekendowe
-                  wieczory hotel tętni życiem! Organizujemy wtedy wyjątkowe
-                  imprezy taneczne, wieczorne koncerty czy klimatyczne kolacje
-                  degustacyjne.
+                  Zaplanuj rodzinny weekend, święta czy wakacje w miejscu, które
+                  naprawdę dba o potrzeby całej rodziny. Stworzyliśmy tu
+                  prawdziwy raj dla najmłodszych – z salą zabaw, kręgielnią,
+                  basenem i animacjami, które gwarantują uśmiech każdego dnia.
+                  Rodzinne pakiety, komfortowe pokoje i praktyczne udogodnienia
+                  sprawiają, że pobyt z dziećmi staje się czystą przyjemnością.
+                  Do tego pyszne i zdrowe menu, które zadowoli nawet małych
+                  niejadków. U nas każdy członek rodziny czuje się wyjątkowo!
                 </motion.p>
               </div>
 
@@ -104,52 +97,44 @@ export default function OutdoorEntertainment({
                 <div className="bg-avangarda/10 p-4">
                   <div className="flex items-center gap-2 mb-2">
                     <Gamepad2 className="h-5 w-5 text-avangarda" />
-                    <h3 className="font-medium text-primary">Klub Coola</h3>
+                    <h3 className="font-medium text-primary">
+                      Rodzinne pakiety
+                    </h3>
                   </div>
-                  <p className="text-sm text-slate-600">Zabawa non stop!</p>
+                  <p className="text-sm text-slate-600">
+                    Mnogość atrakcji w cenie
+                  </p>
                 </div>
 
                 <div className="bg-avangarda/10 p-4">
                   <div className="flex items-center gap-2 mb-2">
                     <Swimming className="h-5 w-5 text-avangarda" />
-                    <h3 className="font-medium text-primary">Basen</h3>
+                    <h3 className="font-medium text-primary">
+                      Pokoje dla całej rodziny
+                    </h3>
                   </div>
                   <p className="text-sm text-slate-600">
-                    8-osobowe jacuzzi i 2 sauny
+                    Wygodne pokoje dla małych i dużych gości.
                   </p>
                 </div>
 
                 <div className="bg-avangarda/10 p-4">
                   <div className="flex items-center gap-2 mb-2">
                     <Sparkles className="h-5 w-5 text-avangarda" />
-                    <h3 className="font-medium text-primary">Avangarda SPA</h3>
+                    <h3 className="font-medium text-primary">
+                      Udogodnienia w pokojach
+                    </h3>
                   </div>
-                  <p className="text-sm text-slate-600">
-                    Autorskie zabiegi i rytuały
-                  </p>
+                  <p className="text-sm text-slate-600">Dostępne na życzenie</p>
                 </div>
 
                 <div className="bg-avangarda/10 p-4">
                   <div className="flex items-center gap-2 mb-2">
                     <Calendar className="h-5 w-5 text-avangarda" />
-                    <h3 className="font-medium text-primary">
-                      Atrakcyjne weekendy
-                    </h3>
+                    <h3 className="font-medium text-primary">Zdrowa kuchnia</h3>
                   </div>
                   <p className="text-sm text-slate-600">
-                    Tu nie ma czasu na nudę
-                  </p>
-                </div>
-
-                <div className="bg-avangarda/10 p-4 sm:col-span-2">
-                  <div className="flex items-center gap-2 mb-2">
-                    <MapPin className="h-5 w-5 text-avangarda" />
-                    <h3 className="font-medium text-primary">
-                      Na styku Mazowsza i Kurpi
-                    </h3>
-                  </div>
-                  <p className="text-sm text-slate-600">
-                    Okolica pełna folkloru
+                    Pysznie dla małych smakoszy
                   </p>
                 </div>
               </motion.div>
@@ -216,7 +201,7 @@ export default function OutdoorEntertainment({
 
       <Container className="bg-white w-full text-primary">
         <div className="max-w-7xl mx-auto sm:px-4">
-          {/* 2. KLUB COOLA SECTION - INVERTED */}
+          {/* 2. CZTERY STREFY DZIECIĘCEJ ZABAWY */}
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-stretch mb-16 sm:px-0">
             <div className="order-2 lg:order-1 flex flex-col justify-between">
               <div>
@@ -227,7 +212,7 @@ export default function OutdoorEntertainment({
                   viewport={{ once: true }}
                   className="title-light"
                 >
-                  Klub Coola - serce rodzinnej rozrywki
+                  Cztery strefy dziecięcej zabawy
                 </motion.h1>
 
                 <motion.p
@@ -237,13 +222,18 @@ export default function OutdoorEntertainment({
                   transition={{ delay: 0.2 }}
                   className="main-paragraph-light"
                 >
-                  Zapraszamy do miejsca, gdzie śmiech i dobra zabawa trwają non
-                  stop! Znajdziesz tu kręgielnię, kolorową salę zabaw, strefę
-                  gier oraz wygodne miejsce do wspólnego spędzania czasu. Na
-                  gości czeka również bar serwujący włoskie pizze, rzemieślnicze
-                  burgery oraz klasyczne i autorskie drinki. Miłośnikom
-                  słodkości polecamy pyszne kawy i prawdziwe, domowe ciasta z
-                  hotelowej cukierni.
+                  W Hotelu Avangarda zabawa nie ma końca – stworzyliśmy
+                  wyjątkowe przestrzenie, w których dzieci czują się jak w
+                  bajce! W kolorowej sali zabaw czeka na nie strefa z kulkami i
+                  interaktywny magiczny dywan, który zamienia podłogę w świat
+                  pełen gier i przygód. Nasza rodzinna kręgielnia z ułatwieniami
+                  dla najmłodszych to świetna okazja do wspólnej zabawy i
+                  zdrowej rywalizacji. Na zewnątrz maluchy znajdą plac zabaw z
+                  huśtawkami, piaskownicą i zabawkami – idealną przestrzeń na
+                  beztroskie chwile. A latem prawdziwą atrakcją jest Przystań
+                  Avangarda, z piaskowym placem zabaw, huśtawkami i dmuchanym
+                  zamkiem – tu możliwości zabawy na świeżym powietrzu są
+                  nieograniczone!
                 </motion.p>
               </div>
 
@@ -258,37 +248,43 @@ export default function OutdoorEntertainment({
                 <div className="bg-avangarda/10 p-4">
                   <div className="flex items-center gap-2 mb-2">
                     <Circle className="h-5 w-5 text-avangarda" />
-                    <h3 className="font-medium text-primary">Kręgle</h3>
+                    <h3 className="font-medium text-primary">Sala zabaw</h3>
                   </div>
-                  <p className="text-sm text-slate-600">Dwa tory do gry</p>
+                  <p className="text-sm text-slate-600">
+                    Małpi gaj i magiczny dywan
+                  </p>
                 </div>
 
                 <div className="bg-avangarda/10 p-4">
                   <div className="flex items-center gap-2 mb-2">
                     <Target className="h-5 w-5 text-avangarda" />
-                    <h3 className="font-medium text-primary">Bilard</h3>
+                    <h3 className="font-medium text-primary">Kręgielnia</h3>
                   </div>
                   <p className="text-sm text-slate-600">
-                    Rywalizacja w dobrym stylu
+                    Rodzinne centrum rozrywki
                   </p>
                 </div>
 
                 <div className="bg-avangarda/10 p-4">
                   <div className="flex items-center gap-2 mb-2">
                     <Gamepad2 className="h-5 w-5 text-avangarda" />
-                    <h3 className="font-medium text-primary">Strefa gier</h3>
+                    <h3 className="font-medium text-primary">Plac zabaw</h3>
                   </div>
                   <p className="text-sm text-slate-600">
-                    Piłkarzyki, cymbergaj i rzutki
+                    Zabawa w cieniu wielkiego klonu
                   </p>
                 </div>
 
                 <div className="bg-avangarda/10 p-4">
                   <div className="flex items-center gap-2 mb-2">
                     <Baby className="h-5 w-5 text-avangarda" />
-                    <h3 className="font-medium text-primary">Sala zabaw</h3>
+                    <h3 className="font-medium text-primary">
+                      Przystań Avangarda
+                    </h3>
                   </div>
-                  <p className="text-sm text-slate-600">70 m2 dobrej zabawy</p>
+                  <p className="text-sm text-slate-600">
+                    Plaża, piasek i zabawa
+                  </p>
                 </div>
 
                 <div className="bg-avangarda/10 p-4">
@@ -330,7 +326,7 @@ export default function OutdoorEntertainment({
         </div>
       </Container>
 
-      {/* Klub Coola Gallery with Dark Background */}
+      {/* Cztery Strefy with Dark Background */}
       <div className="relative mb-16 py-28">
         <BackgroundLogoBottomDark position="right" />
         <Container>
@@ -388,7 +384,7 @@ export default function OutdoorEntertainment({
 
       <Container className="bg-white w-full text-primary">
         <div className="max-w-7xl mx-auto sm:px-4">
-          {/* 3. ATRAKCJE DLA DZIECI SECTION */}
+          {/* 3. Wellness & SPA dla dzieci */}
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-stretch mb-16 sm:px-0">
             <motion.div
               initial={{ opacity: 0, scale: 0.95 }}
@@ -415,7 +411,7 @@ export default function OutdoorEntertainment({
                   viewport={{ once: true }}
                   className="title-light"
                 >
-                  Raj dla najmłodszych
+                  Wellness & SPA dla dzieci
                 </motion.h1>
 
                 <motion.p
@@ -425,13 +421,15 @@ export default function OutdoorEntertainment({
                   transition={{ delay: 0.2 }}
                   className="main-paragraph-light"
                 >
-                  W Hotelu Avangarda dzieci znajdą swój własny świat pełen
-                  radości i przygód! Plac zabaw na świeżym powietrzu, kolorowa
-                  sala zabaw w Klubie Coola, brodzik przy basenie oraz specjalne
-                  atrakcje sezonowe sprawiają, że każdy dzień to nowa przygoda.
-                  Organizujemy również warsztaty kreatywne, pokazy dla dzieci i
-                  specjalne wydarzenia, które sprawią, że pobyt będzie
-                  niezapomniany dla całej rodziny.
+                  W naszej strefie Wellness & SPA dbamy o dobre samopoczucie
+                  najmłodszych – bo dzieci zasługują na wyjątkową troskę. Nasz
+                  płytki basen (120 cm) i bezpieczny brodzik to idealne miejsce
+                  na pierwsze wodne przygody. W ramach Kids SPA oferujemy
+                  delikatne masażyki i zabiegi dopasowane do dziecięcych
+                  potrzeb. Dla lokalnych rodzin przygotowaliśmy specjalną ofertę
+                  Familijna Niedziela, łączącą wypoczynek, wodne szaleństwo i
+                  rodzinny obiad z rodzinną atmosferą. To doskonały sposób na
+                  wspólne chwile i dobre samopoczucie całej rodziny!
                 </motion.p>
               </div>
 
@@ -446,27 +444,9 @@ export default function OutdoorEntertainment({
                 <div className="bg-avangarda/10 p-4">
                   <div className="flex items-center gap-2 mb-2">
                     <Playground className="h-5 w-5 text-avangarda" />
-                    <h3 className="font-medium text-primary">Plac zabaw</h3>
-                  </div>
-                  <p className="text-sm text-slate-600">
-                    Zabawa na świeżym powietrzu
-                  </p>
-                </div>
-
-                <div className="bg-avangarda/10 p-4">
-                  <div className="flex items-center gap-2 mb-2">
-                    <Baby className="h-5 w-5 text-avangarda" />
-                    <h3 className="font-medium text-primary">Sala zabaw</h3>
-                  </div>
-                  <p className="text-sm text-slate-600">
-                    70 m2 kolorowej przestrzeni
-                  </p>
-                </div>
-
-                <div className="bg-avangarda/10 p-4">
-                  <div className="flex items-center gap-2 mb-2">
-                    <Swimming className="h-5 w-5 text-avangarda" />
-                    <h3 className="font-medium text-primary">Brodzik</h3>
+                    <h3 className="font-medium text-primary">
+                      Brodzik dla dzieci
+                    </h3>
                   </div>
                   <p className="text-sm text-slate-600">
                     Bezpieczna zabawa w wodzie
@@ -475,22 +455,32 @@ export default function OutdoorEntertainment({
 
                 <div className="bg-avangarda/10 p-4">
                   <div className="flex items-center gap-2 mb-2">
-                    <Sparkles className="h-5 w-5 text-avangarda" />
-                    <h3 className="font-medium text-primary">Warsztaty</h3>
-                  </div>
-                  <p className="text-sm text-slate-600">Kreatywne zajęcia</p>
-                </div>
-
-                <div className="bg-avangarda/10 p-4 sm:col-span-2">
-                  <div className="flex items-center gap-2 mb-2">
-                    <Calendar className="h-5 w-5 text-avangarda" />
-                    <h3 className="font-medium text-primary">
-                      Atrakcje sezonowe
-                    </h3>
+                    <Baby className="h-5 w-5 text-avangarda" />
+                    <h3 className="font-medium text-primary">Płytki basen</h3>
                   </div>
                   <p className="text-sm text-slate-600">
-                    Miasteczko Świętego Mikołaja, Farma Dyniowa i więcej
+                    Idealny na pierwsze pływanie
                   </p>
+                </div>
+
+                <div className="bg-avangarda/10 p-4">
+                  <div className="flex items-center gap-2 mb-2">
+                    <Swimming className="h-5 w-5 text-avangarda" />
+                    <h3 className="font-medium text-primary">Kids SPA</h3>
+                  </div>
+                  <p className="text-sm text-slate-600">
+                    Małe spa, wielka frajda
+                  </p>
+                </div>
+
+                <div className="bg-avangarda/10 p-4">
+                  <div className="flex items-center gap-2 mb-2">
+                    <Sparkles className="h-5 w-5 text-avangarda" />
+                    <h3 className="font-medium text-primary">
+                      Familijna niedziela
+                    </h3>
+                  </div>
+                  <p className="text-sm text-slate-600">Dzień pełen atrakcji</p>
                 </div>
               </motion.div>
             </div>
@@ -567,7 +557,7 @@ export default function OutdoorEntertainment({
                   viewport={{ once: true }}
                   className="title-light"
                 >
-                  Aktywny wypoczynek
+                  Sezonowe atrakcje dla dzieci
                 </motion.h1>
 
                 <motion.p
@@ -577,13 +567,17 @@ export default function OutdoorEntertainment({
                   transition={{ delay: 0.2 }}
                   className="main-paragraph-light"
                 >
-                  W Hotelu Avangarda aktywny wypoczynek to czysta przyjemność –
-                  dla małych i dużych! Spływy kajakowe po Narwi to świetny
-                  sposób na rodzinny relaks wśród natury. Na aktywnych Gości
-                  czekają rowery, kije nordic walking oraz siatkówka plażowa,
-                  która dostarcza mnóstwo frajdy w słoneczne dni. Dla miłośników
-                  treningu o każdej porze roku dostępna jest również nowoczesna
-                  siłownia ze profesjonalnym sprzętem marki Matrix Fitness.
+                  W Hotelu Avangarda każda pora roku przynosi nowe przygody dla
+                  najmłodszych! Zimą dzieci przenoszą się do największego w
+                  regionie, magicznego Miasteczka Świętego Mikołaja, pełnego
+                  światełek, niespodzianek i świątecznych animacji. Jesienią
+                  zapraszamy na kolorową Farmę Dyniową, gdzie czekają dyniowe
+                  dekoracje, zabawy na świeżym powietrzu i kreatywne warsztaty.
+                  W chłodniejsze dni maluchy mogą wyszaleć się w naszej ogromnej
+                  sali z dmuchańcami, która dostarcza mnóstwo energii i radości.
+                  A latem? Czas na wakacje pełne atrakcji, animacji i zabaw na
+                  świeżym powietrzu! Atrakcje sezonowe są również dostępne jako
+                  zorganizowane warsztaty dla szkół i przedszkoli.
                 </motion.p>
               </div>
 
@@ -599,42 +593,40 @@ export default function OutdoorEntertainment({
                   <div className="flex items-center gap-2 mb-2">
                     <Waves className="h-5 w-5 text-avangarda" />
                     <h3 className="font-medium text-primary">
-                      Spływy kajakowe
+                      Miasteczko Świętego Mikołaja
                     </h3>
                   </div>
-                  <p className="text-sm text-slate-600">Odkryj piękno Narwi</p>
+                  <p className="text-sm text-slate-600">Magia Świąt na żywo</p>
                 </div>
 
                 <div className="bg-avangarda/10 p-4">
                   <div className="flex items-center gap-2 mb-2">
                     <Swimming className="h-5 w-5 text-avangarda" />
-                    <h3 className="font-medium text-primary">Rowerki wodne</h3>
+                    <h3 className="font-medium text-primary">Farma dyniowa</h3>
                   </div>
-                  <p className="text-sm text-slate-600">
-                    Rodzinny relaks na wodzie
-                  </p>
+                  <p className="text-sm text-slate-600">Jesień pełna zabawy</p>
                 </div>
 
                 <div className="bg-avangarda/10 p-4">
                   <div className="flex items-center gap-2 mb-2">
                     <VolleyballIcon className="h-5 w-5 text-avangarda" />
                     <h3 className="font-medium text-primary">
-                      Siatkówka plażowa
+                      Ogromna sala z dmuchańcami
                     </h3>
                   </div>
                   <p className="text-sm text-slate-600">
-                    Sportowa rywalizacja na piasku
+                    Skacz, baw się i śmiej !
                   </p>
                 </div>
 
                 <div className="bg-avangarda/10 p-4">
                   <div className="flex items-center gap-2 mb-2">
                     <Bike className="h-5 w-5 text-avangarda" />
-                    <h3 className="font-medium text-primary">Rowery</h3>
+                    <h3 className="font-medium text-primary">
+                      Wakacje pełne atrakcji
+                    </h3>
                   </div>
-                  <p className="text-sm text-slate-600">
-                    Odkrywaj okolicę aktywnie
-                  </p>
+                  <p className="text-sm text-slate-600">Lato pełne przygód</p>
                 </div>
 
                 <div className="bg-avangarda/10 p-4">
@@ -763,7 +755,7 @@ export default function OutdoorEntertainment({
                   viewport={{ once: true }}
                   className="title-light"
                 >
-                  Weekendy pełne atrakcji
+                  Urodzinki dla dzieci
                 </motion.h1>
 
                 <motion.p
@@ -773,14 +765,18 @@ export default function OutdoorEntertainment({
                   transition={{ delay: 0.2 }}
                   className="main-paragraph-light"
                 >
-                  Weekendy w Hotelu Avangarda to czas pełen energii, smaków i
-                  niezapomnianych wrażeń! Czekają na Ciebie wieczory z muzyką na
-                  żywo, wyjątkowe imprezy taneczne czy klimatyczne kolacje
-                  degustacyjne. Sezonowo zapraszamy na takie atrakcje, jak
-                  Miasteczko Świętego Mikołaja czy Farma Dyniowa. Nasz hotel
-                  leży na styku Mazowsza i Kurpi, dzięki czemu w najbliższej
-                  okolicy możesz doświadczyć najbardziej barwnego polskiego
-                  folkloru.
+                  W Hotelu Avangarda spełniamy dziecięce marzenia o wyjątkowych
+                  urodzinach! Organizujemy niezapomniane przyjęcia przez cały
+                  rok w kolorowej sali zabaw w Klubie Coola z salą zabaw dla
+                  młodszych dzieci lub kręglami dla nastolatków. Od wiosny do
+                  jesieni organizujemy urodzinki także w plenerze - na Dymnej
+                  Polanie przy ognisku lub w specjalnej dziecięcej strefie na
+                  Przystani Avangarda. Każda impreza to moc śmiechu i kreatywnej
+                  zabawy dzięki bogatej ofercie animacji dopasowanej do wieku
+                  dzieci. Serwujemy pyszne przekąski i słodkości dla
+                  najmłodszych, a dla rodziców przygotowujemy komfortową strefę
+                  z poczęstunkiem. Zorganizuj z nami urodziny dla swojej
+                  pociechy!
                 </motion.p>
               </div>
 
@@ -795,22 +791,18 @@ export default function OutdoorEntertainment({
                 <div className="bg-avangarda/10 p-4">
                   <div className="flex items-center gap-2 mb-2">
                     <Music className="h-5 w-5 text-avangarda" />
-                    <h3 className="font-medium text-primary">Muzyka na żywo</h3>
+                    <h3 className="font-medium text-primary">Klub Coola</h3>
                   </div>
-                  <p className="text-sm text-slate-600">
-                    Lokalni muzycy pełni pasji
-                  </p>
+                  <p className="text-sm text-slate-600">Komfortowo i pysznie</p>
                 </div>
 
                 <div className="bg-avangarda/10 p-4">
                   <div className="flex items-center gap-2 mb-2">
                     <Users className="h-5 w-5 text-avangarda" />
-                    <h3 className="font-medium text-primary">
-                      Imprezy taneczne
-                    </h3>
+                    <h3 className="font-medium text-primary">Dymna Polana</h3>
                   </div>
                   <p className="text-sm text-slate-600">
-                    Klimat najlepszej zabawy
+                    Rodzinnie przy ognisku
                   </p>
                 </div>
 
@@ -818,45 +810,19 @@ export default function OutdoorEntertainment({
                   <div className="flex items-center gap-2 mb-2">
                     <Utensils className="h-5 w-5 text-avangarda" />
                     <h3 className="font-medium text-primary">
-                      Kolacje degustacyjne
+                      Przystań Avangarda
                     </h3>
                   </div>
-                  <p className="text-sm text-slate-600">
-                    Dobra kuchnia to nasza specjalność!
-                  </p>
+                  <p className="text-sm text-slate-600">Urodziny na plaży</p>
                 </div>
 
                 <div className="bg-avangarda/10 p-4">
                   <div className="flex items-center gap-2 mb-2">
                     <Calendar className="h-5 w-5 text-avangarda" />
-                    <h3 className="font-medium text-primary">
-                      Atrakcje sezonowe
-                    </h3>
-                  </div>
-                  <p className="text-sm text-slate-600">Cztery sezony zabawy</p>
-                </div>
-
-                <div className="bg-avangarda/10 p-4">
-                  <div className="flex items-center gap-2 mb-2">
-                    <MapPin className="h-5 w-5 text-avangarda" />
-                    <h3 className="font-medium text-primary">
-                      Wydarzenia lokalne
-                    </h3>
+                    <h3 className="font-medium text-primary">Animacje</h3>
                   </div>
                   <p className="text-sm text-slate-600">
-                    Folklor Mazowsza i Kurpi
-                  </p>
-                </div>
-
-                <div className="bg-avangarda/10 p-4">
-                  <div className="flex items-center gap-2 mb-2">
-                    <Trees className="h-5 w-5 text-avangarda" />
-                    <h3 className="font-medium text-primary">
-                      Na grzyby, na ryby…
-                    </h3>
-                  </div>
-                  <p className="text-sm text-slate-600">
-                    Czyste rzeki i piękne lasy
+                    Dostosowane do zainteresowań
                   </p>
                 </div>
               </motion.div>

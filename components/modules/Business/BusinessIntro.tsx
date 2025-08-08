@@ -47,7 +47,8 @@ export default function BusinessIntro({
               viewport={{ once: true }}
               className="title-light"
             >
-              {t("business.title")}
+              {t("business.title")} <br />
+              <span className="text-2xl">Komfort. Design. Mozliwości.</span>
             </motion.h1>
             <motion.p
               initial={{ opacity: 0, y: 20 }}

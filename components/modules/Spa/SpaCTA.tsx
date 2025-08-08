@@ -70,8 +70,8 @@ const SpaCTA = ({ dict, lang }) => {
                   <div className="h-1.5 w-1.5 rounded-full bg-avangarda"></div>
                   <span className="text-sm">
                     {lang === "pl"
-                      ? "Ważność 12 miesięcy"
-                      : "Valid for 12 months"}
+                      ? "Ważność 6 miesięcy"
+                      : "Valid for 6 months"}
                   </span>
                 </div>
                 <div className="flex items-center gap-2">

@@ -65,7 +65,9 @@ export default function BusinessEntertainment({
             transition={{ duration: 0.5 }}
           >
             <AnimatedDecorativeBar />
-            <h1 className="title-light">Integracje i Team Building</h1>
+            <h1 className="title-light">
+              Integracje <br />i Team Building
+            </h1>
             <p className="main-paragraph-light">
               Zamień zwykłe spotkanie firmowe w niezapomnianą przygodę!
               Integracje w Hotelu Avangarda to połączenie świetnej zabawy,

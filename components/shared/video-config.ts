@@ -31,6 +31,11 @@ export const VIDEO_CONFIG = {
     fallbackImage: "/loading-fallbacks/entertain-fallback.png",
     fallbackAlt: "Entertainment background",
   },
+  forKids: {
+    videoSrc: "entertain_reduced",
+    fallbackImage: "/loading-fallbacks/entertain-fallback.png",
+    fallbackAlt: "Entertainment background",
+  },
   offers: {
     videoSrc: "entertain_reduced", // Same as entertainment
     fallbackImage: "/loading-fallbacks/entertain-fallback.png",

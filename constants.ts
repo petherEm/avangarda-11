@@ -209,14 +209,7 @@ export const SPA_TREATMENTS: TreatmentCategory[] = [
 ];
 
 export const SPA_FEATURED_SERVICES: SpaService[] = [
-  {
-    id: "hotStones",
-    nameKey: "spa.services.hotStones.name",
-    descriptionKey: "spa.services.hotStones.description",
-    imageKey: "/spa/spa-09.jpg",
-    priceKey: "spa.services.hotStones.price",
-    durationKey: "spa.services.hotStones.duration"
-  },
+  
   {
     id: "rejuvenation",
     nameKey: "spa.services.rejuvenation.name",
@@ -224,6 +217,14 @@ export const SPA_FEATURED_SERVICES: SpaService[] = [
     imageKey: "/spa/spa-05.jpg",
     priceKey: "spa.services.rejuvenation.price",
     durationKey: "spa.services.rejuvenation.duration"
+  },
+  {
+    id: "hotStones",
+    nameKey: "spa.services.hotStones.name",
+    descriptionKey: "spa.services.hotStones.description",
+    imageKey: "/spa/spa-09.jpg",
+    priceKey: "spa.services.hotStones.price",
+    durationKey: "spa.services.hotStones.duration"
   },
   {
     id: "chocolate",

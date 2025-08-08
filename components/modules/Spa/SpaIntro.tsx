@@ -1,5 +1,4 @@
 "use client";
-
 import Image from "next/image";
 import { Container } from "@/components/container";
 import { motion } from "framer-motion";
@@ -54,6 +53,7 @@ const testimonials = [
 
 export default function SpaIntro({ dict, lang, spaOffers }: SpaIntroProps) {
   const phoneNumber = "+48 505 158 200";
+
   // Helper function for translations
   const t = (key: string) => getNestedValue(dict, key) || key;
 
@@ -92,7 +92,7 @@ export default function SpaIntro({ dict, lang, spaOffers }: SpaIntroProps) {
                   viewport={{ once: true }}
                   className="title-light"
                 >
-                  Spa & Wellness
+                  Avangarda SPA
                 </motion.h1>
                 <motion.div
                   initial={{ opacity: 0, x: 20 }}
@@ -109,14 +109,15 @@ export default function SpaIntro({ dict, lang, spaOffers }: SpaIntroProps) {
                 transition={{ delay: 0.2 }}
                 className="main-paragraph-light"
               >
-                Zapraszamy do strefy Spa & Wellness – miejsca, gdzie relaks
-                spotyka się z profesjonalną pielęgnacją. Oferujemy szeroki wybór
-                masaży, zabiegów na twarz i ciało oraz specjalne pakiety
-                wellness dla par. To idealna przestrzeń, by zwolnić tempo,
-                zadbać o siebie i odzyskać wewnętrzną równowagę. Nasz zespół
-                doświadczonych terapeutów zadba o każdy szczegół, by chwile
-                spędzone w strefie SPA były prawdziwym resetem dla ciała i
-                umysłu.
+                Zapraszamy do wyjątkowej strefy SPA - miejsca stworzonego z
+                myślą o pełnym komforcie i regeneracji naszych Gości. To
+                przestrzeń, w której cisza, aromaty i dotyk profesjonalnych
+                zabiegów pozwolą oderwać się od codzienności. Oferujemy szeroki
+                wybór masaży, zabiegów na twarz i ciało wykonywanych na
+                kosmetykach światowych marek, a także autorskie rytuały
+                stworzone z myślą o tym miejscu. Nasz zespół doświadczonych
+                terapeutów zadba o każdy szczegół, tak, by chwile spędzone w
+                strefie Spa były prawdziwym odprężeniem dla ciała i umysłu.
               </motion.p>
 
               <motion.div
@@ -124,70 +125,101 @@ export default function SpaIntro({ dict, lang, spaOffers }: SpaIntroProps) {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: 0.3 }}
-                className="flex flex-wrap gap-4 mb-8"
+                className="mb-8"
               >
-                <Link
+                {/* Improved Download Buttons Layout */}
+                <div className="mb-4">
+                  <h3 className="text-sm font-medium text-slate-600 mb-3">
+                    Pobierz menu zabiegów:
+                  </h3>
+                </div>
+
+                <div className="grid grid-cols-2 gap-3 mb-6">
+                  {primarySpaOffer && primarySpaOffer.offerFile && (
+                    <>
+                      <Link
+                        href={fileUrl(primarySpaOffer.offerFile)}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="flex items-center gap-2"
+                      >
+                        <Button
+                          variant="avangarda"
+                          size="sm"
+                          className="w-full text-xs"
+                        >
+                          <Download className="h-3 w-3" />
+                          Masaże i rytuały
+                        </Button>
+                      </Link>
+
+                      <Link
+                        href={fileUrl(primarySpaOffer.offerFile)}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="flex items-center gap-2"
+                      >
+                        <Button
+                          variant="avangarda"
+                          size="sm"
+                          className="w-full text-xs"
+                        >
+                          <Download className="h-3 w-3" />
+                          Zabiegi na twarz
+                        </Button>
+                      </Link>
+
+                      <Link
+                        href={fileUrl(primarySpaOffer.offerFile)}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="flex items-center gap-2"
+                      >
+                        <Button
+                          variant="avangarda"
+                          size="sm"
+                          className="w-full text-xs"
+                        >
+                          <Download className="h-3 w-3" />
+                          Zabiegi na ciało
+                        </Button>
+                      </Link>
+
+                      <Link
+                        href={fileUrl(primarySpaOffer.offerFile)}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="flex items-center gap-2"
+                      >
+                        <Button
+                          variant="avangarda"
+                          size="sm"
+                          className="w-full text-xs"
+                        >
+                          <Download className="h-3 w-3" />
+                          Kids SPA
+                        </Button>
+                      </Link>
+                    </>
+                  )}
+                </div>
+
+                {/* Main CTA Button */}
+                {/* <Link
                   href={`tel:${phoneNumber.replace(/\s+/g, "")}`}
                   className="flex items-center gap-2"
                 >
-                  <Button className="w-fit" variant="fillRight">
+                  <Button className="w-full" variant="fillRight">
                     <Calendar className="h-4 w-4" />
                     Zarezerwuj wizytę
                   </Button>
-                </Link>
-
-                {primarySpaOffer && primarySpaOffer.offerFile && (
-                  <a
-                    href={fileUrl(primarySpaOffer.offerFile)}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex items-center gap-2"
-                  >
-                    <Button variant="avangarda">
-                      <Download className="h-3 w-3 sm:h-4 sm:w-4" />
-                      POBIERZ OFERTĘ SPA
-                    </Button>
-                  </a>
-                )}
-              </motion.div>
-
-              {/* Quick Info Cards */}
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: 0.4 }}
-                className="grid grid-cols-1 sm:grid-cols-2 gap-4"
-              >
-                <div className="bg-avangarda/10 p-4">
-                  <div className="flex items-center gap-2 mb-2">
-                    <Clock className="h-5 w-5 text-avangarda" />
-                    <h3 className="font-medium text-primary">
-                      Godziny otwarcia
-                    </h3>
-                  </div>
-                  <p className="text-sm text-slate-600">
-                    Pon-Sob: 7:00 – 22:00
-                  </p>
-                  <p className="text-sm text-slate-600">
-                    Niedziela: 7:00 – 20:00
-                  </p>
-                </div>
-                <div className="bg-avangarda/10 p-4">
-                  <div className="flex items-center gap-2 mb-2">
-                    <Banknote className="h-5 w-5 text-avangarda" />
-                    <h3 className="font-medium text-primary">Rezerwacje</h3>
-                  </div>
-                  <p className="text-sm text-slate-600">Tel: +48 505 158 200</p>
-                  <p className="text-sm text-slate-600">
-                    spa@hotelavangarda.pl
-                  </p>
-                </div>
+                </Link> */}
               </motion.div>
             </div>
           </div>
         </div>
       </Container>
+
       {/* Testimonials Section */}
       <Container className="bg-white w-full text-primary">
         {/* Spa Testimonials - RIGHT AFTER BESTSELLERS */}
@@ -201,9 +233,9 @@ export default function SpaIntro({ dict, lang, spaOffers }: SpaIntroProps) {
             <Quote className="h-8 w-8 text-avangarda" />
             <h2 className="text-3xl font-semibold text-center">Opinie Gości</h2>
           </div>
-          <p className="main-paragraph-light mb-8 text-center max-w-2xl mx-auto">
+          <p className="main-paragraph-light mb-8 text-center max-w-3xl mx-auto">
             Poznaj opinie naszych gości o relaksujących chwilach spędzonych w
-            Spa & Wellness Avangarda
+            Avangarda SPA
           </p>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {testimonials.map((testimonial, index) => (
@@ -247,6 +279,7 @@ export default function SpaIntro({ dict, lang, spaOffers }: SpaIntroProps) {
           </div>
         </motion.div>
       </Container>
+
       {/* Spa Bestsellers - FULL WIDTH DARK BACKGROUND - RIGHT AFTER SPA INTRO */}
       <div className="relative mb-16 py-16 sm:pb-24 md:pb-28 bg-avangarda text-white">
         <BackgroundLogoBottomDark position="right" />
@@ -259,7 +292,9 @@ export default function SpaIntro({ dict, lang, spaOffers }: SpaIntroProps) {
             className="relative z-10 sm:px-0"
           >
             <h3 className="text-2xl font-medium mb-6 text-center text-white">
-              {lang === "pl" ? "Nasze bestsellery" : "Our bestsellers"}
+              {lang === "pl"
+                ? "Nasze autorskie zabiegi"
+                : "Our preferred treatments"}
             </h3>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
               {SPA_FEATURED_SERVICES.map((service, index) => (
@@ -302,7 +337,7 @@ export default function SpaIntro({ dict, lang, spaOffers }: SpaIntroProps) {
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
               transition={{ delay: 0.3 }}
-              className="relative aspect-[7/6] w-full overflow-hidden"
+              className="relative aspect-square w-full overflow-hidden"
             >
               <Image
                 src="/spa/pool-01.jpg"
@@ -334,50 +369,76 @@ export default function SpaIntro({ dict, lang, spaOffers }: SpaIntroProps) {
                 transition={{ delay: 0.2 }}
                 className="main-paragraph-light"
               >
-                Zapraszamy do krytego basenu z podgrzewaną wodą – idealne
-                miejsce na relaks i aktywny wypoczynek dla całej rodziny. Basen
-                wyposażony jest w system hydromasażu oraz nastrojowe oświetlenie
-                LED, które podkreśla atmosferę odprężenia o każdej porze dnia.
+                Zapraszamy do strefy basenowej Hotelu Avangarda – znajdziesz tu
+                basen rekreacyjny, brodzik dla dzieci, 8 osobowe jacuzzi, dwie
+                kojące sauny – fińską i Infrared – oraz komfortową strefę
+                relaksu z podgrzewaną leżanką, brodzikami do moczenia stóp przed
+                saunowaniem oraz studnią lodową, dzięki której można ochłodzić
+                ciało płatkami lodu . Tu woda, ciepło i cisza tworzą doskonałą
+                harmonię wypoczynku.
+              </motion.p>
+
+              <motion.p
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: 0.2 }}
+                className="main-paragraph-light"
+              >
+                Basen dostępny jest wyłącznie dla Gości hotelowych. Jeżeli nie
+                nocujesz w naszym hotelu, a chcesz skorzystać z basenu zapoznaj
+                się z pakietami Familijna Niedziela i DAY SPA.
               </motion.p>
 
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ delay: 0.3 }}
-                className="flex flex-wrap gap-4 mb-8"
-              ></motion.div>
-
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
                 transition={{ delay: 0.4 }}
-                className="grid grid-cols-1 sm:grid-cols-2 gap-4"
+                className="mb-8"
               >
-                <div className="bg-avangarda/10 p-4">
-                  <div className="flex items-center gap-2 mb-2">
-                    <Clock className="h-5 w-5 text-avangarda" />
-                    <h3 className="font-medium text-primary">
-                      Godziny otwarcia
-                    </h3>
-                  </div>
-                  <p className="text-sm text-slate-600">
-                    Codziennie: 7:00 – 22:00
-                  </p>
-                  <p className="text-sm text-slate-600">Temperatura: 28°C</p>
+                <div className="mb-4">
+                  <h3 className="text-sm font-medium text-slate-600 mb-3">
+                    Pobierz informacje o pakietach:
+                  </h3>
                 </div>
-                <div className="bg-avangarda/10 p-4">
-                  <div className="flex items-center gap-2 mb-2">
-                    <Banknote className="h-5 w-5 text-avangarda" />
-                    <h3 className="font-medium text-primary">Cennik</h3>
-                  </div>
-                  <p className="text-sm text-slate-600">
-                    Goście hotelowi: BEZPŁATNIE
-                  </p>
-                  <p className="text-sm text-slate-600">
-                    Wejście jednorazowe: 25 zł
-                  </p>
+
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                  {primarySpaOffer && primarySpaOffer.offerFile && (
+                    <>
+                      <Link
+                        href={fileUrl(primarySpaOffer.offerFile)}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="flex items-center gap-2"
+                      >
+                        <Button
+                          variant="avangarda"
+                          size="sm"
+                          className="w-full text-xs"
+                        >
+                          <Download className="h-3 w-3" />
+                          Familijna Niedziela
+                        </Button>
+                      </Link>
+
+                      <Link
+                        href={fileUrl(primarySpaOffer.offerFile)}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="flex items-center gap-2"
+                      >
+                        <Button
+                          variant="avangarda"
+                          size="sm"
+                          className="w-full text-xs"
+                        >
+                          <Download className="h-3 w-3" />
+                          Day Spa
+                        </Button>
+                      </Link>
+                    </>
+                  )}
                 </div>
               </motion.div>
             </div>
@@ -408,6 +469,7 @@ export default function SpaIntro({ dict, lang, spaOffers }: SpaIntroProps) {
                   className="object-cover"
                 />
               </div>
+
               {/* Second image - always visible */}
               <div className="relative aspect-[16/10] overflow-hidden">
                 <Image
@@ -417,6 +479,7 @@ export default function SpaIntro({ dict, lang, spaOffers }: SpaIntroProps) {
                   className="object-cover"
                 />
               </div>
+
               {/* Third image - hidden on mobile */}
               <div className="relative aspect-[16/10] overflow-hidden hidden sm:block">
                 <Image
@@ -426,6 +489,7 @@ export default function SpaIntro({ dict, lang, spaOffers }: SpaIntroProps) {
                   className="object-cover"
                 />
               </div>
+
               {/* Fourth image - hidden on mobile */}
               <div className="relative aspect-[16/10] overflow-hidden hidden sm:block">
                 <Image
@@ -486,6 +550,19 @@ export default function SpaIntro({ dict, lang, spaOffers }: SpaIntroProps) {
                 mikroelementy takie jak jod, potas, wapń, magnez, brom i selen –
                 występujące tu w stężeniu kilkukrotnie wyższym niż nad morzem.
               </motion.p>
+
+              <motion.p
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: 0.2 }}
+                className="main-paragraph-dark"
+              >
+                W tężni używamy solanki z Zabłocia wydobywanej od ponad 120 lat
+                z odwiertu „KORONA" w uzdrowisku Zabłocie-Solanka z głęboko
+                położonych złóż wód leczniczych jodowo-bromowych.
+              </motion.p>
+
               <motion.p
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -499,43 +576,6 @@ export default function SpaIntro({ dict, lang, spaOffers }: SpaIntroProps) {
                 zmęczenie i wspierają regenerację układu nerwowego – także u
                 dzieci.
               </motion.p>
-
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: 0.3 }}
-                className="flex flex-wrap gap-4 mb-8"
-              ></motion.div>
-
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: 0.4 }}
-                className="grid grid-cols-1 sm:grid-cols-2 gap-4"
-              >
-                <div className="bg-white/10 backdrop-blur-sm p-4">
-                  <div className="flex items-center gap-2 mb-2">
-                    <Clock className="h-5 w-5 text-avangarda" />
-                    <h3 className="font-medium text-white">Godziny otwarcia</h3>
-                  </div>
-                  <p className="text-sm text-gray-200">Pon-Sob: 7:00 – 22:00</p>
-                  <p className="text-sm text-gray-200">
-                    Niedziela: 7:00 – 20:00
-                  </p>
-                </div>
-                <div className="bg-white/10 backdrop-blur-sm p-4">
-                  <div className="flex items-center gap-2 mb-2">
-                    <Banknote className="h-5 w-5 text-avangarda" />
-                    <h3 className="font-medium text-white">Cennik</h3>
-                  </div>
-                  <p className="text-sm text-gray-200">Sesja 50 min: 9 zł</p>
-                  <p className="text-sm text-gray-200">
-                    Goście hotelowi i dzieci: BEZPŁATNIE
-                  </p>
-                </div>
-              </motion.div>
             </div>
           </div>
         </Container>
@@ -568,6 +608,7 @@ export default function SpaIntro({ dict, lang, spaOffers }: SpaIntroProps) {
                   className="object-cover"
                 />
               </div>
+
               {/* Second image - always visible */}
               <div className="relative aspect-[16/10] overflow-hidden">
                 <Image
@@ -577,6 +618,7 @@ export default function SpaIntro({ dict, lang, spaOffers }: SpaIntroProps) {
                   className="object-cover"
                 />
               </div>
+
               {/* Third image - hidden on mobile */}
               <div className="relative aspect-[16/10] overflow-hidden hidden sm:block">
                 <Image
@@ -586,6 +628,7 @@ export default function SpaIntro({ dict, lang, spaOffers }: SpaIntroProps) {
                   className="object-cover"
                 />
               </div>
+
               {/* Fourth image - hidden on mobile */}
               <div className="relative aspect-[16/10] overflow-hidden hidden sm:block">
                 <Image
@@ -640,54 +683,12 @@ export default function SpaIntro({ dict, lang, spaOffers }: SpaIntroProps) {
                 Matrix to idealne miejsce na trening o każdej porze dnia.
                 Oferujemy szeroki wybór urządzeń cardio i siłowych,
                 dostosowanych do potrzeb zarówno początkujących, jak i
-                zaawansowanych użytkowników.
+                zaawansowanych użytkowników. Znajdziesz tu m.in. bieżnie,
+                rowery, orbitreki, a także maszyny do treningu siłowego i wolne
+                ciężary. Przestrzeń jest klimatyzowana, dobrze oświetlona i
+                sprzyja komfortowemu treningowi.
               </motion.p>
-
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: 0.3 }}
-                className="flex flex-wrap gap-4 mb-8"
-              ></motion.div>
-
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: 0.4 }}
-                className="grid grid-cols-1 sm:grid-cols-2 gap-4"
-              >
-                <div className="bg-avangarda/10 p-4">
-                  <div className="flex items-center gap-2 mb-2">
-                    <Clock className="h-5 w-5 text-avangarda" />
-                    <h3 className="font-medium text-primary">
-                      Godziny otwarcia
-                    </h3>
-                  </div>
-                  <p className="text-sm text-slate-600">
-                    Pon-Sob: 7:00 – 22:00
-                  </p>
-                  <p className="text-sm text-slate-600">
-                    Niedziela: 7:00 – 20:00
-                  </p>
-                </div>
-                <div className="bg-avangarda/10 p-4">
-                  <div className="flex items-center gap-2 mb-2">
-                    <Banknote className="h-5 w-5 text-avangarda" />
-                    <h3 className="font-medium text-primary">Cennik</h3>
-                  </div>
-                  <p className="text-sm text-slate-600">
-                    Goście hotelowi: BEZPŁATNIE
-                  </p>
-                  <p className="text-sm text-slate-600">
-                    Wejście jednorazowe: 15 zł/h
-                  </p>
-                  <p className="text-sm text-slate-600">
-                    Karnet miesięczny (bez limitu): 50 zł
-                  </p>
-                </div>
-              </motion.div>
+              <p></p>
             </div>
           </div>
 
@@ -716,6 +717,7 @@ export default function SpaIntro({ dict, lang, spaOffers }: SpaIntroProps) {
                   className="object-cover"
                 />
               </div>
+
               {/* Second image - always visible */}
               <div className="relative aspect-[16/10] overflow-hidden">
                 <Image
@@ -725,6 +727,7 @@ export default function SpaIntro({ dict, lang, spaOffers }: SpaIntroProps) {
                   className="object-cover"
                 />
               </div>
+
               {/* Third image - hidden on mobile */}
               <div className="relative aspect-[16/10] overflow-hidden hidden sm:block">
                 <Image
@@ -734,6 +737,7 @@ export default function SpaIntro({ dict, lang, spaOffers }: SpaIntroProps) {
                   className="object-cover"
                 />
               </div>
+
               {/* Fourth image - hidden on mobile */}
               <div className="relative aspect-[16/10] overflow-hidden hidden sm:block">
                 <Image

@@ -52,7 +52,7 @@ const MenuListing: MenuItemType[] = [
   { nameKey: "events", href: "/przyjecia" },
   { nameKey: "dining", href: "/restauracja" },
   { nameKey: "spa", href: "/spa" },
-  { nameKey: "entertainment", href: "/rozrywka" },
+  { nameKey: "entertainment", href: "/atrakcje" },
   { nameKey: "kids", href: "/dzieci" },
 ];
 

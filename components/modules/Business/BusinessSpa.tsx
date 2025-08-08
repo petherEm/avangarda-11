@@ -143,7 +143,7 @@ const BusinessSpa = ({ lang = "pl", dict }: BusinessSpaProps) => {
                     transition={{ delay: 0.2, duration: 0.6 }}
                     className="title-dark"
                   >
-                    Biznes Spa
+                    Biznes SPA
                   </motion.h1>
                 </div>
 

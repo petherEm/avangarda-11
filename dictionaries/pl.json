@@ -7,7 +7,7 @@
     "spa": "WELLNESS & SPA",
     "events": "UROCZYSTOŚCI",
     "business": "BIZNES",
-    "entertainment": "ROZRYWKA",
+    "entertainment": "ATRAKCJE",
     "kids": "DLA DZIECI",
     "gallery": "GALERIA",
     "book": "REZERWUJ",
@@ -304,20 +304,20 @@
     },
     "services": {
       "hotStones": {
-        "name": "Rytułał Avangardy",
-        "description": "Zabieg, który oczyszcza, odżywia i przywraca blask. Peeling całego ciała przygotowuje skórę na intensywną pielęgnację, a całość wieńczy relaksujący masaż na odżywczej masce.",
-        "price": "340 zł",
-        "duration": "90 min"
+        "name": "Masaż Avangarda",
+        "description": "Autorski masaż całego ciała szyty na miarę Twoich potrzeb. Dedykowany osobom, które potrzebują ukojenia i szukają doświadczenia głębokiego relaksu i odprężenia. Kojący zmysły aromat oleju indywidualnie dobierany przed masażem do Twojego samopoczucia i upodobania pozwoli na chwilę błogiego zapomnienia.",
+        "price": "240 zł",
+        "duration": "60 min"
       },
       "rejuvenation": {
         "name": "Luksus w Różanie",
-        "description": "Peeling pobudzający mikrokrążenie, odżywczy masaż na masełku oraz satynowe wykończenie, które podkreśla naturalny blask skóry. Całość dopełnia ujędrniający i intensywnie nawilżający masaż twarzy.",
+        "description": "Kompleksowy rytuał łączący pielęgnację i głęboki relaks. Rozpoczyna go aromatyczny peeling całego ciała, który wygładzi skórę. Następnie wykonany zostanie masaż na rozgrzanym masełku, który intensywnie nawilży i rozluźni mięśnie. Rytuał wieńczy kojący masaż twarzy, szyi i dekoltu, przywracając cerze świeżość i blask.",
         "price": "450 zł",
-        "duration": "120 min"
+        "duration": "90 min"
       },
       "chocolate": {
         "name": "Rytuał Doliny Narwi",
-        "description": "Idealny dla zabieganych – łączy energetyzujący masaż z peelingiem całego ciała na odżywczej masce, przywracając skórze gładkość i świeżość w krótkim czasie.",
+        "description": "Rytuał pielęgnacyjny na ciało, łączący w sobie odżywczy masaż z subtelnym peelingiem. Wykonywany na aromatycznej masce peelingującej, która przywróci skórze gładkość i świeżość w krótkim czasie.",
         "price": "270 zł",
         "duration": "60 min"
       }
@@ -568,7 +568,7 @@
     }
   },
   "business": {
-    "title": "Mały hotel wielkich możliwości",
+    "title": "Konferencje w butikowym stylu.",
     "description": "W Hotelu Avangarda to Ty i Twój biznes jesteście najważniejsi. Tutaj wsłuchamy się w Twoje potrzeby, zaproponujemy nieszablonowe rozwiązania i sprawimy, że Twoi pracownicy wyjadą wzmocnieni i pełni energii do działania. Jeżeli na swoją konferencję szukasz butikowego hotelu na wyłączność – świetnie trafiłeś! Tu nie będziesz jednym z wielu, u nas możesz być jednym jedynym i to dla Ciebie przygotujemy program integracji czy scenariusz wieczornej imprezy po dniu pełnym intensywnej pracy.Poznaj nasze możliwości, stworzone z myślą o kompletnej obsłudze pobytów biznesowych – od noclegów, poprzez konferencje, całodzienne integracje aż po bogatą ofertę niezapomnianych wieczorów.",
     "downloadOffer": "Pobierz ofertę biznesową",
     "checkAvailability": "Sprawdź dostępność",

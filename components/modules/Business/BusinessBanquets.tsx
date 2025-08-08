@@ -306,7 +306,7 @@ const BusinessBanquets = ({ lang = "pl", dict }: BusinessBanquetsProps) => {
                       transition={{ delay: 0.2, duration: 0.6 }}
                       className="title-dark text-left"
                     >
-                      Wieczory pełne charakteru
+                      Wieczory pełne smaku
                     </motion.h1>
                   </motion.div>
 
