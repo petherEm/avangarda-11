@@ -628,26 +628,6 @@ export default function ForKidsIntro({
                   </div>
                   <p className="text-sm text-slate-600">Lato pełne przygód</p>
                 </div>
-
-                <div className="bg-avangarda/10 p-4">
-                  <div className="flex items-center gap-2 mb-2">
-                    <Footprints className="h-5 w-5 text-avangarda" />
-                    <h3 className="font-medium text-primary">Nordic walking</h3>
-                  </div>
-                  <p className="text-sm text-slate-600">
-                    Krok za krokiem idź po zdrowie
-                  </p>
-                </div>
-
-                <div className="bg-avangarda/10 p-4">
-                  <div className="flex items-center gap-2 mb-2">
-                    <Dumbbell className="h-5 w-5 text-avangarda" />
-                    <h3 className="font-medium text-primary">Siłownia</h3>
-                  </div>
-                  <p className="text-sm text-slate-600">
-                    Profesjonalny sprzęt Matrix Fitness
-                  </p>
-                </div>
               </motion.div>
             </div>
 

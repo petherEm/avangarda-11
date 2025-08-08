@@ -214,7 +214,7 @@ export const SPA_FEATURED_SERVICES: SpaService[] = [
     id: "rejuvenation",
     nameKey: "spa.services.rejuvenation.name",
     descriptionKey: "spa.services.rejuvenation.description",
-    imageKey: "/spa/spa-05.jpg",
+    imageKey: "/spa/spa-featured-3.png",
     priceKey: "spa.services.rejuvenation.price",
     durationKey: "spa.services.rejuvenation.duration"
   },
@@ -222,7 +222,7 @@ export const SPA_FEATURED_SERVICES: SpaService[] = [
     id: "hotStones",
     nameKey: "spa.services.hotStones.name",
     descriptionKey: "spa.services.hotStones.description",
-    imageKey: "/spa/spa-09.jpg",
+    imageKey: "/spa/spa-featured-2.png",
     priceKey: "spa.services.hotStones.price",
     durationKey: "spa.services.hotStones.duration"
   },
@@ -230,7 +230,7 @@ export const SPA_FEATURED_SERVICES: SpaService[] = [
     id: "chocolate",
     nameKey: "spa.services.chocolate.name",
     descriptionKey: "spa.services.chocolate.description",
-    imageKey: "/spa/spa-2.png",
+    imageKey: "/spa/spa-featured-1.png",
     priceKey: "spa.services.chocolate.price",
     durationKey: "spa.services.chocolate.duration"
   }

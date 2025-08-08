@@ -298,10 +298,11 @@ export default function SpaIntro({ dict, lang, spaOffers }: SpaIntroProps) {
             </h3>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
               {SPA_FEATURED_SERVICES.map((service, index) => (
-                <Card
+                <div
                   key={index}
-                  className="overflow-hidden rounded-none bg-white/95 backdrop-blur-sm"
+                  className="overflow-hidden rounded-none bg-white/95 backdrop-blur-sm flex flex-col"
                 >
+                  {/* Image container - no padding at top */}
                   <div className="relative h-64 w-full">
                     <Image
                       src={service.imageKey || "/placeholder.svg"}
@@ -310,18 +311,20 @@ export default function SpaIntro({ dict, lang, spaOffers }: SpaIntroProps) {
                       className="object-cover"
                     />
                   </div>
-                  <CardContent className="pt-4">
-                    <h4 className="font-medium text-primary mb-1 text-lg">
+
+                  {/* Content container with proper spacing */}
+                  <div className="p-4 flex flex-col flex-grow">
+                    <h4 className="font-medium text-primary mb-2 text-lg">
                       {t(service.nameKey)}
                     </h4>
-                    <p className="text-md text-gray-600 mb-2">
+                    <p className="text-md text-gray-600 mb-4 leading-relaxed flex-grow">
                       {t(service.descriptionKey)}
                     </p>
-                    <p className="text-avangarda font-medium leading-relaxed">
+                    <p className="text-avangarda font-medium leading-relaxed mt-auto">
                       {t(service.priceKey)} / {t(service.durationKey)}
                     </p>
-                  </CardContent>
-                </Card>
+                  </div>
+                </div>
               ))}
             </div>
           </motion.div>

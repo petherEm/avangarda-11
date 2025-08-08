@@ -166,7 +166,7 @@ const Business = ({ lang = "pl", dict }: BusinessProps) => {
                       transition={{ duration: 0.8, delay: 0.4 }}
                     >
                       <Image
-                        src="/conference/cozy-01.jpg"
+                        src="/conference/conf-main.png"
                         alt="Kameralna sala konferencyjna"
                         fill
                         className="object-cover"
@@ -326,7 +326,7 @@ const Business = ({ lang = "pl", dict }: BusinessProps) => {
                     whileInView="animate"
                     viewport={{ once: true }}
                   >
-                    <div className="relative h-[600px] xl:h-[700px] w-[85%] overflow-hidden">
+                    <div className="relative h-[600px] xl:h-[700px] w-[100%] overflow-hidden">
                       <motion.div
                         className="relative w-full"
                         style={{
@@ -361,7 +361,7 @@ const Business = ({ lang = "pl", dict }: BusinessProps) => {
                     whileInView="animate"
                     viewport={{ once: true }}
                   >
-                    <div className="relative h-[500px] xl:h-[700px] w-[85%] mr-auto overflow-hidden">
+                    <div className="relative h-[500px] xl:h-[700px] w-[100%] mr-auto overflow-hidden">
                       <motion.div
                         className="relative w-full"
                         style={{
@@ -374,10 +374,10 @@ const Business = ({ lang = "pl", dict }: BusinessProps) => {
                         transition={{ duration: 0.6, delay: 0.2 }}
                       >
                         <Image
-                          src="/conference/cozy-01.jpg"
+                          src="/conference/conf-main.png"
                           alt="Kameralna sala konferencyjna"
                           fill
-                          className="object-cover object-left-top"
+                          className="object-cover object-center"
                           quality={100}
                         />
                         <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"></div>
