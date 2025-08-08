@@ -1,5 +1,4 @@
 "use client";
-
 import Image from "next/image";
 import { motion, useScroll, useTransform, useSpring } from "framer-motion";
 import { Container } from "@/components/container";
@@ -118,9 +117,9 @@ const BusinessSpa = ({ lang = "pl", dict }: BusinessSpaProps) => {
 
   return (
     <div ref={sectionRef} className="relative overflow-hidden">
-      <Container className="relative w-full py-8 sm:py-12 md:py-16 lg:py-20 xl:py-24 mt-8 sm:mt-12 md:mt-16 lg:mt-20 mb-8 sm:mb-12 md:mb-16 lg:mb-20">
+      <Container className="relative w-full py-8 sm:py-12 md:py-16 lg:py-20 xl:py-32 mt-8 sm:mt-12 md:mt-16 lg:mt-20 mb-8 sm:mb-12 md:mb-16 lg:mb-32">
         {/* Static Background - No Parallax */}
-        <div className="absolute inset-0 lg:max-h-[1200px] z-0">
+        <div className="absolute inset-0 lg:max-h-[1800px] xl:max-h-[1500px] z-0">
           <BackgroundLogoBottomDark />
         </div>
 
@@ -160,6 +159,16 @@ const BusinessSpa = ({ lang = "pl", dict }: BusinessSpaProps) => {
                     które nie tylko relaksują, ale również wspierają
                     koncentrację, poprawiają samopoczucie i sprzyjają utrzymaniu
                     wysokiej efektywności.
+                  </motion.p>
+
+                  <motion.p
+                    variants={fadeInUp}
+                    transition={{ delay: 0.4, duration: 0.6 }}
+                    className="main-paragraph-dark"
+                  >
+                    Nasi wykwalifikowani terapeuci zaoferują starannie dobrany
+                    wachlarz masaży i rytuałów, dostosowanych do indywidualnych
+                    potrzeb, by zapewnić maksymalny efekt w optymalnym czasie.
                   </motion.p>
                 </div>
               </motion.div>
@@ -219,19 +228,56 @@ const BusinessSpa = ({ lang = "pl", dict }: BusinessSpaProps) => {
                 </div>
               </motion.div>
 
-              {/* Services Grid - Mobile */}
+              {/* Second Section - Mobile */}
               <motion.div
-                className="grid grid-cols-2 gap-3 sm:gap-4 mb-6"
+                className="space-y-4 sm:space-y-6 md:space-y-8 mb-8 sm:mb-12"
                 initial="initial"
                 whileInView="animate"
                 viewport={{ once: true }}
               >
-                {services.slice(0, 4).map((service, index) => (
+                <div className="text-center">
+                  <AnimatedDecorativeBar />
+                  <motion.h1
+                    variants={fadeInUp}
+                    transition={{ delay: 0.2, duration: 0.6 }}
+                    className="title-dark"
+                  >
+                    Usługi SPA dla firm
+                  </motion.h1>
+                </div>
+
+                <div className="space-y-3 sm:space-y-4 md:space-y-6">
+                  <motion.p
+                    variants={fadeInUp}
+                    transition={{ delay: 0.3, duration: 0.6 }}
+                    className="main-paragraph-dark"
+                  >
+                    W naszym Hotelu doskonale rozumiemy, jak ważna jest
+                    równowaga między pracą a relaksem, dlatego przygotowaliśmy
+                    specjalną ofertę usług SPA dla biznesu Zapoznaj się z ofertą
+                    warsztatów SPA dla firm, które będą atrakcyjnym
+                    urozmaiceniem standardowych konferencji, wyróżnij
+                    najlepszych pracowników obdarowując ich voucherem do SPA lub
+                    skorzystaj z propozycji zorganizowania dla swojej firmy
+                    Biznes Day SPA, gdzie w relaksującej atmosferze wzmocnicie
+                    relacje w zespole.
+                  </motion.p>
+                </div>
+              </motion.div>
+
+              {/* Services Grid - Mobile - All 6 services */}
+              <motion.div
+                className="grid grid-cols-3 gap-2 sm:gap-3 mb-6 pb-8"
+                initial="initial"
+                whileInView="animate"
+                viewport={{ once: true }}
+              >
+                {services.map((service, index) => (
                   <motion.div
                     key={index}
                     variants={slideInFromRight}
                     transition={{ delay: 0.1 * index, duration: 0.6 }}
-                    className="p-3 sm:p-4 border-b-2 border-avangarda bg-white/10 backdrop-blur-sm"
+                    className="p-2 sm:p-3 border-b-2 border-avangarda bg-white/10 backdrop-blur-sm"
                     whileHover={{ scale: 1.05 }}
                   >
                     <service.icon className="h-5 w-5 text-avangarda mb-2" />
@@ -285,7 +331,7 @@ const BusinessSpa = ({ lang = "pl", dict }: BusinessSpaProps) => {
                       transition={{ delay: 0.2, duration: 0.6 }}
                       className="title-dark text-left"
                     >
-                      Biznes Spa
+                      Biznes SPA
                     </motion.h1>
                   </motion.div>
 
@@ -340,18 +386,18 @@ const BusinessSpa = ({ lang = "pl", dict }: BusinessSpaProps) => {
 
                   {/* Tall Narrow Image - Lower width, bigger height, extending beyond gray */}
                   <motion.div
-                    className="relative mt-12"
+                    className="relative mt-18"
                     initial="initial"
                     whileInView="animate"
                     viewport={{ once: true }}
                   >
-                    <div className="relative h-[600px] xl:h-[700px] w-[100%] overflow-hidden">
+                    <div className="relative h-[700px] xl:h-[880px] w-[100%] overflow-hidden">
                       <motion.div
                         className="relative w-full"
                         style={{
                           y: mainImageY,
-                          height: "140%",
-                          top: "-20%",
+                          height: "130%",
+                          top: "-10%",
                         }}
                         initial={{ opacity: 0 }}
                         whileInView={{ opacity: 1 }}
@@ -375,7 +421,7 @@ const BusinessSpa = ({ lang = "pl", dict }: BusinessSpaProps) => {
                 <div className="space-y-8">
                   {/* Single Top Image - Lower width, bigger height, extending beyond gray */}
                   <motion.div
-                    className="relative -mt-36 overflow-hidden"
+                    className="relative -mt-46 overflow-hidden"
                     initial="initial"
                     whileInView="animate"
                     viewport={{ once: true }}
@@ -404,19 +450,75 @@ const BusinessSpa = ({ lang = "pl", dict }: BusinessSpaProps) => {
                     </div>
                   </motion.div>
 
-                  {/* Services Grid - Desktop */}
+                  {/* Title moved to left column */}
                   <motion.div
-                    className="grid grid-cols-2 gap-4 pt-8"
                     initial="initial"
                     whileInView="animate"
                     viewport={{ once: true }}
                   >
-                    {services.slice(0, 4).map((service, index) => (
+                    <AnimatedDecorativeBar />
+                    <motion.h1
+                      variants={fadeInUp}
+                      transition={{ delay: 0.2, duration: 0.6 }}
+                      className="title-dark text-left"
+                    >
+                      Usługi SPA dla firm
+                    </motion.h1>
+                  </motion.div>
+
+                  {/* Text Content */}
+                  <motion.div
+                    className="space-y-6"
+                    initial="initial"
+                    whileInView="animate"
+                    viewport={{ once: true }}
+                  >
+                    <motion.p
+                      variants={fadeInLeft}
+                      transition={{ delay: 0.3, duration: 0.6 }}
+                      className="text-lg leading-relaxed text-white"
+                    >
+                      W naszym Hotelu doskonale rozumiemy, jak ważna jest
+                      równowaga między pracą a relaksem, dlatego przygotowaliśmy
+                      specjalną ofertę usług SPA dla biznesu Zapoznaj się z
+                      ofertą warsztatów SPA dla firm, które będą atrakcyjnym
+                      urozmaiceniem standardowych konferencji, wyróżnij
+                      najlepszych pracowników obdarowując ich voucherem do SPA
+                      lub skorzystaj z propozycji zorganizowania dla swojej
+                      firmy Biznes Day SPA, gdzie w relaksującej atmosferze
+                      wzmocnicie relacje w zespole.
+                    </motion.p>
+
+                    <motion.div
+                      variants={fadeInLeft}
+                      transition={{ delay: 0.5, duration: 0.6 }}
+                    >
+                      <Link href={spaUrl}>
+                        <Button
+                          size="lg"
+                          variant="fillRight"
+                          className="border-none"
+                        >
+                          Więcej o Wellness & Spa
+                          <ArrowRight className="ml-2 h-4 w-4" />
+                        </Button>
+                      </Link>
+                    </motion.div>
+                  </motion.div>
+
+                  {/* Services Grid - Desktop - All 6 services */}
+                  <motion.div
+                    className="grid grid-cols-3 gap-3 pt-8 pb-16"
+                    initial="initial"
+                    whileInView="animate"
+                    viewport={{ once: true }}
+                  >
+                    {services.map((service, index) => (
                       <motion.div
                         key={index}
                         variants={slideInFromRight}
                         transition={{ delay: 0.1 * index, duration: 0.6 }}
-                        className="p-4 border-b-2 border-avangarda bg-white/10 backdrop-blur-sm"
+                        className="p-3 border-b-2 border-avangarda bg-white/10 backdrop-blur-sm"
                         whileHover={{ scale: 1.05 }}
                       >
                         <service.icon className="h-5 w-5 text-avangarda mb-2" />

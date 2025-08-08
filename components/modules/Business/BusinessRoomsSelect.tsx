@@ -1,5 +1,4 @@
 "use client";
-
 import type React from "react";
 import Image from "next/image";
 import { motion } from "framer-motion";
@@ -307,25 +306,25 @@ const capacityTypes = [
     label: "Teatr",
     icon: Users,
     key: "theater",
-    color: "bg-blue-50 text-blue-700 border-blue-200",
+    color: "bg-gray-50 text-gray-700 border-gray-200",
   },
   {
     label: "Szkolne",
     icon: School,
     key: "classroom",
-    color: "bg-green-50 text-green-700 border-green-200",
+    color: "bg-gray-50 text-gray-700 border-gray-200",
   },
   {
     label: "Podkowa",
     icon: UsersRound,
     key: "ushape",
-    color: "bg-purple-50 text-purple-700 border-purple-200",
+    color: "bg-gray-50 text-gray-700 border-gray-200",
   },
   {
     label: "Bankiet",
     icon: Grape,
     key: "banquet",
-    color: "bg-pink-50 text-pink-700 border-pink-200",
+    color: "bg-gray-50 text-gray-700 border-gray-200",
   },
   {
     label: "Boardroom",
@@ -341,6 +340,7 @@ export default function ConferenceRoomsComponent({
   lang?: string;
 }) {
   const phoneNumber = "+48 574 383 282";
+
   return (
     <div className="mt-20 mb-10 bg-gradient-to-br from-gray-50 to-white w-full text-slate-800 py-12 md:py-20">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -403,7 +403,9 @@ export default function ConferenceRoomsComponent({
                                 )}
                                 {room.badgeText && (
                                   <Badge
-                                    className={`${room.badgeColor || "bg-gray-500"} text-white text-xs mt-1`}
+                                    className={`${
+                                      room.badgeColor || "bg-gray-500"
+                                    } text-white text-xs mt-1`}
                                   >
                                     {room.badgeText}
                                   </Badge>
@@ -484,7 +486,9 @@ export default function ConferenceRoomsComponent({
                                 )}
                                 {room.badgeText && (
                                   <Badge
-                                    className={`${room.badgeColor || "bg-gray-500"} text-white`}
+                                    className={`${
+                                      room.badgeColor || "bg-gray-500"
+                                    } text-white`}
                                   >
                                     {room.badgeText}
                                   </Badge>
@@ -544,7 +548,6 @@ export default function ConferenceRoomsComponent({
                       </div>
                     </div>
                   </AccordionTrigger>
-
                   <AccordionContent className="p-0">
                     <div className="border-t border-gray-100 bg-gradient-to-br from-gray-50 to-white p-6 md:p-8">
                       <div className="grid md:grid-cols-12 gap-8 items-start">
@@ -606,9 +609,9 @@ export default function ConferenceRoomsComponent({
                               </div>
                             ))}
                           </div>
-                          <div className="p-4 bg-blue-50 border border-blue-200">
-                            <p className="text-sm text-blue-800 leading-relaxed">
-                              <strong className="text-blue-900">
+                          <div className="p-4 bg-gray-50 border border-gray-200">
+                            <p className="text-sm text-gray-800 leading-relaxed">
+                              <strong className="text-gray-900">
                                 Dodatkowe wyposażenie:
                               </strong>{" "}
                               flipchart sucho ścieralny / magnetyczny z
