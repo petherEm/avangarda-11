@@ -309,7 +309,7 @@ const Spa = ({ lang = "pl", dict }: SpaProps) => {
                     whileInView="animate"
                     viewport={{ once: true }}
                   >
-                    <div className="relative h-[600px] xl:h-[700px] w-[85%] overflow-hidden">
+                    <div className="relative h-[600px] xl:h-[700px] w-[100%] overflow-hidden">
                       <motion.div
                         className="relative w-full"
                         style={{
@@ -344,7 +344,7 @@ const Spa = ({ lang = "pl", dict }: SpaProps) => {
                     whileInView="animate"
                     viewport={{ once: true }}
                   >
-                    <div className="relative h-[500px] xl:h-[700px] w-[85%] mr-auto overflow-hidden">
+                    <div className="relative h-[500px] xl:h-[700px] w-[100%] mr-auto overflow-hidden">
                       <motion.div
                         className="relative w-full"
                         style={{
@@ -360,7 +360,7 @@ const Spa = ({ lang = "pl", dict }: SpaProps) => {
                           src="/diver/offers-background-2.jpg"
                           alt="Spa wellness area"
                           fill
-                          className="object-cover object-left-top"
+                          className="object-cover object-right"
                           quality={100}
                         />
                         <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"></div>
