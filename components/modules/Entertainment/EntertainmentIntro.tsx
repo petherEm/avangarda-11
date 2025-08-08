@@ -388,7 +388,7 @@ export default function OutdoorEntertainment({
 
       <Container className="bg-white w-full text-primary">
         <div className="max-w-7xl mx-auto sm:px-4">
-          {/* 3. ATRAKCJE DLA DZIECI SECTION */}
+          {/* 3. SPA SUBSECTION SECTION */}
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-stretch mb-16 sm:px-0">
             <motion.div
               initial={{ opacity: 0, scale: 0.95 }}
@@ -415,7 +415,7 @@ export default function OutdoorEntertainment({
                   viewport={{ once: true }}
                   className="title-light"
                 >
-                  Raj dla najmłodszych
+                  Poczuj luksus pełnego wyciszenia
                 </motion.h1>
 
                 <motion.p
@@ -425,13 +425,17 @@ export default function OutdoorEntertainment({
                   transition={{ delay: 0.2 }}
                   className="main-paragraph-light"
                 >
-                  W Hotelu Avangarda dzieci znajdą swój własny świat pełen
-                  radości i przygód! Plac zabaw na świeżym powietrzu, kolorowa
-                  sala zabaw w Klubie Coola, brodzik przy basenie oraz specjalne
-                  atrakcje sezonowe sprawiają, że każdy dzień to nowa przygoda.
-                  Organizujemy również warsztaty kreatywne, pokazy dla dzieci i
-                  specjalne wydarzenia, które sprawią, że pobyt będzie
-                  niezapomniany dla całej rodziny.
+                  W strefie Wellness Hotelu Avangarda odkryjesz wyjątkowy,
+                  ekskluzywny świat relaksu. Zanurz się w niezwykłej atmosferze
+                  naszego SPA, gdzie ciepło jacuzzi, kojące sauny i leczniczy
+                  mikroklimat groty solnej pozwolą Ci zapomnieć o codzienności.
+                  Dla prawdziwego odprężenia przygotowaliśmy autorskie rytuały,
+                  które zapewnią głęboki relaks i ukojenie zmysłów. Zapraszamy
+                  również do skorzystania z szerokiego wyboru masaży oraz
+                  zabiegów na twarz i ciało, wykonywanych przez doświadczone
+                  terapeutki. Avangarda SPA to miejsce stworzone z myślą o
+                  chwili tylko dla Ciebie – tutaj czas zwalnia, a Ty odzyskujesz
+                  wewnętrzną harmonię.
                 </motion.p>
               </div>
 
@@ -446,50 +450,57 @@ export default function OutdoorEntertainment({
                 <div className="bg-avangarda/10 p-4">
                   <div className="flex items-center gap-2 mb-2">
                     <Playground className="h-5 w-5 text-avangarda" />
-                    <h3 className="font-medium text-primary">Plac zabaw</h3>
+                    <h3 className="font-medium text-primary">Masaże</h3>
                   </div>
-                  <p className="text-sm text-slate-600">
-                    Zabawa na świeżym powietrzu
-                  </p>
+                  <p className="text-sm text-slate-600">Relaks i wyciszenie</p>
                 </div>
 
                 <div className="bg-avangarda/10 p-4">
                   <div className="flex items-center gap-2 mb-2">
                     <Baby className="h-5 w-5 text-avangarda" />
-                    <h3 className="font-medium text-primary">Sala zabaw</h3>
+                    <h3 className="font-medium text-primary">
+                      Zabiegi pielęgnacyjne
+                    </h3>
                   </div>
                   <p className="text-sm text-slate-600">
-                    70 m2 kolorowej przestrzeni
+                    Światowe marki kosmetyków
                   </p>
                 </div>
 
                 <div className="bg-avangarda/10 p-4">
                   <div className="flex items-center gap-2 mb-2">
                     <Swimming className="h-5 w-5 text-avangarda" />
-                    <h3 className="font-medium text-primary">Brodzik</h3>
+                    <h3 className="font-medium text-primary">
+                      Basen rekreacyjny
+                    </h3>
                   </div>
                   <p className="text-sm text-slate-600">
-                    Bezpieczna zabawa w wodzie
+                    Wodne szaleństwo przez cały rok
                   </p>
                 </div>
 
                 <div className="bg-avangarda/10 p-4">
                   <div className="flex items-center gap-2 mb-2">
                     <Sparkles className="h-5 w-5 text-avangarda" />
-                    <h3 className="font-medium text-primary">Warsztaty</h3>
+                    <h3 className="font-medium text-primary">Jacuzzi</h3>
                   </div>
-                  <p className="text-sm text-slate-600">Kreatywne zajęcia</p>
+                  <p className="text-sm text-slate-600">Kojące ciepło wody</p>
                 </div>
 
-                <div className="bg-avangarda/10 p-4 sm:col-span-2">
+                <div className="bg-avangarda/10 p-4">
                   <div className="flex items-center gap-2 mb-2">
                     <Calendar className="h-5 w-5 text-avangarda" />
-                    <h3 className="font-medium text-primary">
-                      Atrakcje sezonowe
-                    </h3>
+                    <h3 className="font-medium text-primary">Dwie sauny</h3>
+                  </div>
+                  <p className="text-sm text-slate-600">Fińska i Infrared</p>
+                </div>
+                <div className="bg-avangarda/10 p-4">
+                  <div className="flex items-center gap-2 mb-2">
+                    <Calendar className="h-5 w-5 text-avangarda" />
+                    <h3 className="font-medium text-primary">Grota solna</h3>
                   </div>
                   <p className="text-sm text-slate-600">
-                    Miasteczko Świętego Mikołaja, Farma Dyniowa i więcej
+                    Leczniczy mikroklimat
                   </p>
                 </div>
               </motion.div>
