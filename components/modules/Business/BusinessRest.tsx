@@ -1,5 +1,4 @@
 "use client";
-
 import { useState } from "react";
 import Image from "next/image";
 import { motion } from "framer-motion";
@@ -35,34 +34,35 @@ export default function BusinessEntertainment({
   const phoneNumber = "+48 29 752 50 34";
 
   return (
-    <div className="mt-6 sm:mt-6 md:mt-4 lg:mt-0 mb-6 lg:mb-0 bg-white w-full text-primary lg:py-20">
+    <div className="mt-6 sm:mt-6 md:mt-4 lg:mt-0 mb-6 lg:mb-0 bg-white w-full text-primary lg:py-10">
       <div className="max-w-7xl mx-auto sm:px-4">
         {/* Introduction Section - Image on left, text on right */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-start mb-16 px-4 sm:px-0">
-          {/* Image on the left */}
+          {/* Image on the left - aligned with DecorativeBar and matching text height */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.3, duration: 0.5 }}
-            className="h-auto"
+            className="h-full"
           >
-            <div className="relative aspect-square w-full h-[660px] overflow-hidden">
+            <div className="relative aspect-[4/5]  overflow-hidden">
               <Image
                 src="/conference/team-building.png"
-                alt="Klub Coola"
+                alt="Team building"
                 fill
                 className="object-cover"
               />
             </div>
           </motion.div>
 
-          {/* Text on the right */}
+          {/* Text on the right - starts with DecorativeBar */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5 }}
+            className="mt-10 flex flex-col h-full"
           >
             <AnimatedDecorativeBar />
             <h1 className="title-light">

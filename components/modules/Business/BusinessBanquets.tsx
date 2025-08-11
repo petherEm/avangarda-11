@@ -1,10 +1,9 @@
 "use client";
-
 import Image from "next/image";
 import { motion, useScroll, useTransform, useSpring } from "framer-motion";
 import { Container } from "@/components/container";
 import { Button } from "@/components/ui/button";
-import { useEffect, useState, useRef } from "react";
+import { useRef } from "react";
 import Link from "next/link";
 import BackgroundLogoBottomDark from "@/components/background-logo-bottom-dark";
 import { AnimatedDecorativeBar } from "@/components/animated-decorative-bar";
@@ -19,18 +18,8 @@ const fadeInUp = {
   animate: { opacity: 1, y: 0 },
 };
 
-const fadeInScale = {
-  initial: { opacity: 0, scale: 0.95 },
-  animate: { opacity: 1, scale: 1 },
-};
-
 const fadeInLeft = {
   initial: { opacity: 0, x: -30 },
-  animate: { opacity: 1, x: 0 },
-};
-
-const fadeInRight = {
-  initial: { opacity: 0, x: 30 },
   animate: { opacity: 1, x: 0 },
 };
 
@@ -40,45 +29,27 @@ const slideInFromRight = {
 };
 
 const BusinessBanquets = ({ lang = "pl", dict }: BusinessBanquetsProps) => {
-  const [windowWidth, setWindowWidth] = useState(0);
-  const contentRef = useRef<HTMLDivElement>(null);
   const sectionRef = useRef<HTMLDivElement>(null);
   const banquetsUrl =
     lang === "en" ? "/en/business-banquets" : "/pl/biznes-bankiety";
 
-  // Parallax scroll effects - Images move inside static frames
+  // Parallax scroll effects
   const { scrollYProgress } = useScroll({
     target: sectionRef,
     offset: ["start end", "end start"],
   });
 
-  // Faster, more responsive spring animations
   const springConfig = { stiffness: 400, damping: 40, restDelta: 0.001 };
-
-  // Extreme parallax - images move way beyond frame boundaries
-  const mainImageY = useSpring(
-    useTransform(scrollYProgress, [0, 1], ["40%", "-40%"]),
+  const imageY = useSpring(
+    useTransform(scrollYProgress, [0, 1], ["15%", "-15%"]),
     springConfig
   );
-  const secondaryImageY = useSpring(
-    useTransform(scrollYProgress, [0, 1], ["-40%", "40%"]),
-    springConfig
-  );
-
-  useEffect(() => {
-    setWindowWidth(window.innerWidth);
-    const handleResize = () => {
-      setWindowWidth(window.innerWidth);
-    };
-    window.addEventListener("resize", handleResize);
-    return () => window.removeEventListener("resize", handleResize);
-  }, []);
 
   return (
     <div ref={sectionRef} className="relative overflow-hidden">
-      <Container className="relative w-full py-8 sm:py-12 md:py-16 lg:py-20 xl:py-24 mt-8 sm:mt-12 md:mt-16 lg:mt-20 mb-8 sm:mb-12 md:mb-16 lg:mb-20">
-        {/* Static Background - No Parallax */}
-        <div className="absolute inset-0 lg:max-h-[1200px] z-0">
+      <Container className="relative w-full py-8 sm:py-12 md:py-16 lg:py-20 xl:py-24 mt-8 sm:mt-12 md:mt-16 lg:mt-20 mb-8 sm:mb-12 md:mb-14 lg:mb-14">
+        {/* Background */}
+        <div className="absolute inset-0 lg:max-h-[1100px] z-0">
           <BackgroundLogoBottomDark />
         </div>
 
@@ -86,9 +57,8 @@ const BusinessBanquets = ({ lang = "pl", dict }: BusinessBanquetsProps) => {
           <div className="max-w-7xl mx-auto">
             {/* Mobile Layout - Stacked */}
             <div className="block lg:hidden">
-              {/* Content Section - Mobile First */}
+              {/* Content Section - Mobile */}
               <motion.div
-                ref={contentRef}
                 className="space-y-4 sm:space-y-6 md:space-y-8 mb-8 sm:mb-12"
                 initial="initial"
                 whileInView="animate"
@@ -101,7 +71,7 @@ const BusinessBanquets = ({ lang = "pl", dict }: BusinessBanquetsProps) => {
                     transition={{ delay: 0.2, duration: 0.6 }}
                     className="title-dark"
                   >
-                    Wieczory pełne charakteru
+                    Wieczory pełne smaku
                   </motion.h1>
                 </div>
 
@@ -124,64 +94,39 @@ const BusinessBanquets = ({ lang = "pl", dict }: BusinessBanquetsProps) => {
                 </div>
               </motion.div>
 
-              {/* Mobile Images */}
+              {/* Mobile Image */}
               <motion.div
-                className="relative mb-4 sm:mb-12"
+                className="relative mb-8 sm:mb-12"
                 initial="initial"
                 whileInView="animate"
                 viewport={{ once: true }}
               >
-                <div className="relative z-50 -mt-4 space-y-4 overflow-hidden">
-                  <div className="w-full aspect-[6/5] sm:aspect-[4/3] relative overflow-hidden">
-                    <motion.div
-                      className="relative w-full"
-                      style={{
-                        y: mainImageY,
-                        height: "140%",
-                        top: "-20%",
-                      }}
-                      initial={{ opacity: 0 }}
-                      whileInView={{ opacity: 1 }}
-                      transition={{ duration: 0.8, delay: 0.2 }}
-                    >
-                      <Image
-                        src="/business/fingerfood.jpeg"
-                        alt="Finger food platter"
-                        fill
-                        priority
-                        className="object-cover"
-                      />
-                      <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"></div>
-                    </motion.div>
-                  </div>
-
-                  <div className="w-full aspect-[4/3] relative overflow-hidden">
-                    <motion.div
-                      className="relative w-full"
-                      style={{
-                        y: secondaryImageY,
-                        height: "140%",
-                        top: "-20%",
-                      }}
-                      initial={{ opacity: 0 }}
-                      whileInView={{ opacity: 1 }}
-                      transition={{ duration: 0.8, delay: 0.4 }}
-                    >
-                      <Image
-                        src="/conference/theater-01.jpg"
-                        alt="Professional theater-style conference room"
-                        fill
-                        className="object-cover"
-                      />
-                      <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"></div>
-                    </motion.div>
-                  </div>
+                <div className="w-full aspect-[4/3] relative overflow-hidden">
+                  <motion.div
+                    className="relative w-full"
+                    style={{
+                      y: imageY,
+                      height: "120%",
+                      top: "-10%",
+                    }}
+                    initial={{ opacity: 0 }}
+                    whileInView={{ opacity: 1 }}
+                    transition={{ duration: 0.8, delay: 0.2 }}
+                  >
+                    <Image
+                      src="/business/fingerfood.jpeg"
+                      alt="Finger food platter"
+                      fill
+                      priority
+                      className="object-cover"
+                    />
+                  </motion.div>
                 </div>
               </motion.div>
 
               {/* Features List - Mobile */}
               <motion.div
-                className="grid grid-cols-2 gap-3 sm:gap-4 md:gap-6 overflow-x-hidden"
+                className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4 md:gap-6"
                 initial="initial"
                 whileInView="animate"
                 viewport={{ once: false, amount: 0.3 }}
@@ -223,7 +168,7 @@ const BusinessBanquets = ({ lang = "pl", dict }: BusinessBanquetsProps) => {
                   <div className="text-lg sm:text-xl md:text-2xl font-bold text-white mb-1">
                     Uroczyste gale
                   </div>
-                  <div className="text-xs sm:text-sm md:text-base text-white/80 text-left">
+                  <div className="text-xs sm:text-sm md:text-base text-white/80">
                     Celebruj w wyjątkowej oprawie
                   </div>
                 </motion.div>
@@ -237,7 +182,7 @@ const BusinessBanquets = ({ lang = "pl", dict }: BusinessBanquetsProps) => {
                   <div className="text-lg sm:text-xl md:text-2xl font-bold text-white mb-1">
                     Wieczory tematyczne
                   </div>
-                  <div className="text-xs sm:text-sm md:text-base text-white/80 text-left">
+                  <div className="text-xs sm:text-sm md:text-base text-white/80">
                     Buduj dobre wspomnienia
                   </div>
                 </motion.div>
@@ -251,7 +196,7 @@ const BusinessBanquets = ({ lang = "pl", dict }: BusinessBanquetsProps) => {
                   <div className="text-lg sm:text-xl md:text-2xl font-bold text-white mb-1">
                     Pokazy kulinarne
                   </div>
-                  <div className="text-xs sm:text-sm md:text-base text-white/80 text-left">
+                  <div className="text-xs sm:text-sm md:text-base text-white/80">
                     Warsztaty i stacje live cooking
                   </div>
                 </motion.div>
@@ -265,7 +210,7 @@ const BusinessBanquets = ({ lang = "pl", dict }: BusinessBanquetsProps) => {
                   <div className="text-lg sm:text-xl md:text-2xl font-bold text-white mb-1">
                     Muzyka
                   </div>
-                  <div className="text-xs sm:text-sm md:text-base text-white/80 text-left">
+                  <div className="text-xs sm:text-sm md:text-base text-white/80">
                     DJ lub muzyka na żywo
                   </div>
                 </motion.div>
@@ -273,7 +218,7 @@ const BusinessBanquets = ({ lang = "pl", dict }: BusinessBanquetsProps) => {
                 <motion.div
                   variants={slideInFromRight}
                   transition={{ delay: 0.7, duration: 0.6 }}
-                  className="col-span-2 flex justify-center pt-4 sm:pt-6"
+                  className="col-span-1 sm:col-span-2 flex justify-center pt-4 sm:pt-6"
                 >
                   <Link href={banquetsUrl}>
                     <Button
@@ -288,13 +233,43 @@ const BusinessBanquets = ({ lang = "pl", dict }: BusinessBanquetsProps) => {
               </motion.div>
             </div>
 
-            {/* Desktop Layout - Title moved to left, single images per column */}
+            {/* Desktop Layout - Image left, content right */}
             <div className="hidden lg:block">
-              {/* Two Column Layout */}
-              <div className="grid lg:grid-cols-2 gap-12 xl:gap-16 relative">
-                {/* Left Column */}
+              <div className="grid lg:grid-cols-2 gap-12 xl:gap-16 relative items-start">
+                {/* Left Column - Image aligned with DecorativeBar */}
+                <motion.div
+                  className="relative"
+                  initial="initial"
+                  whileInView="animate"
+                  viewport={{ once: true }}
+                >
+                  <div className="relative h-[800px] xl:h-[900px] w-full overflow-hidden">
+                    <motion.div
+                      className="relative w-full"
+                      style={{
+                        y: imageY,
+                        height: "110%",
+                        top: "-10%",
+                      }}
+                      initial={{ opacity: 0 }}
+                      whileInView={{ opacity: 1 }}
+                      transition={{ duration: 0.6, delay: 0.2 }}
+                    >
+                      <Image
+                        src="/business/fingerfood.jpeg"
+                        alt="Finger food platter"
+                        fill
+                        priority
+                        className="object-cover"
+                        quality={100}
+                      />
+                    </motion.div>
+                  </div>
+                </motion.div>
+
+                {/* Right Column - Content starting with DecorativeBar */}
                 <div className="space-y-8">
-                  {/* Title moved to left column */}
+                  {/* Title and Text */}
                   <motion.div
                     initial="initial"
                     whileInView="animate"
@@ -304,126 +279,60 @@ const BusinessBanquets = ({ lang = "pl", dict }: BusinessBanquetsProps) => {
                     <motion.h1
                       variants={fadeInUp}
                       transition={{ delay: 0.2, duration: 0.6 }}
-                      className="title-dark text-left"
+                      className="title-dark text-left mb-6"
                     >
                       Wieczory pełne smaku
                     </motion.h1>
-                  </motion.div>
-
-                  {/* Text Content */}
-                  <motion.div
-                    className="space-y-6"
-                    initial="initial"
-                    whileInView="animate"
-                    viewport={{ once: true }}
-                  >
-                    <motion.p
-                      variants={fadeInLeft}
-                      transition={{ delay: 0.3, duration: 0.6 }}
-                      className="text-lg leading-relaxed text-white"
-                    >
-                      Niewątpliwie jednym z naszych największych atutów jest
-                      kuchnia, bardzo wysoko oceniana przez Gości, oferująca
-                      potrawy przygotowane z najwyższą starannością, smaczne,
-                      precyzyjnie dobrane do charakteru każdego spotkania.
-                    </motion.p>
-                    <motion.p
-                      variants={fadeInLeft}
-                      transition={{ delay: 0.3, duration: 0.6 }}
-                      className="text-lg leading-relaxed text-white"
-                    >
-                      Przygotowana przez nas pełna oprawa wieczoru, w tym muzyka
-                      czy scenariusz kolacji tematycznej, sprawi, że Państwa
-                      wydarzenie na długo pozostanie w pamięci uczestników,
-                      pozostawiając same dobre wspomnienia i wzmacniając relacje
-                      w zespole.
-                    </motion.p>
 
                     <motion.div
-                      variants={fadeInLeft}
-                      transition={{ delay: 0.4, duration: 0.6 }}
+                      className="space-y-6 mb-8"
+                      initial="initial"
+                      whileInView="animate"
+                      viewport={{ once: true }}
                     >
-                      <Link href={banquetsUrl}>
-                        <Button
-                          size="lg"
-                          variant="fillRight"
-                          className="border-none"
-                        >
-                          Pobierz ofertę
-                        </Button>
-                      </Link>
+                      <motion.p
+                        variants={fadeInLeft}
+                        transition={{ delay: 0.3, duration: 0.6 }}
+                        className="text-lg leading-relaxed text-white"
+                      >
+                        Niewątpliwie jednym z naszych największych atutów jest
+                        kuchnia, bardzo wysoko oceniana przez Gości, oferująca
+                        potrawy przygotowane z najwyższą starannością, smaczne,
+                        precyzyjnie dobrane do charakteru każdego spotkania.
+                      </motion.p>
+
+                      <motion.p
+                        variants={fadeInLeft}
+                        transition={{ delay: 0.4, duration: 0.6 }}
+                        className="text-lg leading-relaxed text-white"
+                      >
+                        Przygotowana przez nas pełna oprawa wieczoru, w tym
+                        muzyka czy scenariusz kolacji tematycznej, sprawi, że
+                        Państwa wydarzenie na długo pozostanie w pamięci
+                        uczestników, pozostawiając same dobre wspomnienia i
+                        wzmacniając relacje w zespole.
+                      </motion.p>
+
+                      <motion.div
+                        variants={fadeInLeft}
+                        transition={{ delay: 0.5, duration: 0.6 }}
+                      >
+                        <Link href={banquetsUrl}>
+                          <Button
+                            size="lg"
+                            variant="fillRight"
+                            className="border-none"
+                          >
+                            Pobierz ofertę
+                          </Button>
+                        </Link>
+                      </motion.div>
                     </motion.div>
-                  </motion.div>
-
-                  {/* Tall Narrow Image - Lower width, bigger height, extending beyond gray */}
-                  <motion.div
-                    className="relative mt-12"
-                    initial="initial"
-                    whileInView="animate"
-                    viewport={{ once: true }}
-                  >
-                    <div className="relative h-[600px] xl:h-[700px] w-[100%] overflow-hidden">
-                      <motion.div
-                        className="relative w-full"
-                        style={{
-                          y: mainImageY,
-                          height: "140%",
-                          top: "-20%",
-                        }}
-                        initial={{ opacity: 0 }}
-                        whileInView={{ opacity: 1 }}
-                        transition={{ duration: 0.6, delay: 0.6 }}
-                      >
-                        <Image
-                          src="/conference/theater-01.jpg"
-                          alt="Elegant banquet hall setup"
-                          fill
-                          priority
-                          className="object-cover"
-                          quality={100}
-                        />
-                        <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent"></div>
-                      </motion.div>
-                    </div>
-                  </motion.div>
-                </div>
-
-                {/* Right Column */}
-                <div className="space-y-8">
-                  {/* Single Top Image - Lower width, bigger height, extending beyond gray */}
-                  <motion.div
-                    className="relative -mt-36 overflow-hidden"
-                    initial="initial"
-                    whileInView="animate"
-                    viewport={{ once: true }}
-                  >
-                    <div className="relative h-[500px] xl:h-[700px] w-[100%] mr-auto overflow-hidden">
-                      <motion.div
-                        className="relative w-full"
-                        style={{
-                          y: secondaryImageY,
-                          height: "120%",
-                          top: "0%",
-                        }}
-                        initial={{ opacity: 0 }}
-                        whileInView={{ opacity: 1 }}
-                        transition={{ duration: 0.6, delay: 0.2 }}
-                      >
-                        <Image
-                          src="/business/fingerfood.jpeg"
-                          alt="Finger food platter"
-                          fill
-                          className="object-cover object-left-top"
-                          quality={100}
-                        />
-                        <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"></div>
-                      </motion.div>
-                    </div>
                   </motion.div>
 
                   {/* Features List - Desktop */}
                   <motion.div
-                    className="grid grid-cols-2 gap-6 pt-8"
+                    className="grid grid-cols-2 gap-6"
                     initial="initial"
                     whileInView="animate"
                     viewport={{ once: true }}

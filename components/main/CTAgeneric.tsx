@@ -26,7 +26,7 @@ const images = [
 const duplicatedImages = [...images, ...images];
 
 const Entertainment = ({ lang = "pl", dict }: EntertainmentProps) => {
-  const phoneNumber = "+48 574 383 282";
+  const phoneNumber = "+48 29 752 50 34";
 
   const [shouldAnimate, setShouldAnimate] = useState(false);
 
@@ -38,10 +38,10 @@ const Entertainment = ({ lang = "pl", dict }: EntertainmentProps) => {
   }, []);
 
   return (
-    <section className="w-full text-primary py-4 md:py-12 overflow-hidden mb-8 relative">
-      <div className="w-full md:py-12 relative z-10">
+    <section className="w-full text-primary overflow-hidden mb-8 relative">
+      <div className="w-full md:py-12 xl:py-6 relative z-10">
         {/* Content Container */}
-        <div className="max-w-7xl mx-auto px-4 space-y-6 py-16">
+        <div className="max-w-7xl mx-auto px-4 space-y-6">
           <h1 className="title-light text-center text-avangarda">
             Zarezerwuj swój pobyt już dziś!
           </h1>

@@ -342,7 +342,7 @@ export default function ConferenceRoomsComponent({
   const phoneNumber = "+48 574 383 282";
 
   return (
-    <div className="mt-20 mb-10 bg-gradient-to-br from-gray-50 to-white w-full text-slate-800 py-12 md:py-20">
+    <div className="mt-10 mb-10 bg-gradient-to-br from-gray-50 to-white w-full text-primary py-8 md:py-14">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header Section */}
         <motion.div

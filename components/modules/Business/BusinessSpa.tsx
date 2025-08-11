@@ -117,7 +117,7 @@ const BusinessSpa = ({ lang = "pl", dict }: BusinessSpaProps) => {
 
   return (
     <div ref={sectionRef} className="relative overflow-hidden">
-      <Container className="relative w-full py-8 sm:py-12 md:py-16 lg:py-20 xl:py-32 mt-8 sm:mt-12 md:mt-16 lg:mt-20 mb-8 sm:mb-12 md:mb-16 lg:mb-32">
+      <Container className="relative w-full py-8 sm:py-12 md:py-16 lg:py-16 xl:py-20 mt-8 sm:mt-12 md:mt-16 lg:mt-20 mb-8 sm:mb-10 md:mb-10 lg:mb-12">
         {/* Static Background - No Parallax */}
         <div className="absolute inset-0 lg:max-h-[1800px] xl:max-h-[1500px] z-0">
           <BackgroundLogoBottomDark />

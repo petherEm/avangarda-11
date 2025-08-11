@@ -91,7 +91,7 @@ export default function TrustedCompanies({
   const secondRow = companies.slice(8, 16);
 
   return (
-    <div className="bg-white w-full text-primary py-16 lg:py-20">
+    <div className="bg-white w-full text-primary py-8 lg:py-10">
       {/* Header Section - Contained */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6">
         <motion.div
