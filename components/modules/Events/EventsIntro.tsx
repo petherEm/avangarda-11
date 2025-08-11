@@ -62,7 +62,7 @@ export default function EventsIntro({ dict, lang }: EventsIntroProps) {
             className="relative aspect-square w-full overflow-hidden"
           >
             <Image
-              src="/wedding/wed-room-04.jpg"
+              src="/wedding/family-events.jpeg"
               alt={t("events.title")}
               fill
               className="object-cover"

@@ -32,7 +32,7 @@ const RestaurantNew = ({ dict, lang }: RestaurantProps) => {
   const restaurantUrl = lang === "en" ? "/en/restaurants" : "/pl/restauracja";
 
   return (
-    <Container className="bg-white w-full text-primary py-8 md:py-16 mb-28 md:mb-32">
+    <Container className="bg-white w-full text-primary py-8 md:py-20 mb-18 md:mb-20">
       <div className="max-w-7xl mx-auto">
         {/* Top Row - Whiskey image on left, text content on right */}
         <motion.div

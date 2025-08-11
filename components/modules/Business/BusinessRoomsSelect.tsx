@@ -149,7 +149,7 @@ const conferenceRoomsData: ConferenceRoom[] = [
   {
     id: "sosnowa-ab",
     name: "Sala Sosnowa A+B",
-    imageSrc: "/conference/conf-01.webp",
+    imageSrc: "/conference/sosna-room-01.jpeg",
     description:
       "Funkcjonalna, naturalnie urządzona sala, z dostępem do światła dziennego i możliwością zaciemnienia. Posiada bezpośrednie wyjście na umeblowany taras.",
     area: 90,
@@ -165,7 +165,7 @@ const conferenceRoomsData: ConferenceRoom[] = [
   {
     id: "sosnowa-a",
     name: "Sala Sosnowa A",
-    imageSrc: "/conference/conf-01.webp",
+    imageSrc: "/conference/sosna-room-03.jpeg",
     description:
       "Funkcjonalna, naturalnie urządzona sala, z dostępem do światła dziennego i możliwością zaciemnienia. Posiada bezpośrednie wyjście na umeblowany taras.",
     area: 45,
@@ -181,7 +181,7 @@ const conferenceRoomsData: ConferenceRoom[] = [
   {
     id: "sosnowa-b",
     name: "Sala Sosnowa B",
-    imageSrc: "/conference/conf-01.webp",
+    imageSrc: "/conference/sosna-room-02.jpeg",
     description:
       "Funkcjonalna, naturalnie urządzona sala, z dostępem do światła dziennego i możliwością zaciemnienia. ",
     area: 45,
@@ -197,7 +197,7 @@ const conferenceRoomsData: ConferenceRoom[] = [
   {
     id: "kominkowa",
     name: "Sala Kominkowa",
-    imageSrc: "/conference/conf-01.webp",
+    imageSrc: "/conference/kominkowa-room-01.jpeg",
     description:
       "Ekskluzywna przestrzeń biznesowa z eleganckim wystrojem wnętrza oraz otwartym kominkiem. Posiada bezpośrednie przejście do części hotelowej zapewniające dyskrecję i wygodę, a dedykowany taras i własna łazienka dopełniają komfortu uczestników.",
     area: 45,

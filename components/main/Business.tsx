@@ -74,7 +74,7 @@ const Business = ({ lang = "pl", dict }: BusinessProps) => {
 
   return (
     <div ref={sectionRef} className="relative overflow-hidden">
-      <Container className="relative w-full py-8 sm:py-12 md:py-16 lg:py-20 xl:py-24 mt-8 sm:mt-12 md:mt-16 lg:mt-20 mb-8 sm:mb-12 md:mb-16 lg:mb-20">
+      <Container className="relative w-full py-8 sm:py-10 md:py-10 lg:py-10 xl:py-10 mt-8 sm:mt-12 md:mt-16 lg:mt-20 mb-8 sm:mb-12 md:mb-10 lg:mb-10">
         {/* Static Background - No Parallax */}
         <div className="absolute inset-0 lg:max-h-[1200px] z-0">
           <BackgroundLogoBottomDark />
@@ -290,7 +290,7 @@ const Business = ({ lang = "pl", dict }: BusinessProps) => {
                     <motion.p
                       variants={fadeInLeft}
                       transition={{ delay: 0.3, duration: 0.6 }}
-                      className="text-lg leading-relaxed text-white"
+                      className="text-lg leading-relaxed text-white whitespace-pre-line"
                     >
                       Butikowy hotel, położony w cichym, zielonym zakątku
                       Mazowsza, zaledwie godzinę drogi od Warszawy, oferuje

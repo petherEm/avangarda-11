@@ -12,7 +12,7 @@ const BackgroundLogoBottomDark = ({
   return (
     <>
       {/* Background with Logo Pattern */}
-      <div className="absolute inset-0 bg-gradient-to-br from-[#5a5a5c] via-[#4a4a4c] to-[#3a3a3c]">
+      <div className="absolute inset-0 bg-[#404042]">
         {/* Single Logo positioned based on props */}
         <div className="absolute inset-0">
           <div

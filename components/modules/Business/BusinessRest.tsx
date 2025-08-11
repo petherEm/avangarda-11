@@ -403,7 +403,7 @@ export default function BusinessEntertainment({
                 <div className="space-y-6">
                   <div className="relative aspect-video w-full h-[500px] overflow-hidden">
                     <Image
-                      src="/outdoor/out-03.jpg"
+                      src="/outdoor/room-barbec-01.jpeg"
                       alt="Bar Przystań"
                       fill
                       className="object-cover"
@@ -470,7 +470,7 @@ export default function BusinessEntertainment({
                 <div className="space-y-6">
                   <div className="relative aspect-video w-full h-[500px] overflow-hidden">
                     <Image
-                      src="/outdoor/out-03.jpg"
+                      src="/restaurant/bar-przystan-main.jpeg"
                       alt="Bar Przystań"
                       fill
                       className="object-cover"

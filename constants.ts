@@ -308,7 +308,7 @@ export const VENUES_DATA: Record<string, VenueCapacity> = {
       "events.venues.salaKominkowa.features.terrace",
       "events.venues.salaKominkowa.features.dedicatedBathroom"
     ],
-    image: "/wedding/wed-room-03.jpg"
+    image: "/conference/kominkowa-room-01.jpeg"
   },
   salaSosnowa: {
     nameKey: "events.venues.salaSosnowa.name",
@@ -323,7 +323,7 @@ export const VENUES_DATA: Record<string, VenueCapacity> = {
       "events.venues.salaSosnowa.features.openBuffet",
       "events.venues.salaSosnowa.features.terrace"
     ],
-    image: "/wedding/wed-room-05.jpg"
+    image: "/conference/sosna-room-01.jpeg"
   },
   fortNo4: {
     nameKey: "events.venues.fortNo4.name",
@@ -354,7 +354,7 @@ export const VENUES_DATA: Record<string, VenueCapacity> = {
       "events.venues.port.features.childrenPlayground"
     ],
 
-    image: "/fort/fort-02.jpg"
+    image: "/restaurant/bar-przystan-main.jpeg"
   },
   openGrill: {
     nameKey: "events.venues.openGrill.name",

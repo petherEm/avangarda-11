@@ -246,7 +246,6 @@ function OfferGrid({ offers, lang = "en" }: OfferGridProps) {
                       }
                       fill
                       className="object-cover"
-                      sizes="(max-width: 768px) 85vw, (max-width: 1200px) 48vw, 32vw"
                     />
 
                     {/* Enhanced gradient overlay */}

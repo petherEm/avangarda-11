@@ -29,10 +29,11 @@ export default async function Home({
 
       <Offers dict={dict} offers={offers} lang={lang} />
       <Business lang={lang} dict={dict} />
-      <TrustedCompaniesMain dict={dict} lang={lang} />
+
       <Weddings dict={dict} lang={lang} />
       <RestaurantNew dict={dict} lang={lang} />
       <Spa dict={dict} lang={lang} />
+      <TrustedCompaniesMain dict={dict} lang={lang} />
       <CTAgeneric dict={dict} lang={lang} />
       <HotelPopup popups={popups} lang={lang} />
     </>

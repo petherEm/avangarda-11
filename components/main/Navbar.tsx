@@ -78,7 +78,7 @@ export function Navbar({ lang, dict }: NavbarProps) {
   const pathname = usePathname();
 
   // Add phone number constant
-  const phoneNumber = "+48 29 7525034"; // Replace with actual phone number
+  const phoneNumber = "+48 29 752 50 34"; // Replace with actual phone number
 
   // Detect touch device
   React.useEffect(() => {
