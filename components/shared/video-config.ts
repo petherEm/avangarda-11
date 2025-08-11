@@ -27,14 +27,14 @@ export const VIDEO_CONFIG = {
     fallbackAlt: "Events background",
   },
   entertainment: {
-    videoSrc: "entertain_reduced",
-    fallbackImage: "/loading-fallbacks/entertain-fallback.png",
+    videoSrc: "entertain-2_reduced",
+    fallbackImage: "/loading-fallbacks/entertain2-fallback.png",
     fallbackAlt: "Entertainment background",
   },
   forKids: {
-    videoSrc: "entertain_reduced",
-    fallbackImage: "/loading-fallbacks/entertain-fallback.png",
-    fallbackAlt: "Entertainment background",
+    videoSrc: "kids_reduced",
+    fallbackImage: "/loading-fallbacks/kids-fallback.png",
+    fallbackAlt: "K background",
   },
   offers: {
     videoSrc: "entertain_reduced", // Same as entertainment

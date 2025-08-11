@@ -145,8 +145,8 @@ const BusinessBanquets = ({ lang = "pl", dict }: BusinessBanquetsProps) => {
                       transition={{ duration: 0.8, delay: 0.2 }}
                     >
                       <Image
-                        src="/conference/banquet-01.jpg"
-                        alt="Elegant banquet hall setup"
+                        src="/business/fingerfood.jpeg"
+                        alt="Finger food platter"
                         fill
                         priority
                         className="object-cover"
@@ -375,7 +375,7 @@ const BusinessBanquets = ({ lang = "pl", dict }: BusinessBanquetsProps) => {
                         transition={{ duration: 0.6, delay: 0.6 }}
                       >
                         <Image
-                          src="/conference/banquet-01.jpg"
+                          src="/conference/theater-01.jpg"
                           alt="Elegant banquet hall setup"
                           fill
                           priority
@@ -410,8 +410,8 @@ const BusinessBanquets = ({ lang = "pl", dict }: BusinessBanquetsProps) => {
                         transition={{ duration: 0.6, delay: 0.2 }}
                       >
                         <Image
-                          src="/conference/theater-01.jpg"
-                          alt="Professional theater-style conference room"
+                          src="/business/fingerfood.jpeg"
+                          alt="Finger food platter"
                           fill
                           className="object-cover object-left-top"
                           quality={100}

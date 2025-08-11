@@ -143,7 +143,7 @@ const Business = ({ lang = "pl", dict }: BusinessProps) => {
                       transition={{ duration: 0.8, delay: 0.2 }}
                     >
                       <Image
-                        src="/conference/theater-03.jpg"
+                        src="/business/conf-new-01.jpeg"
                         alt="Sala konferencyjna"
                         fill
                         priority
@@ -339,7 +339,7 @@ const Business = ({ lang = "pl", dict }: BusinessProps) => {
                         transition={{ duration: 0.6, delay: 0.6 }}
                       >
                         <Image
-                          src="/conference/theater-03.jpg"
+                          src="/business/conf-new-01.jpeg"
                           alt="Duża sala konferencyjna"
                           fill
                           priority

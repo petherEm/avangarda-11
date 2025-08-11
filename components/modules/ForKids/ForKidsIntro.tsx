@@ -286,24 +286,6 @@ export default function ForKidsIntro({
                     Plaża, piasek i zabawa
                   </p>
                 </div>
-
-                <div className="bg-avangarda/10 p-4">
-                  <div className="flex items-center gap-2 mb-2">
-                    <UtensilsCrossed className="h-5 w-5 text-avangarda" />
-                    <h3 className="font-medium text-primary">Bar</h3>
-                  </div>
-                  <p className="text-sm text-slate-600">Napoje i przekąski</p>
-                </div>
-
-                <div className="bg-avangarda/10 p-4">
-                  <div className="flex items-center gap-2 mb-2">
-                    <Users className="h-5 w-5 text-avangarda" />
-                    <h3 className="font-medium text-primary">Wygodne loże</h3>
-                  </div>
-                  <p className="text-sm text-slate-600">
-                    Odpoczynek w klubowym wydaniu
-                  </p>
-                </div>
               </motion.div>
             </div>
 

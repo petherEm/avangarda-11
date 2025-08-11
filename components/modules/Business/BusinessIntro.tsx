@@ -123,13 +123,13 @@ export default function BusinessIntro({
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.3 }}
-            className="relative aspect-square w-full overflow-hidden"
+            className="relative aspect-[4/5] w-full overflow-hidden"
           >
             <Image
-              src="/conference/biznes-intro.png"
+              src="/business/business-new.jpeg"
               alt={t("business.title")}
               fill
-              className="object-cover object-center"
+              className="object-cover"
             />
           </motion.div>
         </div>

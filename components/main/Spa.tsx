@@ -139,8 +139,8 @@ const Spa = ({ lang = "pl", dict }: SpaProps) => {
                       transition={{ duration: 0.8, delay: 0.2 }}
                     >
                       <Image
-                        src="/spa/spa-08.jpg"
-                        alt="Luxurious spa interior"
+                        src="/spa/spa-new-01.jpeg"
+                        alt="SPA lady"
                         fill
                         priority
                         className="object-cover"
@@ -162,8 +162,8 @@ const Spa = ({ lang = "pl", dict }: SpaProps) => {
                       transition={{ duration: 0.8, delay: 0.4 }}
                     >
                       <Image
-                        src="/diver/offers-background-2.jpg"
-                        alt="Spa wellness area"
+                        src="/spa/spa-couple.jpeg"
+                        alt="SPA couple"
                         fill
                         className="object-cover"
                       />
@@ -322,8 +322,8 @@ const Spa = ({ lang = "pl", dict }: SpaProps) => {
                         transition={{ duration: 0.6, delay: 0.6 }}
                       >
                         <Image
-                          src="/spa/spa-08.jpg"
-                          alt="Luxurious spa interior"
+                          src="/spa/spa-couple.jpeg"
+                          alt="SPA couple"
                           fill
                           priority
                           className="object-cover"
@@ -357,8 +357,8 @@ const Spa = ({ lang = "pl", dict }: SpaProps) => {
                         transition={{ duration: 0.6, delay: 0.2 }}
                       >
                         <Image
-                          src="/diver/offers-background-2.jpg"
-                          alt="Spa wellness area"
+                          src="/spa/spa-new-01.jpeg"
+                          alt="SPA lady"
                           fill
                           className="object-cover object-right"
                           quality={100}

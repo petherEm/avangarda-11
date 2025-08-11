@@ -52,8 +52,11 @@ export default function EventTypes({
       icon: Heart,
       color: "bg-avangarda/10",
       accentColor: "text-pink-600",
-      image: "/wedding/wed-room-04.jpg",
-      galleryImages: ["/wedding/wed-room-03.jpg", "/wedding/wed-room-04.jpg"],
+      image: "/wedding/wedding-table.jpeg",
+      galleryImages: [
+        "/wedding/wedding-main.jpeg",
+        "/wedding/wedding-music.jpeg",
+      ],
       imagePosition: "left",
       events: eventsByType["wesela"] || [],
     },
@@ -74,8 +77,11 @@ export default function EventTypes({
       icon: Star,
       color: "bg-blue-50",
       accentColor: "text-blue-600",
-      image: "/wedding/wed-room-07.jpg",
-      galleryImages: ["/wedding/wed-room-04.jpg", "/wedding/wed-room-03.jpg"],
+      image: "/first-comunion/girl-baloons.jpeg",
+      galleryImages: [
+        "/first-comunion/cakes.jpeg",
+        "/first-comunion/forks.jpeg",
+      ],
       imagePosition: "right",
       events: eventsByType["komunie"] || [],
     },
@@ -201,7 +207,7 @@ function EventSection({
         <div
           className={`hidden lg:block lg:col-span-6 ${isImageLeft ? "lg:order-1" : "lg:order-2"}`}
         >
-          <div className="relative w-full aspect-[4/3] lg:aspect-square overflow-hidden shadow-lg">
+          <div className="relative w-full aspect-[4/3] lg:aspect-[4/5] overflow-hidden shadow-lg">
             <motion.div
               className="relative w-full"
               style={{

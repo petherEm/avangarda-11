@@ -194,8 +194,8 @@ const BusinessSpa = ({ lang = "pl", dict }: BusinessSpaProps) => {
                       transition={{ duration: 0.8, delay: 0.2 }}
                     >
                       <Image
-                        src="/spa/spa-06.jpg"
-                        alt="Spa & Wellness"
+                        src="/business/ladies.jpeg"
+                        alt="Ladies in SPA"
                         fill
                         priority
                         className="object-cover"
@@ -217,8 +217,8 @@ const BusinessSpa = ({ lang = "pl", dict }: BusinessSpaProps) => {
                       transition={{ duration: 0.8, delay: 0.4 }}
                     >
                       <Image
-                        src="/spa/spa-01.jpeg"
-                        alt="Strefa relaksu"
+                        src="/business/gents.jpeg"
+                        alt="Gents in SPA"
                         fill
                         className="object-cover"
                       />
@@ -404,8 +404,8 @@ const BusinessSpa = ({ lang = "pl", dict }: BusinessSpaProps) => {
                         transition={{ duration: 0.6, delay: 0.6 }}
                       >
                         <Image
-                          src="/spa/spa-06.jpg"
-                          alt="Spa & Wellness"
+                          src="/business/gents.jpeg"
+                          alt="Gents in SPA"
                           fill
                           priority
                           className="object-cover object-right"
@@ -439,8 +439,8 @@ const BusinessSpa = ({ lang = "pl", dict }: BusinessSpaProps) => {
                         transition={{ duration: 0.6, delay: 0.2 }}
                       >
                         <Image
-                          src="/spa/spa-01.jpeg"
-                          alt="Strefa relaksu"
+                          src="/business/ladies.jpeg"
+                          alt="ladies in SPA"
                           fill
                           className="object-cover object-centert"
                           quality={100}
