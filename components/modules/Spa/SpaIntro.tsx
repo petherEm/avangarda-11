@@ -495,7 +495,7 @@ export default function SpaIntro({ dict, lang, spaOffers }: SpaIntroProps) {
               {/* Fourth image - hidden on mobile */}
               <div className="relative aspect-[16/10] overflow-hidden hidden sm:block">
                 <Image
-                  src="/spa/pool-01.jpg"
+                  src="/spa/spa-pool-01.jpeg"
                   alt="Oświetlenie basenu"
                   fill
                   className="object-cover"

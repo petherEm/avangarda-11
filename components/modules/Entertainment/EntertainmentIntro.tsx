@@ -187,7 +187,7 @@ export default function OutdoorEntertainment({
               </div>
               <div className="relative aspect-[16/10] overflow-hidden">
                 <Image
-                  src="/entertainment/hotel-features-01.jpeg"
+                  src="/entertainment/entertain-hotel-new-04.jpeg"
                   alt="Spacery po okolicy"
                   fill
                   className="object-cover"
@@ -678,10 +678,10 @@ export default function OutdoorEntertainment({
               className="order-1 lg:order-2 relative w-full h-full min-h-[500px] lg:min-h-[600px] overflow-hidden"
             >
               <Image
-                src="/outdoor/active-rest-01.jpeg"
+                src="/entertainment/hotel-features-main-02.jpeg"
                 alt="Aktywny wypoczynek"
                 fill
-                className="object-cover"
+                className="object-cover object-right"
                 quality={100}
               />
             </motion.div>
