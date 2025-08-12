@@ -323,7 +323,7 @@ export const VENUES_DATA: Record<string, VenueCapacity> = {
       "events.venues.salaSosnowa.features.openBuffet",
       "events.venues.salaSosnowa.features.terrace"
     ],
-    image: "/conference/sosna-room-01.jpeg"
+    image: "/conference/sosna-room-03.jpeg"
   },
   fortNo4: {
     nameKey: "events.venues.fortNo4.name",
@@ -338,7 +338,7 @@ export const VENUES_DATA: Record<string, VenueCapacity> = {
       "events.venues.fortNo4.features.naturalSurroundings",
       "events.venues.fortNo4.features.relaxedAtmosphere"
     ],
-    image: "/fort/fort-02.jpg"
+    image: "/fort/fort-main-01.jpeg"
   },
   port: {
     nameKey: "events.venues.port.name",

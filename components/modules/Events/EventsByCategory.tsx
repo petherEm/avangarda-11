@@ -126,8 +126,11 @@ export default function EventTypes({
       icon: TreePine,
       color: "bg-green-50",
       accentColor: "text-green-600",
-      image: "/outdoor/out-02.jpg",
-      galleryImages: ["/outdoor/out-01.jpg", "/outdoor/out-04.jpg"],
+      image: "/outdoor/outdoor-event-03.jpeg",
+      galleryImages: [
+        "/outdoor/outdoor-event-01.jpg",
+        "/outdoor/outdoor-event-02.jpeg",
+      ],
       imagePosition: "right",
       events: eventsByType["przyjecia-plenerowe"] || [],
     },

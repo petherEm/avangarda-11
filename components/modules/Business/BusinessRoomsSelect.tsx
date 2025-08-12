@@ -80,7 +80,7 @@ const conferenceRoomsData: ConferenceRoom[] = [
   {
     id: "bankietowa-a",
     name: "Sala Bankietowa A",
-    imageSrc: "/conference/conf-01.webp",
+    imageSrc: "/conference/bankietowa-a-room-03.jpeg",
     description:
       "Idealna na średnie i mniejsze konferencje i bankiety. Z dostępem do światła dziennego i opcją zaciemnienia. Posiada oświetlenie sceniczne, LED-owe oraz podświetlane sufity. Klimatyzacja strefowa z możliwością nawiewu świeżego powietrza.",
     area: 340,
@@ -97,7 +97,7 @@ const conferenceRoomsData: ConferenceRoom[] = [
   {
     id: "bankietowa-b",
     name: "Sala Bankietowa B",
-    imageSrc: "/conference/conf-01.webp",
+    imageSrc: "/conference/bankietowa-b-room-02.jpeg",
     description:
       "Idealna na średnie i mniejsze konferencje i bankiety. Z dostępem do światła dziennego i opcją zaciemnienia. Posiada oświetlenie sceniczne, LED-owe oraz podświetlane sufity. Klimatyzacja strefowa z możliwością nawiewu świeżego powietrza. Możliwość podziału na 2 mniejsze sale o powierzchni 120 i 220 m2 stwarza idealną przestrzeń do organizacji kameralnych przyjęć w eleganckich wnętrzach.",
     area: 340,
@@ -113,7 +113,7 @@ const conferenceRoomsData: ConferenceRoom[] = [
   {
     id: "bankietowa-ab",
     name: "Sala Bankietowa A+B",
-    imageSrc: "/conference/conf-01.webp",
+    imageSrc: "/conference/bankietowa-ab-room-01.jpeg",
     description:
       "Nowoczesna i wszechstronna sala konferencyjno-eventowa, o wysokości 4m, bez filarów, to idealne miejsce na organizację dużych konferencji, bankietów. Z dostępem do światła dziennego i opcją zaciemnienia. Posiada możliwość wprowadzenia auta – idealne rozwiązanie dla eventów motoryzacyjnych. Posiada oświetlenie sceniczne, LED-owe oraz podświetlane sufity. Klimatyzacja strefowa z możliwością nawiewu świeżego powietrza.",
     area: 680,
@@ -130,7 +130,7 @@ const conferenceRoomsData: ConferenceRoom[] = [
   {
     id: "foyer-sali-bankietowej",
     name: "Foyer Sali Bankietowej",
-    imageSrc: "/conference/conf-01.webp",
+    imageSrc: "/conference/bankietowa-a-room-03.jpeg",
     description:
       "Idealna przestrzeń wystawiennicza i komfortowe miejsce na organizację strefy powitalnej z serwisem kawowym. Reprezentacyjna powierzchrzeń dla stoisk wystawienniczych, ekspozycji produktowych czy prezentacji multimedialnych. Posiada własne szatnie, przestronne łazienki oraz wygodne kanapy zapewniające możliwość swobodnych rozmów.",
     area: 200,
@@ -215,7 +215,7 @@ const conferenceRoomsData: ConferenceRoom[] = [
   {
     id: "sala-vip",
     name: "Sala VIP",
-    imageSrc: "/conference/conf-01.webp",
+    imageSrc: "/conference/conf-vip-01.jpeg",
     description:
       "Przytulna sala konferencyjna usytuowana na poziomie -1 hotelu. Utrzymana w eleganckim, biznesowym stylu, idealna do kameralnych spotkań czy spotkań zarządu. Bez dostępu do światła dziennego zapewnia maksymalną koncentrację, niezależnie od pory dnia",
     area: 20,
@@ -283,7 +283,7 @@ const conferenceRoomsData: ConferenceRoom[] = [
   {
     id: "fort-no-4",
     name: "Fort No. 4",
-    imageSrc: "/conference/conf-01.webp",
+    imageSrc: "/conference/conf-fort-01.jpeg",
     description:
       "Zamień standardową salę konferencyjną na zieloną otwartą przestrzeń i uwolnij kreatywność swojego zespołu w tak pięknych okolicznościach przyrody! Fort No. 4 to połączenie naturalnej prostoty z hotelowym komfortem. Zadaszona przestrzeń Fortu w połączeniu z kamiennym amfiteatrem daje możliwość wykreowania wyjątkowej przestrzeni na konferencję inną niż wszystkie. ",
     area: 350,

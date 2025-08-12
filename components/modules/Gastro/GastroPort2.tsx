@@ -74,7 +74,7 @@ export default function GastroBarPrzystan({
               className="relative aspect-square w-full overflow-hidden "
             >
               <Image
-                src="/outdoor/out-01.jpg"
+                src="/restaurant/rest-przystan-main.jpeg"
                 alt="Bar Przystań - widok na rzekę"
                 fill
                 className="object-cover"

@@ -75,10 +75,10 @@ export default function SpaIntro({ dict, lang, spaOffers }: SpaIntroProps) {
               className="relative aspect-square w-full overflow-hidden"
             >
               <Image
-                src="/spa/spa-02.jpeg"
+                src="/spa/spa-main-02.jpeg"
                 alt="Spa Avangarda - zabiegi wellness"
                 fill
-                className="object-cover"
+                className="object-cover object-left"
                 quality={100}
               />
             </motion.div>
@@ -343,11 +343,10 @@ export default function SpaIntro({ dict, lang, spaOffers }: SpaIntroProps) {
               className="relative aspect-square w-full overflow-hidden"
             >
               <Image
-                src="/spa/pool-01.jpg"
+                src="/spa/pool-main-01.jpeg"
                 alt="Basen Hotel Avangarda"
                 fill
                 className="object-cover"
-                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                 quality={100}
               />
             </motion.div>
@@ -615,7 +614,7 @@ export default function SpaIntro({ dict, lang, spaOffers }: SpaIntroProps) {
               {/* Second image - always visible */}
               <div className="relative aspect-[16/10] overflow-hidden">
                 <Image
-                  src="/spa/spa-12.jpg"
+                  src="/spa/spa-salt-02.jpeg"
                   alt="Strefa relaksu w grocie"
                   fill
                   className="object-cover"
@@ -625,7 +624,7 @@ export default function SpaIntro({ dict, lang, spaOffers }: SpaIntroProps) {
               {/* Third image - hidden on mobile */}
               <div className="relative aspect-[16/10] overflow-hidden hidden sm:block">
                 <Image
-                  src="/spa/spa-09.jpg"
+                  src="/spa/spa-salt-03.jpeg"
                   alt="Sól himalajska w grocie"
                   fill
                   className="object-cover"
@@ -635,7 +634,7 @@ export default function SpaIntro({ dict, lang, spaOffers }: SpaIntroProps) {
               {/* Fourth image - hidden on mobile */}
               <div className="relative aspect-[16/10] overflow-hidden hidden sm:block">
                 <Image
-                  src="/spa/spa-05.jpg"
+                  src="/spa/spa-salt-01.jpeg"
                   alt="Oświetlenie w grocie"
                   fill
                   className="object-cover"

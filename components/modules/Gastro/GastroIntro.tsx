@@ -42,7 +42,7 @@ const GastroIntro = ({ dict, lang, menus }: GastroIntroProps) => {
       name: "Restauracja Dzika Róża",
       description:
         "Elegancka restauracja z wykwintną kuchnią polską i międzynarodową.",
-      image: "/restaurant/rest-01.jpg",
+      image: "/restaurant/dzika-roza-main-01.jpeg",
       icon: ChefHat,
       badge: "Premium",
       features: [
@@ -58,7 +58,7 @@ const GastroIntro = ({ dict, lang, menus }: GastroIntroProps) => {
       id: "klub-coola",
       name: "Klub Coola",
       description: "Centrum rozrywki z restauracją, kręglami i biliard.",
-      image: "/klub/klub-01.JPG",
+      image: "/restaurant/rest-coola-main.jpeg",
       icon: Music,
       badge: "Rozrywka",
       features: [
@@ -72,10 +72,10 @@ const GastroIntro = ({ dict, lang, menus }: GastroIntroProps) => {
     },
     {
       id: "bar-przystan",
-      name: "Bar Przystań",
+      name: "Przystań Avangarda",
       description:
         "Klimatyczny bar nad Narwią z daniami z grilla i świeżymi rybami.",
-      image: "/outdoor/out-01.jpg",
+      image: "/restaurant/rest-przystan-main.jpeg",
       icon: Wine,
       badge: "Nad rzeką",
       features: [

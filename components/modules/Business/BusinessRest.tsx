@@ -90,6 +90,17 @@ export default function BusinessEntertainment({
           </motion.div>
         </div>
 
+        <div className="flex items-center justify-center gap-3 mb-8">
+          <h2 className="text-3xl font-semibold text-center">
+            Nasze przestrzenie
+          </h2>
+        </div>
+        <p className="main-paragraph-light text-center mb-8 max-w-3xl mx-auto">
+          Nasze przestrzenie są zaprojektowane z myślą o komforcie i
+          funkcjonalności. Oferujemy różnorodne opcje, które można dostosować do
+          indywidualnych potrzeb każdego wydarzenia.
+        </p>
+
         {/* Entertainment Options Section */}
         <motion.div
           initial={{ opacity: 0 }}
@@ -335,7 +346,7 @@ export default function BusinessEntertainment({
                 <div className="space-y-6">
                   <div className="relative aspect-video w-full h-[500px] overflow-hidden">
                     <Image
-                      src="/fort/fort-02.jpg"
+                      src="/fort/fort-main-01.jpeg"
                       alt="Fort No. 4"
                       fill
                       className="object-cover"

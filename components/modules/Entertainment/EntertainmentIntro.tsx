@@ -51,7 +51,7 @@ export default function OutdoorEntertainment({
               className="relative w-full h-full min-h-[500px] lg:min-h-[600px] overflow-hidden"
             >
               <Image
-                src="/outdoor/out-02.jpg"
+                src="/entertainment/hotel-features-main-01.jpeg"
                 alt="Hotel pełen możliwości - aktywny wypoczynek"
                 fill
                 className="object-cover"
@@ -179,7 +179,7 @@ export default function OutdoorEntertainment({
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               <div className="relative aspect-[16/10] overflow-hidden">
                 <Image
-                  src="/outdoor/out-01.jpg"
+                  src="/entertainment/hotel-features-04.jpeg"
                   alt="Spływy kajakowe po Narwi"
                   fill
                   className="object-cover"
@@ -187,7 +187,7 @@ export default function OutdoorEntertainment({
               </div>
               <div className="relative aspect-[16/10] overflow-hidden">
                 <Image
-                  src="/outdoor/out-03.jpg"
+                  src="/entertainment/hotel-features-01.jpeg"
                   alt="Spacery po okolicy"
                   fill
                   className="object-cover"
@@ -195,7 +195,7 @@ export default function OutdoorEntertainment({
               </div>
               <div className="relative aspect-[16/10] overflow-hidden hidden sm:block">
                 <Image
-                  src="/outdoor/out-02.jpg"
+                  src="/entertainment/hotel-features-02.jpeg"
                   alt="Nordic Walking"
                   fill
                   className="object-cover"
@@ -203,7 +203,7 @@ export default function OutdoorEntertainment({
               </div>
               <div className="relative aspect-[16/10] overflow-hidden hidden sm:block">
                 <Image
-                  src="/outdoor/out-04.jpg"
+                  src="/entertainment/hotel-features-03.jpeg"
                   alt="Siatkówka plażowa"
                   fill
                   className="object-cover"
@@ -319,7 +319,7 @@ export default function OutdoorEntertainment({
               className="order-1 lg:order-2 relative w-full h-full min-h-[500px] lg:min-h-[600px] overflow-hidden"
             >
               <Image
-                src="/klub/klub-05.jpg"
+                src="/klub/coola-new-05.jpeg"
                 alt="Klub Coola - centrum rodzinnej rozrywki"
                 fill
                 className="object-cover"
@@ -351,7 +351,7 @@ export default function OutdoorEntertainment({
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               <div className="relative aspect-[16/10] overflow-hidden">
                 <Image
-                  src="/klub/klub-06.jpg"
+                  src="/klub/coola-new-01.jpeg"
                   alt="Rzutki w Klubie Coola"
                   fill
                   className="object-cover"
@@ -359,7 +359,7 @@ export default function OutdoorEntertainment({
               </div>
               <div className="relative aspect-[16/10] overflow-hidden">
                 <Image
-                  src="/klub/klub-07.jpg"
+                  src="/klub/coola-new-02.jpeg"
                   alt="Cymbergaj w Klubie Coola"
                   fill
                   className="object-cover"
@@ -367,7 +367,7 @@ export default function OutdoorEntertainment({
               </div>
               <div className="relative aspect-[16/10] overflow-hidden hidden sm:block">
                 <Image
-                  src="/klub/klub-05.jpg"
+                  src="/klub/coola-new-03.jpeg"
                   alt="Bilard w Klubie Coola"
                   fill
                   className="object-cover"
@@ -375,7 +375,7 @@ export default function OutdoorEntertainment({
               </div>
               <div className="relative aspect-[16/10] overflow-hidden hidden sm:block">
                 <Image
-                  src="/klub/klub-04.JPG"
+                  src="/klub/coola-new-04.jpeg"
                   alt="Bar w Klubie Coola"
                   fill
                   className="object-cover"
@@ -678,8 +678,8 @@ export default function OutdoorEntertainment({
               className="order-1 lg:order-2 relative w-full h-full min-h-[500px] lg:min-h-[600px] overflow-hidden"
             >
               <Image
-                src="/spa/pool-01.jpg"
-                alt="Aktywny wypoczynek - basen i relaks"
+                src="/outdoor/active-rest-01.jpeg"
+                alt="Aktywny wypoczynek"
                 fill
                 className="object-cover"
                 quality={100}
@@ -710,32 +710,32 @@ export default function OutdoorEntertainment({
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               <div className="relative aspect-[16/10] overflow-hidden">
                 <Image
-                  src="/spa/pool-kids.jpg"
-                  alt="Basen z hydromasażem"
+                  src="/outdoor/active-rest-03.jpeg"
+                  alt="Aktywny wypoczynek"
                   fill
                   className="object-cover"
                 />
               </div>
               <div className="relative aspect-[16/10] overflow-hidden">
                 <Image
-                  src="/spa/pool-03.jpg"
-                  alt="Strefa relaksu przy basenie"
+                  src="/outdoor/active-rest-04.jpeg"
+                  alt="Aktywny wypoczynek"
                   fill
                   className="object-cover"
                 />
               </div>
               <div className="relative aspect-[16/10] overflow-hidden hidden sm:block">
                 <Image
-                  src="/spa/pool-01.jpg"
-                  alt="Widok na basen z góry"
+                  src="/outdoor/active-rest-02.jpeg"
+                  alt="Aktywny wypoczynek"
                   fill
                   className="object-cover"
                 />
               </div>
               <div className="relative aspect-[16/10] overflow-hidden hidden sm:block">
                 <Image
-                  src="/spa/pool-02.jpg"
-                  alt="Oświetlenie basenu"
+                  src="/outdoor/active-rest-05.jpeg"
+                  alt="Aktywny wypoczynek"
                   fill
                   className="object-cover"
                 />
@@ -757,7 +757,7 @@ export default function OutdoorEntertainment({
               className="relative w-full h-full min-h-[500px] lg:min-h-[600px] overflow-hidden"
             >
               <Image
-                src="/fort/fort-05.png"
+                src="/entertainment/weekend-enter-main-01.jpeg"
                 alt="Weekendy pełne atrakcji - Fort no.5"
                 fill
                 className="object-cover"
@@ -897,7 +897,7 @@ export default function OutdoorEntertainment({
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               <div className="relative aspect-[16/10] overflow-hidden">
                 <Image
-                  src="/fort/fort-06.jpg"
+                  src="/entertainment/weekend-enter-04.jpeg"
                   alt="Fort no.5 - wnętrze"
                   fill
                   className="object-cover"
@@ -905,7 +905,7 @@ export default function OutdoorEntertainment({
               </div>
               <div className="relative aspect-[16/10] overflow-hidden">
                 <Image
-                  src="/fort/fort-04.jpg"
+                  src="/entertainment/weekend-enter-01.jpeg"
                   alt="Fort no.5 - miejsce grillowe"
                   fill
                   className="object-cover"
@@ -913,7 +913,7 @@ export default function OutdoorEntertainment({
               </div>
               <div className="relative aspect-[16/10] overflow-hidden hidden sm:block">
                 <Image
-                  src="/fort/fort-05.png"
+                  src="/entertainment/weekend-enter-02.jpeg"
                   alt="Fort no.5 - zewnętrzny widok"
                   fill
                   className="object-cover"
@@ -921,7 +921,7 @@ export default function OutdoorEntertainment({
               </div>
               <div className="relative aspect-[16/10] overflow-hidden hidden sm:block">
                 <Image
-                  src="/fort/fort-03.jpg"
+                  src="/entertainment/weekend-enter-03.jpeg"
                   alt="Fort no.5 - historyczne wnętrze"
                   fill
                   className="object-cover"

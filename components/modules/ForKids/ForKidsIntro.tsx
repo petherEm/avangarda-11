@@ -48,7 +48,7 @@ export default function ForKidsIntro({
               className="relative w-full h-full min-h-[500px] lg:min-h-[600px] overflow-hidden"
             >
               <Image
-                src="/outdoor/out-02.jpg"
+                src="/kids/kids-friendly-main-01.jpeg"
                 alt="Hotel pełen możliwości - aktywny wypoczynek"
                 fill
                 className="object-cover"
@@ -376,7 +376,7 @@ export default function ForKidsIntro({
               className="relative w-full h-full min-h-[500px] lg:min-h-[600px] overflow-hidden"
             >
               <Image
-                src="/outdoor/out-07.jpg"
+                src="/kids/kids-spa-01.jpeg"
                 alt="Atrakcje dla dzieci - plac zabaw"
                 fill
                 className="object-cover"
@@ -491,7 +491,7 @@ export default function ForKidsIntro({
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               <div className="relative aspect-[16/10] overflow-hidden">
                 <Image
-                  src="/outdoor/out-04.jpg"
+                  src="/kids/kids-spa-05.jpeg"
                   alt="Plac zabaw dla dzieci"
                   fill
                   className="object-cover"
@@ -499,7 +499,7 @@ export default function ForKidsIntro({
               </div>
               <div className="relative aspect-[16/10] overflow-hidden">
                 <Image
-                  src="/outdoor/out-06.jpg"
+                  src="/kids/kids-spa-04.jpeg"
                   alt="Ścieżka edukacyjna"
                   fill
                   className="object-cover"
@@ -507,7 +507,7 @@ export default function ForKidsIntro({
               </div>
               <div className="relative aspect-[16/10] overflow-hidden hidden sm:block">
                 <Image
-                  src="/outdoor/out-07.jpg"
+                  src="/kids/kids-spa-03.jpeg"
                   alt="Brodzik dla dzieci"
                   fill
                   className="object-cover"
@@ -515,7 +515,7 @@ export default function ForKidsIntro({
               </div>
               <div className="relative aspect-[16/10] overflow-hidden hidden sm:block">
                 <Image
-                  src="/spa/pool-kids.jpg"
+                  src="/kids/kids-spa-02.jpeg"
                   alt="Pokój gier dla dzieci"
                   fill
                   className="object-cover"
@@ -621,7 +621,7 @@ export default function ForKidsIntro({
               className="order-1 lg:order-2 relative w-full h-full min-h-[500px] lg:min-h-[600px] overflow-hidden"
             >
               <Image
-                src="/spa/pool-01.jpg"
+                src="/kids/mikolaj-04.jpeg"
                 alt="Aktywny wypoczynek - basen i relaks"
                 fill
                 className="object-cover"
@@ -653,7 +653,7 @@ export default function ForKidsIntro({
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               <div className="relative aspect-[16/10] overflow-hidden">
                 <Image
-                  src="/spa/pool-kids.jpg"
+                  src="/kids/mikolaj-05.jpeg"
                   alt="Basen z hydromasażem"
                   fill
                   className="object-cover"
@@ -661,7 +661,7 @@ export default function ForKidsIntro({
               </div>
               <div className="relative aspect-[16/10] overflow-hidden">
                 <Image
-                  src="/spa/pool-03.jpg"
+                  src="/kids/mikolaj-02.jpeg"
                   alt="Strefa relaksu przy basenie"
                   fill
                   className="object-cover"
@@ -669,7 +669,7 @@ export default function ForKidsIntro({
               </div>
               <div className="relative aspect-[16/10] overflow-hidden hidden sm:block">
                 <Image
-                  src="/spa/pool-01.jpg"
+                  src="/kids/mikolaj-01.jpeg"
                   alt="Widok na basen z góry"
                   fill
                   className="object-cover"
@@ -677,7 +677,7 @@ export default function ForKidsIntro({
               </div>
               <div className="relative aspect-[16/10] overflow-hidden hidden sm:block">
                 <Image
-                  src="/spa/pool-02.jpg"
+                  src="/kids/mikolaj-03.jpeg"
                   alt="Oświetlenie basenu"
                   fill
                   className="object-cover"
@@ -690,7 +690,7 @@ export default function ForKidsIntro({
 
       <Container className="bg-white w-full text-primary">
         <div className="max-w-7xl mx-auto sm:px-4">
-          {/* 5. WEEKENDY PEŁNE ATRAKCJI SECTION */}
+          {/* 5. BIRTHDAY SECTION */}
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-stretch mb-16 sm:px-0">
             <motion.div
               initial={{ opacity: 0, scale: 0.95 }}
@@ -700,10 +700,10 @@ export default function ForKidsIntro({
               className="relative w-full h-full min-h-[500px] lg:min-h-[600px] overflow-hidden"
             >
               <Image
-                src="/fort/fort-05.png"
+                src="/kids/kids-birthday-main-01.jpeg"
                 alt="Weekendy pełne atrakcji - Fort no.5"
                 fill
-                className="object-cover"
+                className="object-cover object-bottom"
                 quality={100}
               />
             </motion.div>
@@ -793,7 +793,7 @@ export default function ForKidsIntro({
         </div>
       </Container>
 
-      {/* Fort Gallery with Dark Background */}
+      {/* Birthday Gallery with Dark Background */}
       <div className="relative mb-16 py-28">
         <BackgroundLogoBottomDark position="right" />
         <Container>
@@ -814,7 +814,7 @@ export default function ForKidsIntro({
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               <div className="relative aspect-[16/10] overflow-hidden">
                 <Image
-                  src="/fort/fort-06.jpg"
+                  src="/kids/kids-birthday-05.jpeg"
                   alt="Fort no.5 - wnętrze"
                   fill
                   className="object-cover"
@@ -822,7 +822,7 @@ export default function ForKidsIntro({
               </div>
               <div className="relative aspect-[16/10] overflow-hidden">
                 <Image
-                  src="/fort/fort-04.jpg"
+                  src="/kids/kids-birthday-03.jpeg"
                   alt="Fort no.5 - miejsce grillowe"
                   fill
                   className="object-cover"
@@ -830,7 +830,7 @@ export default function ForKidsIntro({
               </div>
               <div className="relative aspect-[16/10] overflow-hidden hidden sm:block">
                 <Image
-                  src="/fort/fort-05.png"
+                  src="/kids/kids-birthday-04.jpeg"
                   alt="Fort no.5 - zewnętrzny widok"
                   fill
                   className="object-cover"
@@ -838,7 +838,7 @@ export default function ForKidsIntro({
               </div>
               <div className="relative aspect-[16/10] overflow-hidden hidden sm:block">
                 <Image
-                  src="/fort/fort-03.jpg"
+                  src="/kids/kids-birthday-02.jpeg"
                   alt="Fort no.5 - historyczne wnętrze"
                   fill
                   className="object-cover"

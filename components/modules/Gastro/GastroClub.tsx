@@ -194,7 +194,7 @@ export default function GastroClub({
               className="relative aspect-square w-full overflow-hidden"
             >
               <Image
-                src="/klub/klub-01.JPG"
+                src="/restaurant/rest-coola-main.jpeg"
                 alt="Klub Coola - wnętrze"
                 fill
                 className="object-cover"
