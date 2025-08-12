@@ -164,7 +164,7 @@ export default function ForKidsIntro({
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               <div className="relative aspect-[16/10] overflow-hidden">
                 <Image
-                  src="/outdoor/out-01.jpg"
+                  src="/kids/kids-friendly-03.jpeg"
                   alt="Spływy kajakowe po Narwi"
                   fill
                   className="object-cover"
@@ -172,7 +172,7 @@ export default function ForKidsIntro({
               </div>
               <div className="relative aspect-[16/10] overflow-hidden">
                 <Image
-                  src="/outdoor/out-03.jpg"
+                  src="/kids/kids-friendly-02.jpeg"
                   alt="Spacery po okolicy"
                   fill
                   className="object-cover"
@@ -180,7 +180,7 @@ export default function ForKidsIntro({
               </div>
               <div className="relative aspect-[16/10] overflow-hidden hidden sm:block">
                 <Image
-                  src="/outdoor/out-02.jpg"
+                  src="/kids/kids-friendly-04.jpeg"
                   alt="Nordic Walking"
                   fill
                   className="object-cover"
@@ -188,7 +188,7 @@ export default function ForKidsIntro({
               </div>
               <div className="relative aspect-[16/10] overflow-hidden hidden sm:block">
                 <Image
-                  src="/outdoor/out-04.jpg"
+                  src="/kids/kids-friendly-01.jpeg"
                   alt="Siatkówka plażowa"
                   fill
                   className="object-cover"
@@ -297,7 +297,7 @@ export default function ForKidsIntro({
               className="order-1 lg:order-2 relative w-full h-full min-h-[500px] lg:min-h-[600px] overflow-hidden"
             >
               <Image
-                src="/klub/klub-05.jpg"
+                src="/kids/kids-4-areas-main-01.jpeg"
                 alt="Klub Coola - centrum rodzinnej rozrywki"
                 fill
                 className="object-cover"
@@ -329,7 +329,7 @@ export default function ForKidsIntro({
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               <div className="relative aspect-[16/10] overflow-hidden">
                 <Image
-                  src="/klub/klub-06.jpg"
+                  src="/kids/kids-4-areas-02.jpeg"
                   alt="Rzutki w Klubie Coola"
                   fill
                   className="object-cover"
@@ -337,7 +337,7 @@ export default function ForKidsIntro({
               </div>
               <div className="relative aspect-[16/10] overflow-hidden">
                 <Image
-                  src="/klub/klub-07.jpg"
+                  src="/kids/kids-4-areas-01.jpeg"
                   alt="Cymbergaj w Klubie Coola"
                   fill
                   className="object-cover"
@@ -345,7 +345,7 @@ export default function ForKidsIntro({
               </div>
               <div className="relative aspect-[16/10] overflow-hidden hidden sm:block">
                 <Image
-                  src="/klub/klub-05.jpg"
+                  src="/kids/kids-4-areas-03.jpeg"
                   alt="Bilard w Klubie Coola"
                   fill
                   className="object-cover"
@@ -353,7 +353,7 @@ export default function ForKidsIntro({
               </div>
               <div className="relative aspect-[16/10] overflow-hidden hidden sm:block">
                 <Image
-                  src="/klub/klub-04.JPG"
+                  src="/kids/kids-4-areas-04.jpeg"
                   alt="Bar w Klubie Coola"
                   fill
                   className="object-cover"

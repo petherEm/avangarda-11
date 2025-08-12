@@ -102,8 +102,11 @@ export default function EventTypes({
       icon: Users,
       color: "bg-amber-50",
       accentColor: "text-amber-600",
-      image: "/wedding/wed-room-03.jpg",
-      galleryImages: ["/wedding/wed-room-07.jpg", "/outdoor/out-02.jpg"],
+      image: "/wedding/events-other-03.jpeg",
+      galleryImages: [
+        "/wedding/events-other-01.jpeg",
+        "/wedding/events-other-02.jpeg",
+      ],
       imagePosition: "left",
       events: eventsByType["uroczystosci-rodzinne"] || [],
     },

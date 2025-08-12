@@ -398,7 +398,7 @@ export default function OutdoorEntertainment({
               className="relative w-full h-full min-h-[500px] lg:min-h-[600px] overflow-hidden"
             >
               <Image
-                src="/outdoor/out-07.jpg"
+                src="/entertainment/entertain-spa-main-01.jpeg"
                 alt="Atrakcje dla dzieci - plac zabaw"
                 fill
                 className="object-cover"
@@ -530,7 +530,7 @@ export default function OutdoorEntertainment({
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               <div className="relative aspect-[16/10] overflow-hidden">
                 <Image
-                  src="/outdoor/out-04.jpg"
+                  src="/entertainment/entertain-spa-01.jpeg"
                   alt="Plac zabaw dla dzieci"
                   fill
                   className="object-cover"
@@ -538,7 +538,7 @@ export default function OutdoorEntertainment({
               </div>
               <div className="relative aspect-[16/10] overflow-hidden">
                 <Image
-                  src="/outdoor/out-06.jpg"
+                  src="/entertainment/entertain-spa-02.jpeg"
                   alt="Ścieżka edukacyjna"
                   fill
                   className="object-cover"
@@ -546,7 +546,7 @@ export default function OutdoorEntertainment({
               </div>
               <div className="relative aspect-[16/10] overflow-hidden hidden sm:block">
                 <Image
-                  src="/outdoor/out-07.jpg"
+                  src="/entertainment/entertain-spa-04.jpeg"
                   alt="Brodzik dla dzieci"
                   fill
                   className="object-cover"
@@ -554,7 +554,7 @@ export default function OutdoorEntertainment({
               </div>
               <div className="relative aspect-[16/10] overflow-hidden hidden sm:block">
                 <Image
-                  src="/spa/pool-kids.jpg"
+                  src="/entertainment/entertain-spa-03.jpeg"
                   alt="Pokój gier dla dzieci"
                   fill
                   className="object-cover"
