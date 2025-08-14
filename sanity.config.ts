@@ -10,6 +10,7 @@ import {structureTool} from 'sanity/structure'
 import {presentationTool} from 'sanity/presentation'
 import {plPLLocale} from '@sanity/locale-pl-pl'
 import {SanityLogo} from "@/components/sanity-logo" // Import your custom icon
+import {orderableDocumentListDeskItem} from '@sanity/orderable-document-list' // Import the orderable document list desk item
 // Go to https://www.sanity.io/docs/api-versioning to learn how API versioning works
 import {apiVersion, dataset, projectId} from './sanity/env'
 import {schema} from './sanity/schemaTypes'
@@ -37,6 +38,7 @@ export default defineConfig({
         }
       }
     }),
-    plPLLocale()
+    plPLLocale(),
+    orderableDocumentListDeskItem, // Add the orderable document list desk item to the plugins
   ],
 })

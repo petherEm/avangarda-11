@@ -3,7 +3,7 @@ import { sanityFetch } from "../live";
 
 export const getAllOffers = async () => {
   const ALL_OFFERS_QUERY = defineQuery(
-    `*[_type == "offers"] {
+    `*[_type == "offers" && isActive == true] {
       _id,
       plname,
       subtitle,
@@ -30,6 +30,7 @@ export const getAllOffers = async () => {
       practicalInfo,
       practicalInfoEn,
       isActive,
+      orderRank,
       "categories": categories[] {
         _ref,
         _key,
@@ -37,7 +38,7 @@ export const getAllOffers = async () => {
         "entitle": @->entitle, 
         "pltitle": @->pltitle
       }
-    } | order(plname asc)`
+    } | order(orderRank)`
   );
   
   try {

@@ -218,6 +218,7 @@ export type Offers = {
   _createdAt: string;
   _updatedAt: string;
   _rev: string;
+  orderRank?: string;
   plname?: string;
   subtitle?: string;
   enname?: string;
@@ -814,7 +815,7 @@ export type PRIMARY_BUSINESS_OFFER_QUERYResult = {
 
 // Source: ./sanity/lib/offers/getOfferBySlug.ts
 // Variable: OFFER_BY_ID_QUERY
-// Query: *[_type == "offers" && slug.current == $slug] {            _id,            plname,            subtitle,            enname,            ensubtitle,            slug,            image,            price,            validFrom,            validUntil,            daysNights,            meals,            pldescription,            endescription,            offerListing,            offerListingEn,            mainAttractions,            mainAttractionsEn,            bookingConditions,            bookingConditionsEn,            practicalInfo,            practicalInfoEn,            isActive,            categories        } | order(plname asc) [0]
+// Query: *[_type == "offers" && slug.current == $slug && isActive == true] {            _id,            plname,            subtitle,            enname,            ensubtitle,            slug,            image,            price,            validFrom,            validUntil,            daysNights,            endaysNights,            meals,            pldescription,            endescription,            offerListing,            offerListingEn,            mainAttractions,            mainAttractionsEn,            paidAttractions,            paidAttractionsEn,            bookingConditions,            bookingConditionsEn,            practicalInfo,            practicalInfoEn,            isActive,            categories        } | order(plname asc) [0]
 export type OFFER_BY_ID_QUERYResult = {
   _id: string;
   plname: string | null;
@@ -838,6 +839,7 @@ export type OFFER_BY_ID_QUERYResult = {
   validFrom: string | null;
   validUntil: string | null;
   daysNights: string | null;
+  endaysNights: string | null;
   meals: string | null;
   pldescription: Array<{
     children?: Array<{
@@ -930,6 +932,42 @@ export type OFFER_BY_ID_QUERYResult = {
     _key: string;
   }> | null;
   mainAttractionsEn: Array<{
+    children?: Array<{
+      marks?: Array<string>;
+      text?: string;
+      _type: "span";
+      _key: string;
+    }>;
+    style?: "blockquote" | "h1" | "h2" | "h3" | "h4" | "normal";
+    listItem?: "bullet" | "number";
+    markDefs?: Array<{
+      href?: string;
+      _type: "link";
+      _key: string;
+    }>;
+    level?: number;
+    _type: "block";
+    _key: string;
+  }> | null;
+  paidAttractions: Array<{
+    children?: Array<{
+      marks?: Array<string>;
+      text?: string;
+      _type: "span";
+      _key: string;
+    }>;
+    style?: "blockquote" | "h1" | "h2" | "h3" | "h4" | "normal";
+    listItem?: "bullet" | "number";
+    markDefs?: Array<{
+      href?: string;
+      _type: "link";
+      _key: string;
+    }>;
+    level?: number;
+    _type: "block";
+    _key: string;
+  }> | null;
+  paidAttractionsEn: Array<{
     children?: Array<{
       marks?: Array<string>;
       text?: string;
@@ -1031,7 +1069,7 @@ export type OFFER_BY_ID_QUERYResult = {
 
 // Source: ./sanity/lib/offers/getOffers.ts
 // Variable: ALL_OFFERS_QUERY
-// Query: *[_type == "offers"] {      _id,      plname,      subtitle,      enname,      ensubtitle,      slug,      image,      price,      validFrom,      validUntil,      daysNights,      meals,      pldescription,      endescription,      offerListing,      offerListingEn,      mainAttractions,      mainAttractionsEn,      bookingConditions,      bookingConditionsEn,      practicalInfo,      practicalInfoEn,      isActive,      "categories": categories[] {        _ref,        _key,        "title": @->title,        "entitle": @->entitle,         "pltitle": @->pltitle      }    } | order(plname asc)
+// Query: *[_type == "offers" && isActive == true] {      _id,      plname,      subtitle,      enname,      ensubtitle,      slug,      image,      price,      validFrom,      validUntil,      daysNights,      endaysNights,      meals,      pldescription,      endescription,      offerListing,      offerListingEn,      mainAttractions,      mainAttractionsEn,      paidAttractions,      paidAttractionsEn,      bookingConditions,      bookingConditionsEn,      practicalInfo,      practicalInfoEn,      isActive,      orderRank,      "categories": categories[] {        _ref,        _key,        "title": @->title,        "entitle": @->entitle,         "pltitle": @->pltitle      }    } | order(orderRank)
 export type ALL_OFFERS_QUERYResult = Array<{
   _id: string;
   plname: string | null;
@@ -1055,6 +1093,7 @@ export type ALL_OFFERS_QUERYResult = Array<{
   validFrom: string | null;
   validUntil: string | null;
   daysNights: string | null;
+  endaysNights: string | null;
   meals: string | null;
   pldescription: Array<{
     children?: Array<{
@@ -1164,6 +1203,42 @@ export type ALL_OFFERS_QUERYResult = Array<{
     _type: "block";
     _key: string;
   }> | null;
+  paidAttractions: Array<{
+    children?: Array<{
+      marks?: Array<string>;
+      text?: string;
+      _type: "span";
+      _key: string;
+    }>;
+    style?: "blockquote" | "h1" | "h2" | "h3" | "h4" | "normal";
+    listItem?: "bullet" | "number";
+    markDefs?: Array<{
+      href?: string;
+      _type: "link";
+      _key: string;
+    }>;
+    level?: number;
+    _type: "block";
+    _key: string;
+  }> | null;
+  paidAttractionsEn: Array<{
+    children?: Array<{
+      marks?: Array<string>;
+      text?: string;
+      _type: "span";
+      _key: string;
+    }>;
+    style?: "blockquote" | "h1" | "h2" | "h3" | "h4" | "normal";
+    listItem?: "bullet" | "number";
+    markDefs?: Array<{
+      href?: string;
+      _type: "link";
+      _key: string;
+    }>;
+    level?: number;
+    _type: "block";
+    _key: string;
+  }> | null;
   bookingConditions: Array<{
     children?: Array<{
       marks?: Array<string>;
@@ -1237,6 +1312,7 @@ export type ALL_OFFERS_QUERYResult = Array<{
     _key: string;
   }> | null;
   isActive: boolean | null;
+  orderRank: string | null;
   categories: Array<{
     _ref: string;
     _key: string;
@@ -1469,8 +1545,8 @@ declare module "@sanity/client" {
     "*[_type == \"businessOffer\" && slug.current == $slug] {\n      _id,\n      offerName,\n      slug,\n      offerFile,\n      description\n    }[0]": BUSINESS_OFFER_BY_SLUG_QUERYResult;
     "*[_type == \"businessOffer\" && offerName match $offerName] {\n      _id,\n      offerName,\n      slug,\n      offerFile,\n      description\n    }[0]": BUSINESS_OFFER_BY_NAME_QUERYResult;
     "*[_type == \"businessOffer\"] | order(_createdAt desc) [0] {\n      _id,\n      offerName,\n      slug,\n      offerFile,\n      description\n    }": PRIMARY_BUSINESS_OFFER_QUERYResult;
-    "\n        *[_type == \"offers\" && slug.current == $slug] {\n            _id,\n            plname,\n            subtitle,\n            enname,\n            ensubtitle,\n            slug,\n            image,\n            price,\n            validFrom,\n            validUntil,\n            daysNights,\n            meals,\n            pldescription,\n            endescription,\n            offerListing,\n            offerListingEn,\n            mainAttractions,\n            mainAttractionsEn,\n            bookingConditions,\n            bookingConditionsEn,\n            practicalInfo,\n            practicalInfoEn,\n            isActive,\n            categories\n        } | order(plname asc) [0]": OFFER_BY_ID_QUERYResult;
-    "*[_type == \"offers\"] {\n      _id,\n      plname,\n      subtitle,\n      enname,\n      ensubtitle,\n      slug,\n      image,\n      price,\n      validFrom,\n      validUntil,\n      daysNights,\n      meals,\n      pldescription,\n      endescription,\n      offerListing,\n      offerListingEn,\n      mainAttractions,\n      mainAttractionsEn,\n      bookingConditions,\n      bookingConditionsEn,\n      practicalInfo,\n      practicalInfoEn,\n      isActive,\n      \"categories\": categories[] {\n        _ref,\n        _key,\n        \"title\": @->title,\n        \"entitle\": @->entitle, \n        \"pltitle\": @->pltitle\n      }\n    } | order(plname asc)": ALL_OFFERS_QUERYResult;
+    "\n        *[_type == \"offers\" && slug.current == $slug && isActive == true] {\n            _id,\n            plname,\n            subtitle,\n            enname,\n            ensubtitle,\n            slug,\n            image,\n            price,\n            validFrom,\n            validUntil,\n            daysNights,\n            endaysNights,\n            meals,\n            pldescription,\n            endescription,\n            offerListing,\n            offerListingEn,\n            mainAttractions,\n            mainAttractionsEn,\n            paidAttractions,\n            paidAttractionsEn,\n            bookingConditions,\n            bookingConditionsEn,\n            practicalInfo,\n            practicalInfoEn,\n            isActive,\n            categories\n        } | order(plname asc) [0]": OFFER_BY_ID_QUERYResult;
+    "*[_type == \"offers\" && isActive == true] {\n      _id,\n      plname,\n      subtitle,\n      enname,\n      ensubtitle,\n      slug,\n      image,\n      price,\n      validFrom,\n      validUntil,\n      daysNights,\n      endaysNights,\n      meals,\n      pldescription,\n      endescription,\n      offerListing,\n      offerListingEn,\n      mainAttractions,\n      mainAttractionsEn,\n      paidAttractions,\n      paidAttractionsEn,\n      bookingConditions,\n      bookingConditionsEn,\n      practicalInfo,\n      practicalInfoEn,\n      isActive,\n      orderRank,\n      \"categories\": categories[] {\n        _ref,\n        _key,\n        \"title\": @->title,\n        \"entitle\": @->entitle, \n        \"pltitle\": @->pltitle\n      }\n    } | order(orderRank)": ALL_OFFERS_QUERYResult;
     "*[_type == \"spaOffer\"] {\n      _id,\n      offerName,\n      slug,\n      offerFile,\n      description\n    } | order(_createdAt desc)": ALL_SPA_OFFERS_QUERYResult;
     "*[_type == \"spaOffer\" && slug.current == $slug] {\n      _id,\n      offerName,\n      slug,\n      offerFile,\n      description\n    }[0]": SPA_OFFER_BY_SLUG_QUERYResult;
     "*[_type == \"spaOffer\"] | order(_createdAt desc) [0] {\n      _id,\n      offerName,\n      slug,\n      offerFile,\n      description\n    }": PRIMARY_SPA_OFFER_QUERYResult;

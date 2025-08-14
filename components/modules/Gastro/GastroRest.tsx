@@ -66,7 +66,7 @@ const RestauracjaDzikaRoza = ({
               className="relative aspect-square w-full overflow-hidden"
             >
               <Image
-                src="/restaurant/dzika-roza-main-01.jpeg"
+                src="/restaurant/rest-01.jpg"
                 alt="Restauracja Dzika Róża - eleganckie wnętrze"
                 fill
                 className="object-cover"

@@ -41,15 +41,15 @@ const GastroIntro = ({ dict, lang, menus }: GastroIntroProps) => {
       id: "dzika-roza",
       name: "Restauracja Dzika Róża",
       description:
-        "Elegancka restauracja z wykwintną kuchnią polską i międzynarodową.",
+        "Elegancka restauracja z nowoczesną kuchnią polską i międzynarodową.",
       image: "/restaurant/dzika-roza-main-01.jpeg",
       icon: ChefHat,
       badge: "Premium",
       features: [
-        "Kuchnia polska i międzynarodowa",
-        "Eleganckie wnętrze",
-        "Menu sezonowe",
-        "Obsługa bankietów",
+        "Niepowtarzalny smak potraw",
+        "Stylowe wnętrze",
+        "Przytulna atmosfera",
+        "Bogato wyposażony bar",
       ],
       link: `/#dzika-roza`,
       menus: menus["dzika-roza"] || [],
@@ -57,15 +57,16 @@ const GastroIntro = ({ dict, lang, menus }: GastroIntroProps) => {
     {
       id: "klub-coola",
       name: "Klub Coola",
-      description: "Centrum rozrywki z restauracją, kręglami i biliard.",
+      description:
+        "Hotelowe centrum rodzinnej rozrywki z barem, kręgielnią i salą zabaw.",
       image: "/restaurant/rest-coola-main.jpeg",
       icon: Music,
       badge: "Rozrywka",
       features: [
-        "Kręgle i bilard",
-        "Menu barowe",
-        "Imprezy tematyczne",
-        "Rozrywka dla rodzin",
+        "Włoska pizza",
+        "Rzemieślnicze burgery",
+        "Pyszne ciasta",
+        "Autorskie drinki",
       ],
       link: `/#klub-coola`,
       menus: menus["klub-coola"] || [],
@@ -74,15 +75,15 @@ const GastroIntro = ({ dict, lang, menus }: GastroIntroProps) => {
       id: "bar-przystan",
       name: "Przystań Avangarda",
       description:
-        "Klimatyczny bar nad Narwią z daniami z grilla i świeżymi rybami.",
+        "Klimatyczny bar nad Narwią z prostą kuchnią w wakacyjnym stylu.",
       image: "/restaurant/rest-przystan-main.jpeg",
       icon: Wine,
       badge: "Nad rzeką",
       features: [
-        "Widok na Narew",
-        "Dania z grilla",
+        "Taras pod żaglami",
         "Świeże ryby",
-        "Taras nad rzeką",
+        "Beach bar",
+        "Widok na Narew",
       ],
       link: `/#bar-przystan`,
       menus: menus["bar-przystan"] || [],
@@ -103,10 +104,11 @@ const GastroIntro = ({ dict, lang, menus }: GastroIntroProps) => {
             <AnimatedDecorativeBar className="w-20 h-2 bg-avangarda mb-6 mx-auto" />
             <h1 className="title-light mb-6">Pyszna Avangarda</h1>
             <p className="main-paragraph-light max-w-4xl mx-auto text-lg leading-relaxed">
-              Hotel Avangarda oferuje trzy wyjątkowe miejsca gastronomiczne - od
-              eleganckiej restauracji, przez rozrywkowy klub, po klimatyczny bar
-              nad rzeką. Każde z nich zapewnia niepowtarzalne doznania kulinarne
-              i atmosferę idealną na różne okazje.
+              Szef Kuchni Hotelu Avangarda zaprasza w kulinarną podróż do trzech
+              wyjątkowych miejsc - od eleganckiej restauracji, przez rozrywkowy
+              klub, po klimatyczny bar nad rzeką. Każde z nich zapewnia
+              niepowtarzalne doznania kulinarne i atmosferę idealną do
+              celebrowania wspólnych chwil.
             </p>
           </motion.div>
         </div>

@@ -4,7 +4,7 @@ import { sanityFetch } from "../live";
 
 export const getOfferBySlug = async (slug: string) => {
     const OFFER_BY_ID_QUERY = defineQuery(`
-        *[_type == "offers" && slug.current == $slug] {
+        *[_type == "offers" && slug.current == $slug && isActive == true] {
             _id,
             plname,
             subtitle,

@@ -9,6 +9,12 @@ export const offerType = defineType({
     icon: StarFilledIcon,
     fields: [
         defineField({
+            name: 'orderRank',
+            title: 'Kolejność',
+            type: 'string',
+            hidden: true, // hide from editors
+        }),
+        defineField({
             name: 'plname',
             title: 'Nazwa PL',
             type: 'string',
