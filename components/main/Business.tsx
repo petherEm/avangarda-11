@@ -343,7 +343,7 @@ const Business = ({ lang = "pl", dict }: BusinessProps) => {
                           alt="Duża sala konferencyjna"
                           fill
                           priority
-                          className="object-cover"
+                          className="object-cover object-[40%_60%]"
                           quality={100}
                         />
                         <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent"></div>
@@ -377,7 +377,7 @@ const Business = ({ lang = "pl", dict }: BusinessProps) => {
                           src="/conference/conf-main.png"
                           alt="Kameralna sala konferencyjna"
                           fill
-                          className="object-cover object-center"
+                          className="object-cover object-[30%_70%]"
                           quality={100}
                         />
                         <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"></div>

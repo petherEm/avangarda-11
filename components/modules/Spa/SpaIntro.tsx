@@ -29,6 +29,14 @@ interface SpaIntroProps {
   dict: any;
   lang: string;
   spaOffers: any[];
+  specificSpaOffers?: {
+    familijnaNiedziela?: any;
+    basenDaySpa?: any;
+    kidsSpa?: any;
+    zabiegiNaCialo?: any;
+    zabiegiNaTwarz?: any;
+    masazeIRytualy?: any;
+  };
 }
 
 // Testimonials data for Spa
@@ -51,13 +59,18 @@ const testimonials = [
   },
 ];
 
-export default function SpaIntro({ dict, lang, spaOffers }: SpaIntroProps) {
+export default function SpaIntro({
+  dict,
+  lang,
+  spaOffers,
+  specificSpaOffers,
+}: SpaIntroProps) {
   const phoneNumber = "+48 505 158 200";
 
   // Helper function for translations
   const t = (key: string) => getNestedValue(dict, key) || key;
 
-  // Get the first spa offer for download
+  // Get the first spa offer for download fallback
   const primarySpaOffer = spaOffers?.[0];
 
   return (
@@ -135,72 +148,120 @@ export default function SpaIntro({ dict, lang, spaOffers }: SpaIntroProps) {
                 </div>
 
                 <div className="grid grid-cols-2 gap-3 mb-6">
-                  {primarySpaOffer && primarySpaOffer.offerFile && (
-                    <>
-                      <Link
-                        href={fileUrl(primarySpaOffer.offerFile)}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="flex items-center gap-2"
+                  {specificSpaOffers?.masazeIRytualy &&
+                  specificSpaOffers.masazeIRytualy.offerFile ? (
+                    <Link
+                      href={fileUrl(specificSpaOffers.masazeIRytualy.offerFile)}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex items-center gap-2"
+                    >
+                      <Button
+                        variant="avangarda"
+                        size="sm"
+                        className="w-full text-xs"
                       >
-                        <Button
-                          variant="avangarda"
-                          size="sm"
-                          className="w-full text-xs"
-                        >
-                          <Download className="h-3 w-3" />
-                          Masaże i rytuały
-                        </Button>
-                      </Link>
+                        <Download className="h-3 w-3" />
+                        Masaże i rytuały
+                      </Button>
+                    </Link>
+                  ) : (
+                    <Button
+                      variant="avangarda"
+                      size="sm"
+                      className="w-full text-xs"
+                      disabled
+                    >
+                      <Download className="h-3 w-3" />
+                      Masaże i rytuały
+                    </Button>
+                  )}
 
-                      <Link
-                        href={fileUrl(primarySpaOffer.offerFile)}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="flex items-center gap-2"
+                  {specificSpaOffers?.zabiegiNaTwarz &&
+                  specificSpaOffers.zabiegiNaTwarz.offerFile ? (
+                    <Link
+                      href={fileUrl(specificSpaOffers.zabiegiNaTwarz.offerFile)}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex items-center gap-2"
+                    >
+                      <Button
+                        variant="avangarda"
+                        size="sm"
+                        className="w-full text-xs"
                       >
-                        <Button
-                          variant="avangarda"
-                          size="sm"
-                          className="w-full text-xs"
-                        >
-                          <Download className="h-3 w-3" />
-                          Zabiegi na twarz
-                        </Button>
-                      </Link>
+                        <Download className="h-3 w-3" />
+                        Zabiegi na twarz
+                      </Button>
+                    </Link>
+                  ) : (
+                    <Button
+                      variant="avangarda"
+                      size="sm"
+                      className="w-full text-xs"
+                      disabled
+                    >
+                      <Download className="h-3 w-3" />
+                      Zabiegi na twarz
+                    </Button>
+                  )}
 
-                      <Link
-                        href={fileUrl(primarySpaOffer.offerFile)}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="flex items-center gap-2"
+                  {specificSpaOffers?.zabiegiNaCialo &&
+                  specificSpaOffers.zabiegiNaCialo.offerFile ? (
+                    <Link
+                      href={fileUrl(specificSpaOffers.zabiegiNaCialo.offerFile)}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex items-center gap-2"
+                    >
+                      <Button
+                        variant="avangarda"
+                        size="sm"
+                        className="w-full text-xs"
                       >
-                        <Button
-                          variant="avangarda"
-                          size="sm"
-                          className="w-full text-xs"
-                        >
-                          <Download className="h-3 w-3" />
-                          Zabiegi na ciało
-                        </Button>
-                      </Link>
+                        <Download className="h-3 w-3" />
+                        Zabiegi na ciało
+                      </Button>
+                    </Link>
+                  ) : (
+                    <Button
+                      variant="avangarda"
+                      size="sm"
+                      className="w-full text-xs"
+                      disabled
+                    >
+                      <Download className="h-3 w-3" />
+                      Zabiegi na ciało
+                    </Button>
+                  )}
 
-                      <Link
-                        href={fileUrl(primarySpaOffer.offerFile)}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="flex items-center gap-2"
+                  {specificSpaOffers?.kidsSpa &&
+                  specificSpaOffers.kidsSpa.offerFile ? (
+                    <Link
+                      href={fileUrl(specificSpaOffers.kidsSpa.offerFile)}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex items-center gap-2"
+                    >
+                      <Button
+                        variant="avangarda"
+                        size="sm"
+                        className="w-full text-xs"
                       >
-                        <Button
-                          variant="avangarda"
-                          size="sm"
-                          className="w-full text-xs"
-                        >
-                          <Download className="h-3 w-3" />
-                          Kids SPA
-                        </Button>
-                      </Link>
-                    </>
+                        <Download className="h-3 w-3" />
+                        Kids SPA
+                      </Button>
+                    </Link>
+                  ) : (
+                    <Button
+                      variant="avangarda"
+                      size="sm"
+                      className="w-full text-xs"
+                      disabled
+                    >
+                      <Download className="h-3 w-3" />
+                      Kids SPA
+                    </Button>
                   )}
                 </div>
 
@@ -406,40 +467,64 @@ export default function SpaIntro({ dict, lang, spaOffers }: SpaIntroProps) {
                 </div>
 
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                  {primarySpaOffer && primarySpaOffer.offerFile && (
-                    <>
-                      <Link
-                        href={fileUrl(primarySpaOffer.offerFile)}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="flex items-center gap-2"
+                  {specificSpaOffers?.familijnaNiedziela &&
+                  specificSpaOffers.familijnaNiedziela.offerFile ? (
+                    <Link
+                      href={fileUrl(
+                        specificSpaOffers.familijnaNiedziela.offerFile
+                      )}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex items-center gap-2"
+                    >
+                      <Button
+                        variant="avangarda"
+                        size="sm"
+                        className="w-full text-xs"
                       >
-                        <Button
-                          variant="avangarda"
-                          size="sm"
-                          className="w-full text-xs"
-                        >
-                          <Download className="h-3 w-3" />
-                          Familijna Niedziela
-                        </Button>
-                      </Link>
+                        <Download className="h-3 w-3" />
+                        Familijna Niedziela
+                      </Button>
+                    </Link>
+                  ) : (
+                    <Button
+                      variant="avangarda"
+                      size="sm"
+                      className="w-full text-xs"
+                      disabled
+                    >
+                      <Download className="h-3 w-3" />
+                      Familijna Niedziela
+                    </Button>
+                  )}
 
-                      <Link
-                        href={fileUrl(primarySpaOffer.offerFile)}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="flex items-center gap-2"
+                  {specificSpaOffers?.basenDaySpa &&
+                  specificSpaOffers.basenDaySpa.offerFile ? (
+                    <Link
+                      href={fileUrl(specificSpaOffers.basenDaySpa.offerFile)}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex items-center gap-2"
+                    >
+                      <Button
+                        variant="avangarda"
+                        size="sm"
+                        className="w-full text-xs"
                       >
-                        <Button
-                          variant="avangarda"
-                          size="sm"
-                          className="w-full text-xs"
-                        >
-                          <Download className="h-3 w-3" />
-                          Day Spa
-                        </Button>
-                      </Link>
-                    </>
+                        <Download className="h-3 w-3" />
+                        Day Spa
+                      </Button>
+                    </Link>
+                  ) : (
+                    <Button
+                      variant="avangarda"
+                      size="sm"
+                      className="w-full text-xs"
+                      disabled
+                    >
+                      <Download className="h-3 w-3" />
+                      Day Spa
+                    </Button>
                   )}
                 </div>
               </motion.div>

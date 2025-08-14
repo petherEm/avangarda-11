@@ -3,7 +3,7 @@ import { defineField, defineType } from "sanity";
 
 export const spaType = defineType({
   name: 'spaOffer',
-  title: 'Spa-oferta',
+  title: 'Spa | Dla dzieci-oferta',
   type: 'document',
   icon: HeartIcon,
   fields: [

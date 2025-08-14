@@ -6,15 +6,30 @@ export const getAllOffers = async () => {
     `*[_type == "offers"] {
       _id,
       plname,
+      subtitle,
       enname,
+      ensubtitle,
       slug,
       image,
       price,
+      validFrom,
       validUntil,
-      people,
-      minNights,
+      daysNights,
+      endaysNights,
+      meals,
       pldescription,
       endescription,
+      offerListing,
+      offerListingEn,
+      mainAttractions,
+      mainAttractionsEn,
+      paidAttractions,
+      paidAttractionsEn,
+      bookingConditions,
+      bookingConditionsEn,
+      practicalInfo,
+      practicalInfoEn,
+      isActive,
       "categories": categories[] {
         _ref,
         _key,
@@ -22,7 +37,7 @@ export const getAllOffers = async () => {
         "entitle": @->entitle, 
         "pltitle": @->pltitle
       }
-    } | order(validFrom desc)`
+    } | order(plname asc)`
   );
   
   try {

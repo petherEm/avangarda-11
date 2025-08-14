@@ -111,6 +111,32 @@ export type BusinessOffer = {
   description?: string;
 };
 
+export type Event = {
+  _id: string;
+  _type: "event";
+  _createdAt: string;
+  _updatedAt: string;
+  _rev: string;
+  eventType?: "wesela" | "komunie" | "uroczystosci-rodzinne" | "przyjecia-plenerowe";
+  menuName?: string;
+  slug?: Slug;
+  menuFile?: {
+    asset?: {
+      _ref: string;
+      _type: "reference";
+      _weak?: boolean;
+      [internalGroqTypeReferenceTo]?: "sanity.fileAsset";
+    };
+    media?: unknown;
+    _type: "file";
+  };
+  description?: string;
+  isActive?: boolean;
+  validFrom?: string;
+  validUntil?: string;
+  displayOrder?: number;
+};
+
 export type Menu = {
   _id: string;
   _type: "menu";
@@ -193,7 +219,9 @@ export type Offers = {
   _updatedAt: string;
   _rev: string;
   plname?: string;
+  subtitle?: string;
   enname?: string;
+  ensubtitle?: string;
   slug?: Slug;
   image?: {
     asset?: {
@@ -208,15 +236,11 @@ export type Offers = {
     _type: "image";
   };
   price?: number;
-  people?: number;
-  minNights?: number;
-  offerListing?: Array<{
-    _ref: string;
-    _type: "reference";
-    _weak?: boolean;
-    _key: string;
-    [internalGroqTypeReferenceTo]?: "offerScope";
-  }>;
+  validFrom?: string;
+  validUntil?: string;
+  daysNights?: string;
+  endaysNights?: string;
+  meals?: string;
   pldescription?: Array<{
     children?: Array<{
       marks?: Array<string>;
@@ -225,7 +249,7 @@ export type Offers = {
       _key: string;
     }>;
     style?: "normal" | "h1" | "h2" | "h3" | "h4" | "blockquote";
-    listItem?: "bullet";
+    listItem?: "bullet" | "number";
     markDefs?: Array<{
       href?: string;
       _type: "link";
@@ -233,19 +257,6 @@ export type Offers = {
     }>;
     level?: number;
     _type: "block";
-    _key: string;
-  } | {
-    asset?: {
-      _ref: string;
-      _type: "reference";
-      _weak?: boolean;
-      [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-    };
-    media?: unknown;
-    hotspot?: SanityImageHotspot;
-    crop?: SanityImageCrop;
-    alt?: string;
-    _type: "image";
     _key: string;
   }>;
   endescription?: Array<{
@@ -256,7 +267,7 @@ export type Offers = {
       _key: string;
     }>;
     style?: "normal" | "h1" | "h2" | "h3" | "h4" | "blockquote";
-    listItem?: "bullet";
+    listItem?: "bullet" | "number";
     markDefs?: Array<{
       href?: string;
       _type: "link";
@@ -265,22 +276,187 @@ export type Offers = {
     level?: number;
     _type: "block";
     _key: string;
-  } | {
-    asset?: {
-      _ref: string;
-      _type: "reference";
-      _weak?: boolean;
-      [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-    };
-    media?: unknown;
-    hotspot?: SanityImageHotspot;
-    crop?: SanityImageCrop;
-    alt?: string;
-    _type: "image";
+  }>;
+  offerListing?: Array<{
+    children?: Array<{
+      marks?: Array<string>;
+      text?: string;
+      _type: "span";
+      _key: string;
+    }>;
+    style?: "normal" | "h1" | "h2" | "h3" | "h4" | "blockquote";
+    listItem?: "bullet" | "number";
+    markDefs?: Array<{
+      href?: string;
+      _type: "link";
+      _key: string;
+    }>;
+    level?: number;
+    _type: "block";
     _key: string;
   }>;
-  validFrom?: string;
-  validUntil?: string;
+  offerListingEn?: Array<{
+    children?: Array<{
+      marks?: Array<string>;
+      text?: string;
+      _type: "span";
+      _key: string;
+    }>;
+    style?: "normal" | "h1" | "h2" | "h3" | "h4" | "blockquote";
+    listItem?: "bullet" | "number";
+    markDefs?: Array<{
+      href?: string;
+      _type: "link";
+      _key: string;
+    }>;
+    level?: number;
+    _type: "block";
+    _key: string;
+  }>;
+  mainAttractions?: Array<{
+    children?: Array<{
+      marks?: Array<string>;
+      text?: string;
+      _type: "span";
+      _key: string;
+    }>;
+    style?: "normal" | "h1" | "h2" | "h3" | "h4" | "blockquote";
+    listItem?: "bullet" | "number";
+    markDefs?: Array<{
+      href?: string;
+      _type: "link";
+      _key: string;
+    }>;
+    level?: number;
+    _type: "block";
+    _key: string;
+  }>;
+  mainAttractionsEn?: Array<{
+    children?: Array<{
+      marks?: Array<string>;
+      text?: string;
+      _type: "span";
+      _key: string;
+    }>;
+    style?: "normal" | "h1" | "h2" | "h3" | "h4" | "blockquote";
+    listItem?: "bullet" | "number";
+    markDefs?: Array<{
+      href?: string;
+      _type: "link";
+      _key: string;
+    }>;
+    level?: number;
+    _type: "block";
+    _key: string;
+  }>;
+  paidAttractions?: Array<{
+    children?: Array<{
+      marks?: Array<string>;
+      text?: string;
+      _type: "span";
+      _key: string;
+    }>;
+    style?: "normal" | "h1" | "h2" | "h3" | "h4" | "blockquote";
+    listItem?: "bullet" | "number";
+    markDefs?: Array<{
+      href?: string;
+      _type: "link";
+      _key: string;
+    }>;
+    level?: number;
+    _type: "block";
+    _key: string;
+  }>;
+  paidAttractionsEn?: Array<{
+    children?: Array<{
+      marks?: Array<string>;
+      text?: string;
+      _type: "span";
+      _key: string;
+    }>;
+    style?: "normal" | "h1" | "h2" | "h3" | "h4" | "blockquote";
+    listItem?: "bullet" | "number";
+    markDefs?: Array<{
+      href?: string;
+      _type: "link";
+      _key: string;
+    }>;
+    level?: number;
+    _type: "block";
+    _key: string;
+  }>;
+  bookingConditions?: Array<{
+    children?: Array<{
+      marks?: Array<string>;
+      text?: string;
+      _type: "span";
+      _key: string;
+    }>;
+    style?: "normal" | "h1" | "h2" | "h3" | "h4" | "blockquote";
+    listItem?: "bullet" | "number";
+    markDefs?: Array<{
+      href?: string;
+      _type: "link";
+      _key: string;
+    }>;
+    level?: number;
+    _type: "block";
+    _key: string;
+  }>;
+  bookingConditionsEn?: Array<{
+    children?: Array<{
+      marks?: Array<string>;
+      text?: string;
+      _type: "span";
+      _key: string;
+    }>;
+    style?: "normal" | "h1" | "h2" | "h3" | "h4" | "blockquote";
+    listItem?: "bullet" | "number";
+    markDefs?: Array<{
+      href?: string;
+      _type: "link";
+      _key: string;
+    }>;
+    level?: number;
+    _type: "block";
+    _key: string;
+  }>;
+  practicalInfo?: Array<{
+    children?: Array<{
+      marks?: Array<string>;
+      text?: string;
+      _type: "span";
+      _key: string;
+    }>;
+    style?: "normal" | "h1" | "h2" | "h3" | "h4" | "blockquote";
+    listItem?: "bullet" | "number";
+    markDefs?: Array<{
+      href?: string;
+      _type: "link";
+      _key: string;
+    }>;
+    level?: number;
+    _type: "block";
+    _key: string;
+  }>;
+  practicalInfoEn?: Array<{
+    children?: Array<{
+      marks?: Array<string>;
+      text?: string;
+      _type: "span";
+      _key: string;
+    }>;
+    style?: "normal" | "h1" | "h2" | "h3" | "h4" | "blockquote";
+    listItem?: "bullet" | "number";
+    markDefs?: Array<{
+      href?: string;
+      _type: "link";
+      _key: string;
+    }>;
+    level?: number;
+    _type: "block";
+    _key: string;
+  }>;
   isActive?: boolean;
   categories?: Array<{
     _ref: string;
@@ -289,7 +465,6 @@ export type Offers = {
     _key: string;
     [internalGroqTypeReferenceTo]?: "category";
   }>;
-  stock?: number;
 };
 
 export type BlockContent = Array<{
@@ -442,8 +617,79 @@ export type SanityAssetSourceData = {
   url?: string;
 };
 
-export type AllSanitySchemaTypes = PopupSpa | Popup | SpaOffer | BusinessOffer | Menu | Voucher | OfferScope | Category | Offers | BlockContent | SanityImagePaletteSwatch | SanityImagePalette | SanityImageDimensions | SanityImageHotspot | SanityImageCrop | SanityFileAsset | SanityImageAsset | SanityImageMetadata | Geopoint | Slug | SanityAssetSourceData;
+export type AllSanitySchemaTypes = PopupSpa | Popup | SpaOffer | BusinessOffer | Event | Menu | Voucher | OfferScope | Category | Offers | BlockContent | SanityImagePaletteSwatch | SanityImagePalette | SanityImageDimensions | SanityImageHotspot | SanityImageCrop | SanityFileAsset | SanityImageAsset | SanityImageMetadata | Geopoint | Slug | SanityAssetSourceData;
 export declare const internalGroqTypeReferenceTo: unique symbol;
+// Source: ./sanity/lib/menus/getEventBySlug.ts
+// Variable: EVENTS_BY_TYPE_QUERY
+// Query: *[_type == "event" && eventType == $eventType && isActive == true] {            _id,            eventType,            menuName,            slug,            menuFile,            description,            isActive,            validFrom,            validUntil,            displayOrder        } | order(displayOrder asc, menuName asc)
+export type EVENTS_BY_TYPE_QUERYResult = Array<{
+  _id: string;
+  eventType: "komunie" | "przyjecia-plenerowe" | "uroczystosci-rodzinne" | "wesela" | null;
+  menuName: string | null;
+  slug: Slug | null;
+  menuFile: {
+    asset?: {
+      _ref: string;
+      _type: "reference";
+      _weak?: boolean;
+      [internalGroqTypeReferenceTo]?: "sanity.fileAsset";
+    };
+    media?: unknown;
+    _type: "file";
+  } | null;
+  description: string | null;
+  isActive: boolean | null;
+  validFrom: string | null;
+  validUntil: string | null;
+  displayOrder: number | null;
+}>;
+// Variable: EVENT_BY_SLUG_QUERY
+// Query: *[_type == "event" && slug.current == $slug && isActive == true][0] {            _id,            eventType,            menuName,            slug,            menuFile,            description,            isActive,            validFrom,            validUntil,            displayOrder        }
+export type EVENT_BY_SLUG_QUERYResult = {
+  _id: string;
+  eventType: "komunie" | "przyjecia-plenerowe" | "uroczystosci-rodzinne" | "wesela" | null;
+  menuName: string | null;
+  slug: Slug | null;
+  menuFile: {
+    asset?: {
+      _ref: string;
+      _type: "reference";
+      _weak?: boolean;
+      [internalGroqTypeReferenceTo]?: "sanity.fileAsset";
+    };
+    media?: unknown;
+    _type: "file";
+  } | null;
+  description: string | null;
+  isActive: boolean | null;
+  validFrom: string | null;
+  validUntil: string | null;
+  displayOrder: number | null;
+} | null;
+// Variable: ALL_EVENTS_QUERY
+// Query: *[_type == "event" && isActive == true] {            _id,            eventType,            menuName,            slug,            menuFile,            description,            isActive,            validFrom,            validUntil,            displayOrder        } | order(eventType asc, displayOrder asc, menuName asc)
+export type ALL_EVENTS_QUERYResult = Array<{
+  _id: string;
+  eventType: "komunie" | "przyjecia-plenerowe" | "uroczystosci-rodzinne" | "wesela" | null;
+  menuName: string | null;
+  slug: Slug | null;
+  menuFile: {
+    asset?: {
+      _ref: string;
+      _type: "reference";
+      _weak?: boolean;
+      [internalGroqTypeReferenceTo]?: "sanity.fileAsset";
+    };
+    media?: unknown;
+    _type: "file";
+  } | null;
+  description: string | null;
+  isActive: boolean | null;
+  validFrom: string | null;
+  validUntil: string | null;
+  displayOrder: number | null;
+}>;
+
 // Source: ./sanity/lib/menus/getMenusByRestaurant.ts
 // Variable: MENUS_BY_RESTAURANT_QUERY
 // Query: *[_type == "menu" && restaurant == $restaurant && isActive == true] {            _id,            restaurant,            menuName,            slug,            menuFile,            description,            isActive,            validFrom,            validUntil,            displayOrder        } | order(displayOrder asc, menuName asc)
@@ -511,14 +757,70 @@ export type ALL_BUSINESS_OFFERS_QUERYResult = Array<{
   } | null;
   description: string | null;
 }>;
+// Variable: BUSINESS_OFFER_BY_SLUG_QUERY
+// Query: *[_type == "businessOffer" && slug.current == $slug] {      _id,      offerName,      slug,      offerFile,      description    }[0]
+export type BUSINESS_OFFER_BY_SLUG_QUERYResult = {
+  _id: string;
+  offerName: string | null;
+  slug: Slug | null;
+  offerFile: {
+    asset?: {
+      _ref: string;
+      _type: "reference";
+      _weak?: boolean;
+      [internalGroqTypeReferenceTo]?: "sanity.fileAsset";
+    };
+    media?: unknown;
+    _type: "file";
+  } | null;
+  description: string | null;
+} | null;
+// Variable: BUSINESS_OFFER_BY_NAME_QUERY
+// Query: *[_type == "businessOffer" && offerName match $offerName] {      _id,      offerName,      slug,      offerFile,      description    }[0]
+export type BUSINESS_OFFER_BY_NAME_QUERYResult = {
+  _id: string;
+  offerName: string | null;
+  slug: Slug | null;
+  offerFile: {
+    asset?: {
+      _ref: string;
+      _type: "reference";
+      _weak?: boolean;
+      [internalGroqTypeReferenceTo]?: "sanity.fileAsset";
+    };
+    media?: unknown;
+    _type: "file";
+  } | null;
+  description: string | null;
+} | null;
+// Variable: PRIMARY_BUSINESS_OFFER_QUERY
+// Query: *[_type == "businessOffer"] | order(_createdAt desc) [0] {      _id,      offerName,      slug,      offerFile,      description    }
+export type PRIMARY_BUSINESS_OFFER_QUERYResult = {
+  _id: string;
+  offerName: string | null;
+  slug: Slug | null;
+  offerFile: {
+    asset?: {
+      _ref: string;
+      _type: "reference";
+      _weak?: boolean;
+      [internalGroqTypeReferenceTo]?: "sanity.fileAsset";
+    };
+    media?: unknown;
+    _type: "file";
+  } | null;
+  description: string | null;
+} | null;
 
 // Source: ./sanity/lib/offers/getOfferBySlug.ts
 // Variable: OFFER_BY_ID_QUERY
-// Query: *[_type == "offers" && slug.current == $slug] {            _id,            plname,            enname,            slug,            image,            price,            currency,            validUntil,            people,            minNights,            pldescription,            endescription,            "offerListing": offerListing[]-> {                _id,                plname,                enname,                description            }        } | order(plname asc) [0]
+// Query: *[_type == "offers" && slug.current == $slug] {            _id,            plname,            subtitle,            enname,            ensubtitle,            slug,            image,            price,            validFrom,            validUntil,            daysNights,            meals,            pldescription,            endescription,            offerListing,            offerListingEn,            mainAttractions,            mainAttractionsEn,            bookingConditions,            bookingConditionsEn,            practicalInfo,            practicalInfoEn,            isActive,            categories        } | order(plname asc) [0]
 export type OFFER_BY_ID_QUERYResult = {
   _id: string;
   plname: string | null;
+  subtitle: string | null;
   enname: string | null;
+  ensubtitle: string | null;
   slug: Slug | null;
   image: {
     asset?: {
@@ -533,10 +835,10 @@ export type OFFER_BY_ID_QUERYResult = {
     _type: "image";
   } | null;
   price: number | null;
-  currency: null;
+  validFrom: string | null;
   validUntil: string | null;
-  people: number | null;
-  minNights: number | null;
+  daysNights: string | null;
+  meals: string | null;
   pldescription: Array<{
     children?: Array<{
       marks?: Array<string>;
@@ -545,7 +847,7 @@ export type OFFER_BY_ID_QUERYResult = {
       _key: string;
     }>;
     style?: "blockquote" | "h1" | "h2" | "h3" | "h4" | "normal";
-    listItem?: "bullet";
+    listItem?: "bullet" | "number";
     markDefs?: Array<{
       href?: string;
       _type: "link";
@@ -553,19 +855,6 @@ export type OFFER_BY_ID_QUERYResult = {
     }>;
     level?: number;
     _type: "block";
-    _key: string;
-  } | {
-    asset?: {
-      _ref: string;
-      _type: "reference";
-      _weak?: boolean;
-      [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-    };
-    media?: unknown;
-    hotspot?: SanityImageHotspot;
-    crop?: SanityImageCrop;
-    alt?: string;
-    _type: "image";
     _key: string;
   }> | null;
   endescription: Array<{
@@ -576,7 +865,7 @@ export type OFFER_BY_ID_QUERYResult = {
       _key: string;
     }>;
     style?: "blockquote" | "h1" | "h2" | "h3" | "h4" | "normal";
-    listItem?: "bullet";
+    listItem?: "bullet" | "number";
     markDefs?: Array<{
       href?: string;
       _type: "link";
@@ -585,35 +874,170 @@ export type OFFER_BY_ID_QUERYResult = {
     level?: number;
     _type: "block";
     _key: string;
-  } | {
-    asset?: {
-      _ref: string;
-      _type: "reference";
-      _weak?: boolean;
-      [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-    };
-    media?: unknown;
-    hotspot?: SanityImageHotspot;
-    crop?: SanityImageCrop;
-    alt?: string;
-    _type: "image";
-    _key: string;
   }> | null;
   offerListing: Array<{
-    _id: string;
-    plname: string | null;
-    enname: string | null;
-    description: string | null;
+    children?: Array<{
+      marks?: Array<string>;
+      text?: string;
+      _type: "span";
+      _key: string;
+    }>;
+    style?: "blockquote" | "h1" | "h2" | "h3" | "h4" | "normal";
+    listItem?: "bullet" | "number";
+    markDefs?: Array<{
+      href?: string;
+      _type: "link";
+      _key: string;
+    }>;
+    level?: number;
+    _type: "block";
+    _key: string;
+  }> | null;
+  offerListingEn: Array<{
+    children?: Array<{
+      marks?: Array<string>;
+      text?: string;
+      _type: "span";
+      _key: string;
+    }>;
+    style?: "blockquote" | "h1" | "h2" | "h3" | "h4" | "normal";
+    listItem?: "bullet" | "number";
+    markDefs?: Array<{
+      href?: string;
+      _type: "link";
+      _key: string;
+    }>;
+    level?: number;
+    _type: "block";
+    _key: string;
+  }> | null;
+  mainAttractions: Array<{
+    children?: Array<{
+      marks?: Array<string>;
+      text?: string;
+      _type: "span";
+      _key: string;
+    }>;
+    style?: "blockquote" | "h1" | "h2" | "h3" | "h4" | "normal";
+    listItem?: "bullet" | "number";
+    markDefs?: Array<{
+      href?: string;
+      _type: "link";
+      _key: string;
+    }>;
+    level?: number;
+    _type: "block";
+    _key: string;
+  }> | null;
+  mainAttractionsEn: Array<{
+    children?: Array<{
+      marks?: Array<string>;
+      text?: string;
+      _type: "span";
+      _key: string;
+    }>;
+    style?: "blockquote" | "h1" | "h2" | "h3" | "h4" | "normal";
+    listItem?: "bullet" | "number";
+    markDefs?: Array<{
+      href?: string;
+      _type: "link";
+      _key: string;
+    }>;
+    level?: number;
+    _type: "block";
+    _key: string;
+  }> | null;
+  bookingConditions: Array<{
+    children?: Array<{
+      marks?: Array<string>;
+      text?: string;
+      _type: "span";
+      _key: string;
+    }>;
+    style?: "blockquote" | "h1" | "h2" | "h3" | "h4" | "normal";
+    listItem?: "bullet" | "number";
+    markDefs?: Array<{
+      href?: string;
+      _type: "link";
+      _key: string;
+    }>;
+    level?: number;
+    _type: "block";
+    _key: string;
+  }> | null;
+  bookingConditionsEn: Array<{
+    children?: Array<{
+      marks?: Array<string>;
+      text?: string;
+      _type: "span";
+      _key: string;
+    }>;
+    style?: "blockquote" | "h1" | "h2" | "h3" | "h4" | "normal";
+    listItem?: "bullet" | "number";
+    markDefs?: Array<{
+      href?: string;
+      _type: "link";
+      _key: string;
+    }>;
+    level?: number;
+    _type: "block";
+    _key: string;
+  }> | null;
+  practicalInfo: Array<{
+    children?: Array<{
+      marks?: Array<string>;
+      text?: string;
+      _type: "span";
+      _key: string;
+    }>;
+    style?: "blockquote" | "h1" | "h2" | "h3" | "h4" | "normal";
+    listItem?: "bullet" | "number";
+    markDefs?: Array<{
+      href?: string;
+      _type: "link";
+      _key: string;
+    }>;
+    level?: number;
+    _type: "block";
+    _key: string;
+  }> | null;
+  practicalInfoEn: Array<{
+    children?: Array<{
+      marks?: Array<string>;
+      text?: string;
+      _type: "span";
+      _key: string;
+    }>;
+    style?: "blockquote" | "h1" | "h2" | "h3" | "h4" | "normal";
+    listItem?: "bullet" | "number";
+    markDefs?: Array<{
+      href?: string;
+      _type: "link";
+      _key: string;
+    }>;
+    level?: number;
+    _type: "block";
+    _key: string;
+  }> | null;
+  isActive: boolean | null;
+  categories: Array<{
+    _ref: string;
+    _type: "reference";
+    _weak?: boolean;
+    _key: string;
+    [internalGroqTypeReferenceTo]?: "category";
   }> | null;
 } | null;
 
 // Source: ./sanity/lib/offers/getOffers.ts
 // Variable: ALL_OFFERS_QUERY
-// Query: *[_type == "offers"] {      _id,      plname,      enname,      slug,      image,      price,      validUntil,      people,      minNights,      pldescription,      endescription,      "categories": categories[] {        _ref,        _key,        "title": @->title,        "entitle": @->entitle,         "pltitle": @->pltitle      }    } | order(validFrom desc)
+// Query: *[_type == "offers"] {      _id,      plname,      subtitle,      enname,      ensubtitle,      slug,      image,      price,      validFrom,      validUntil,      daysNights,      meals,      pldescription,      endescription,      offerListing,      offerListingEn,      mainAttractions,      mainAttractionsEn,      bookingConditions,      bookingConditionsEn,      practicalInfo,      practicalInfoEn,      isActive,      "categories": categories[] {        _ref,        _key,        "title": @->title,        "entitle": @->entitle,         "pltitle": @->pltitle      }    } | order(plname asc)
 export type ALL_OFFERS_QUERYResult = Array<{
   _id: string;
   plname: string | null;
+  subtitle: string | null;
   enname: string | null;
+  ensubtitle: string | null;
   slug: Slug | null;
   image: {
     asset?: {
@@ -628,9 +1052,10 @@ export type ALL_OFFERS_QUERYResult = Array<{
     _type: "image";
   } | null;
   price: number | null;
+  validFrom: string | null;
   validUntil: string | null;
-  people: number | null;
-  minNights: number | null;
+  daysNights: string | null;
+  meals: string | null;
   pldescription: Array<{
     children?: Array<{
       marks?: Array<string>;
@@ -639,7 +1064,7 @@ export type ALL_OFFERS_QUERYResult = Array<{
       _key: string;
     }>;
     style?: "blockquote" | "h1" | "h2" | "h3" | "h4" | "normal";
-    listItem?: "bullet";
+    listItem?: "bullet" | "number";
     markDefs?: Array<{
       href?: string;
       _type: "link";
@@ -647,19 +1072,6 @@ export type ALL_OFFERS_QUERYResult = Array<{
     }>;
     level?: number;
     _type: "block";
-    _key: string;
-  } | {
-    asset?: {
-      _ref: string;
-      _type: "reference";
-      _weak?: boolean;
-      [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-    };
-    media?: unknown;
-    hotspot?: SanityImageHotspot;
-    crop?: SanityImageCrop;
-    alt?: string;
-    _type: "image";
     _key: string;
   }> | null;
   endescription: Array<{
@@ -670,7 +1082,7 @@ export type ALL_OFFERS_QUERYResult = Array<{
       _key: string;
     }>;
     style?: "blockquote" | "h1" | "h2" | "h3" | "h4" | "normal";
-    listItem?: "bullet";
+    listItem?: "bullet" | "number";
     markDefs?: Array<{
       href?: string;
       _type: "link";
@@ -679,20 +1091,152 @@ export type ALL_OFFERS_QUERYResult = Array<{
     level?: number;
     _type: "block";
     _key: string;
-  } | {
-    asset?: {
-      _ref: string;
-      _type: "reference";
-      _weak?: boolean;
-      [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-    };
-    media?: unknown;
-    hotspot?: SanityImageHotspot;
-    crop?: SanityImageCrop;
-    alt?: string;
-    _type: "image";
+  }> | null;
+  offerListing: Array<{
+    children?: Array<{
+      marks?: Array<string>;
+      text?: string;
+      _type: "span";
+      _key: string;
+    }>;
+    style?: "blockquote" | "h1" | "h2" | "h3" | "h4" | "normal";
+    listItem?: "bullet" | "number";
+    markDefs?: Array<{
+      href?: string;
+      _type: "link";
+      _key: string;
+    }>;
+    level?: number;
+    _type: "block";
     _key: string;
   }> | null;
+  offerListingEn: Array<{
+    children?: Array<{
+      marks?: Array<string>;
+      text?: string;
+      _type: "span";
+      _key: string;
+    }>;
+    style?: "blockquote" | "h1" | "h2" | "h3" | "h4" | "normal";
+    listItem?: "bullet" | "number";
+    markDefs?: Array<{
+      href?: string;
+      _type: "link";
+      _key: string;
+    }>;
+    level?: number;
+    _type: "block";
+    _key: string;
+  }> | null;
+  mainAttractions: Array<{
+    children?: Array<{
+      marks?: Array<string>;
+      text?: string;
+      _type: "span";
+      _key: string;
+    }>;
+    style?: "blockquote" | "h1" | "h2" | "h3" | "h4" | "normal";
+    listItem?: "bullet" | "number";
+    markDefs?: Array<{
+      href?: string;
+      _type: "link";
+      _key: string;
+    }>;
+    level?: number;
+    _type: "block";
+    _key: string;
+  }> | null;
+  mainAttractionsEn: Array<{
+    children?: Array<{
+      marks?: Array<string>;
+      text?: string;
+      _type: "span";
+      _key: string;
+    }>;
+    style?: "blockquote" | "h1" | "h2" | "h3" | "h4" | "normal";
+    listItem?: "bullet" | "number";
+    markDefs?: Array<{
+      href?: string;
+      _type: "link";
+      _key: string;
+    }>;
+    level?: number;
+    _type: "block";
+    _key: string;
+  }> | null;
+  bookingConditions: Array<{
+    children?: Array<{
+      marks?: Array<string>;
+      text?: string;
+      _type: "span";
+      _key: string;
+    }>;
+    style?: "blockquote" | "h1" | "h2" | "h3" | "h4" | "normal";
+    listItem?: "bullet" | "number";
+    markDefs?: Array<{
+      href?: string;
+      _type: "link";
+      _key: string;
+    }>;
+    level?: number;
+    _type: "block";
+    _key: string;
+  }> | null;
+  bookingConditionsEn: Array<{
+    children?: Array<{
+      marks?: Array<string>;
+      text?: string;
+      _type: "span";
+      _key: string;
+    }>;
+    style?: "blockquote" | "h1" | "h2" | "h3" | "h4" | "normal";
+    listItem?: "bullet" | "number";
+    markDefs?: Array<{
+      href?: string;
+      _type: "link";
+      _key: string;
+    }>;
+    level?: number;
+    _type: "block";
+    _key: string;
+  }> | null;
+  practicalInfo: Array<{
+    children?: Array<{
+      marks?: Array<string>;
+      text?: string;
+      _type: "span";
+      _key: string;
+    }>;
+    style?: "blockquote" | "h1" | "h2" | "h3" | "h4" | "normal";
+    listItem?: "bullet" | "number";
+    markDefs?: Array<{
+      href?: string;
+      _type: "link";
+      _key: string;
+    }>;
+    level?: number;
+    _type: "block";
+    _key: string;
+  }> | null;
+  practicalInfoEn: Array<{
+    children?: Array<{
+      marks?: Array<string>;
+      text?: string;
+      _type: "span";
+      _key: string;
+    }>;
+    style?: "blockquote" | "h1" | "h2" | "h3" | "h4" | "normal";
+    listItem?: "bullet" | "number";
+    markDefs?: Array<{
+      href?: string;
+      _type: "link";
+      _key: string;
+    }>;
+    level?: number;
+    _type: "block";
+    _key: string;
+  }> | null;
+  isActive: boolean | null;
   categories: Array<{
     _ref: string;
     _key: string;
@@ -721,6 +1265,42 @@ export type ALL_SPA_OFFERS_QUERYResult = Array<{
   } | null;
   description: string | null;
 }>;
+// Variable: SPA_OFFER_BY_SLUG_QUERY
+// Query: *[_type == "spaOffer" && slug.current == $slug] {      _id,      offerName,      slug,      offerFile,      description    }[0]
+export type SPA_OFFER_BY_SLUG_QUERYResult = {
+  _id: string;
+  offerName: string | null;
+  slug: Slug | null;
+  offerFile: {
+    asset?: {
+      _ref: string;
+      _type: "reference";
+      _weak?: boolean;
+      [internalGroqTypeReferenceTo]?: "sanity.fileAsset";
+    };
+    media?: unknown;
+    _type: "file";
+  } | null;
+  description: string | null;
+} | null;
+// Variable: PRIMARY_SPA_OFFER_QUERY
+// Query: *[_type == "spaOffer"] | order(_createdAt desc) [0] {      _id,      offerName,      slug,      offerFile,      description    }
+export type PRIMARY_SPA_OFFER_QUERYResult = {
+  _id: string;
+  offerName: string | null;
+  slug: Slug | null;
+  offerFile: {
+    asset?: {
+      _ref: string;
+      _type: "reference";
+      _weak?: boolean;
+      [internalGroqTypeReferenceTo]?: "sanity.fileAsset";
+    };
+    media?: unknown;
+    _type: "file";
+  } | null;
+  description: string | null;
+} | null;
 
 // Source: ./sanity/lib/offers/getVoucherBySlug.ts
 // Variable: VOUCHER_BY_SLUG_QUERY
@@ -880,12 +1460,20 @@ export type ACTIVE_SPA_POPUPS_QUERYResult = Array<{
 import "@sanity/client";
 declare module "@sanity/client" {
   interface SanityQueries {
+    "\n        *[_type == \"event\" && eventType == $eventType && isActive == true] {\n            _id,\n            eventType,\n            menuName,\n            slug,\n            menuFile,\n            description,\n            isActive,\n            validFrom,\n            validUntil,\n            displayOrder\n        } | order(displayOrder asc, menuName asc)": EVENTS_BY_TYPE_QUERYResult;
+    "\n        *[_type == \"event\" && slug.current == $slug && isActive == true][0] {\n            _id,\n            eventType,\n            menuName,\n            slug,\n            menuFile,\n            description,\n            isActive,\n            validFrom,\n            validUntil,\n            displayOrder\n        }": EVENT_BY_SLUG_QUERYResult;
+    "\n        *[_type == \"event\" && isActive == true] {\n            _id,\n            eventType,\n            menuName,\n            slug,\n            menuFile,\n            description,\n            isActive,\n            validFrom,\n            validUntil,\n            displayOrder\n        } | order(eventType asc, displayOrder asc, menuName asc)": ALL_EVENTS_QUERYResult;
     "\n        *[_type == \"menu\" && restaurant == $restaurant && isActive == true] {\n            _id,\n            restaurant,\n            menuName,\n            slug,\n            menuFile,\n            description,\n            isActive,\n            validFrom,\n            validUntil,\n            displayOrder\n        } | order(displayOrder asc, menuName asc)": MENUS_BY_RESTAURANT_QUERYResult;
     "\n        *[_type == \"menu\" && isActive == true] {\n            _id,\n            restaurant,\n            menuName,\n            slug,\n            menuFile,\n            description,\n            isActive,\n            validFrom,\n            validUntil,\n            displayOrder\n        } | order(restaurant asc, displayOrder asc, menuName asc)": ALL_MENUS_QUERYResult;
     "*[_type == \"businessOffer\"] {\n      _id,\n      offerName,\n      slug,\n      offerFile,\n      description\n    } | order(_createdAt desc)": ALL_BUSINESS_OFFERS_QUERYResult;
-    "\n        *[_type == \"offers\" && slug.current == $slug] {\n            _id,\n            plname,\n            enname,\n            slug,\n            image,\n            price,\n            currency,\n            validUntil,\n            people,\n            minNights,\n            pldescription,\n            endescription,\n            \"offerListing\": offerListing[]-> {\n                _id,\n                plname,\n                enname,\n                description\n            }\n        } | order(plname asc) [0]": OFFER_BY_ID_QUERYResult;
-    "*[_type == \"offers\"] {\n      _id,\n      plname,\n      enname,\n      slug,\n      image,\n      price,\n      validUntil,\n      people,\n      minNights,\n      pldescription,\n      endescription,\n      \"categories\": categories[] {\n        _ref,\n        _key,\n        \"title\": @->title,\n        \"entitle\": @->entitle, \n        \"pltitle\": @->pltitle\n      }\n    } | order(validFrom desc)": ALL_OFFERS_QUERYResult;
+    "*[_type == \"businessOffer\" && slug.current == $slug] {\n      _id,\n      offerName,\n      slug,\n      offerFile,\n      description\n    }[0]": BUSINESS_OFFER_BY_SLUG_QUERYResult;
+    "*[_type == \"businessOffer\" && offerName match $offerName] {\n      _id,\n      offerName,\n      slug,\n      offerFile,\n      description\n    }[0]": BUSINESS_OFFER_BY_NAME_QUERYResult;
+    "*[_type == \"businessOffer\"] | order(_createdAt desc) [0] {\n      _id,\n      offerName,\n      slug,\n      offerFile,\n      description\n    }": PRIMARY_BUSINESS_OFFER_QUERYResult;
+    "\n        *[_type == \"offers\" && slug.current == $slug] {\n            _id,\n            plname,\n            subtitle,\n            enname,\n            ensubtitle,\n            slug,\n            image,\n            price,\n            validFrom,\n            validUntil,\n            daysNights,\n            meals,\n            pldescription,\n            endescription,\n            offerListing,\n            offerListingEn,\n            mainAttractions,\n            mainAttractionsEn,\n            bookingConditions,\n            bookingConditionsEn,\n            practicalInfo,\n            practicalInfoEn,\n            isActive,\n            categories\n        } | order(plname asc) [0]": OFFER_BY_ID_QUERYResult;
+    "*[_type == \"offers\"] {\n      _id,\n      plname,\n      subtitle,\n      enname,\n      ensubtitle,\n      slug,\n      image,\n      price,\n      validFrom,\n      validUntil,\n      daysNights,\n      meals,\n      pldescription,\n      endescription,\n      offerListing,\n      offerListingEn,\n      mainAttractions,\n      mainAttractionsEn,\n      bookingConditions,\n      bookingConditionsEn,\n      practicalInfo,\n      practicalInfoEn,\n      isActive,\n      \"categories\": categories[] {\n        _ref,\n        _key,\n        \"title\": @->title,\n        \"entitle\": @->entitle, \n        \"pltitle\": @->pltitle\n      }\n    } | order(plname asc)": ALL_OFFERS_QUERYResult;
     "*[_type == \"spaOffer\"] {\n      _id,\n      offerName,\n      slug,\n      offerFile,\n      description\n    } | order(_createdAt desc)": ALL_SPA_OFFERS_QUERYResult;
+    "*[_type == \"spaOffer\" && slug.current == $slug] {\n      _id,\n      offerName,\n      slug,\n      offerFile,\n      description\n    }[0]": SPA_OFFER_BY_SLUG_QUERYResult;
+    "*[_type == \"spaOffer\"] | order(_createdAt desc) [0] {\n      _id,\n      offerName,\n      slug,\n      offerFile,\n      description\n    }": PRIMARY_SPA_OFFER_QUERYResult;
     "*[_type == \"voucher\" && slug.current == $slug][0] {\n      _id,\n      plname,\n      enname,\n      slug,\n      voucherImage,\n      voucherValue,\n      pldescription,\n      endescription\n    }": VOUCHER_BY_SLUG_QUERYResult;
     "*[_type == \"voucher\"] {\n      _id,\n      plname,\n      enname,\n      slug,\n      voucherImage,\n      voucherValue,\n      pldescription,\n      endescription\n    } | order(_createdAt desc)": ALL_VOUCHERS_QUERYResult;
     "\n        *[_type == \"popup\" && isActive == true && (\n            (!defined(displayFrom) && !defined(displayTo)) ||\n            (!defined(displayFrom) && displayTo > now()) ||\n            (!defined(displayTo) && displayFrom <= now()) ||\n            (displayFrom <= now() && displayTo > now())\n        )] {\n            _id,\n            pltitle,\n            entitle,\n            slug,\n            plkeyMessage,\n            enkeyMessage,\n            popupImage,\n            isActive,\n            displayFrom,\n            displayTo\n        } | order(_createdAt desc)": ACTIVE_POPUPS_QUERYResult;

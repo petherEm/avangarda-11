@@ -46,5 +46,12 @@ export const businessType = defineType({
       subtitle: 'description',
       media: 'offerFile',
     },
+    prepare(selection) {
+      const { title, subtitle } = selection;
+      return {
+        title,
+        subtitle,
+      };
+    },
   },
 });

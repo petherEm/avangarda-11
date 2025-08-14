@@ -7,22 +7,31 @@ export const getOfferBySlug = async (slug: string) => {
         *[_type == "offers" && slug.current == $slug] {
             _id,
             plname,
+            subtitle,
             enname,
+            ensubtitle,
             slug,
             image,
             price,
-            currency,
+            validFrom,
             validUntil,
-            people,
-            minNights,
+            daysNights,
+            endaysNights,
+            meals,
             pldescription,
             endescription,
-            "offerListing": offerListing[]-> {
-                _id,
-                plname,
-                enname,
-                description
-            }
+            offerListing,
+            offerListingEn,
+            mainAttractions,
+            mainAttractionsEn,
+            paidAttractions,
+            paidAttractionsEn,
+            bookingConditions,
+            bookingConditionsEn,
+            practicalInfo,
+            practicalInfoEn,
+            isActive,
+            categories
         } | order(plname asc) [0]`);
     try {
         const offer = await sanityFetch({

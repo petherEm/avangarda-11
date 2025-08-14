@@ -7,12 +7,21 @@ import { ChevronLeft, ChevronRight } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
-import { ArrowRight, Tag, Calendar, Users } from "lucide-react";
+import { ArrowRight, Tag, Calendar, Clock, CalendarDays } from "lucide-react";
 import { imageUrl } from "@/lib/imageUrl";
 
 interface OfferGridProps {
   offers: Offers[];
   lang?: string;
+  getLocalizedContent?: (offer: Offers) => {
+    name: string;
+    subtitle: string;
+    daysNights: string;
+    description: string;
+    price: string | null;
+    validityPeriod: string | null;
+    perPersonPerNight: string;
+  };
 }
 
 const container = {
@@ -31,7 +40,11 @@ const item = {
   show: { opacity: 1, y: 0 },
 };
 
-function OfferGrid({ offers, lang = "en" }: OfferGridProps) {
+function OfferGrid({
+  offers,
+  lang = "en",
+  getLocalizedContent,
+}: OfferGridProps) {
   // Existing state
   const scrollContainerRef = useRef<HTMLDivElement>(null);
   const [scrollPosition, setScrollPosition] = useState(0);
@@ -41,19 +54,70 @@ function OfferGrid({ offers, lang = "en" }: OfferGridProps) {
   // Add new state for category filtering
   const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
 
+  // Default getLocalizedContent function if not provided
+  const defaultGetLocalizedContent = (offer: Offers) => {
+    const name = lang === "pl" ? offer.plname : offer.enname;
+    const subtitle = lang === "pl" ? offer.subtitle : offer.ensubtitle;
+    const daysNights = lang === "pl" ? offer.daysNights : offer.endaysNights;
+    const description =
+      lang === "pl" ? offer.pldescription : offer.endescription;
+    const currency = "PLN";
+    const formattedPrice = offer.price
+      ? new Intl.NumberFormat(lang === "pl" ? "pl-PL" : "en-US", {
+          style: "currency",
+          currency: currency,
+          minimumFractionDigits: 0,
+          maximumFractionDigits: 2,
+        }).format(offer.price)
+      : null;
+
+    // Format validity dates
+    const formatDate = (dateString: string) => {
+      if (!dateString) return null;
+      const date = new Date(dateString);
+      return date.toLocaleDateString(lang === "pl" ? "pl-PL" : "en-US", {
+        day: "2-digit",
+        month: "2-digit",
+        year: "numeric",
+      });
+    };
+
+    const validFrom = offer.validFrom ? formatDate(offer.validFrom) : null;
+    const validUntil = offer.validUntil ? formatDate(offer.validUntil) : null;
+    const validityPeriod =
+      validFrom && validUntil ? `${validFrom} - ${validUntil}` : null;
+
+    const perPersonPerNight = lang === "pl" ? "/os./noc" : "/person/night";
+
+    return {
+      name: name || "No title available",
+      subtitle: subtitle || "",
+      daysNights: daysNights || "",
+      description:
+        description
+          ?.map((block) =>
+            block._type === "block"
+              ? block.children?.map((child) => child.text).join("")
+              : ""
+          )
+          .join("") || "No description available",
+      price: formattedPrice,
+      validityPeriod,
+      perPersonPerNight,
+    };
+  };
+
+  const localizedContentFunction =
+    getLocalizedContent || defaultGetLocalizedContent;
+
   // Check if we're on mobile
   useEffect(() => {
     const checkIfMobile = () => {
       setIsMobile(window.innerWidth < 768);
     };
 
-    // Initial check
     checkIfMobile();
-
-    // Listen for window resize
     window.addEventListener("resize", checkIfMobile);
-
-    // Cleanup
     return () => window.removeEventListener("resize", checkIfMobile);
   }, []);
 
@@ -63,7 +127,7 @@ function OfferGrid({ offers, lang = "en" }: OfferGridProps) {
     try {
       const expiryDate = new Date(dateString);
       const today = new Date();
-      today.setHours(0, 0, 0, 0); // Reset time to start of day
+      today.setHours(0, 0, 0, 0);
       return expiryDate < today;
     } catch (e) {
       return false;
@@ -107,7 +171,6 @@ function OfferGrid({ offers, lang = "en" }: OfferGridProps) {
 
       container.scrollBy({ left: scrollAmount, behavior: "smooth" });
 
-      // Update active index
       setTimeout(() => {
         const newPosition = container.scrollLeft;
         const newIndex = Math.round(newPosition / cardWidth);
@@ -130,7 +193,7 @@ function OfferGrid({ offers, lang = "en" }: OfferGridProps) {
     }
   };
 
-  // Category filter component - can be reused for both mobile and desktop views
+  // Category filter component
   const CategoryFilter = () => (
     <div className="mb-8">
       <h3 className="text-lg font-medium mb-4">
@@ -150,17 +213,14 @@ function OfferGrid({ offers, lang = "en" }: OfferGridProps) {
         </button>
 
         {categories.map((categoryId) => {
-          // Find an offer with this category to get the title
           const matchingOffer = offers?.find((offer) =>
             offer.categories?.some((cat) => cat._ref === categoryId)
           );
 
-          // Get the category object from the matching offer
           const categoryObj = matchingOffer?.categories?.find(
             (cat) => cat._ref === categoryId
           );
 
-          // Get the appropriate title based on language
           const categoryName =
             lang === "pl"
               ? categoryObj?.title || categoryId
@@ -188,10 +248,8 @@ function OfferGrid({ offers, lang = "en" }: OfferGridProps) {
   if (isMobile) {
     return (
       <div className="relative">
-        {/* Category Filter */}
         <CategoryFilter />
 
-        {/* Navigation Controls - Only shown on larger screens */}
         <div className="hidden sm:flex justify-end gap-2 mb-6">
           <button
             onClick={() => scroll("left")}
@@ -212,7 +270,6 @@ function OfferGrid({ offers, lang = "en" }: OfferGridProps) {
           </button>
         </div>
 
-        {/* Offers Carousel */}
         <div
           ref={scrollContainerRef}
           onScroll={handleScroll}
@@ -224,6 +281,8 @@ function OfferGrid({ offers, lang = "en" }: OfferGridProps) {
           }}
         >
           {filteredOffers?.map((offer, index) => {
+            const localizedContent = localizedContentFunction(offer);
+
             return (
               <motion.div
                 key={offer._id}
@@ -241,78 +300,59 @@ function OfferGrid({ offers, lang = "en" }: OfferGridProps) {
                           ? imageUrl(offer.image).url()
                           : "/placeholder.svg"
                       }
-                      alt={
-                        lang === "pl" ? offer.plname || "" : offer.enname || ""
-                      }
+                      alt={localizedContent.name}
                       fill
                       className="object-cover"
                     />
 
-                    {/* Enhanced gradient overlay */}
                     <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 to-transparent opacity-70 transition-opacity duration-300 group-hover:opacity-90"></div>
 
-                    {/* Content overlay */}
                     <div className="absolute bottom-0 left-0 right-0 p-6 text-white transform transition-all duration-300">
                       <Link
                         href={`/${lang}/pakiety/${offer.slug?.current}`}
                         className="block"
                       >
-                        <h3 className="text-xl md:text-2xl font-semibold mb-3 group-hover:text-white transition-colors">
-                          {lang === "pl" ? offer.plname : offer.enname}
+                        <h3 className="text-xl md:text-2xl font-semibold mb-2 group-hover:text-white transition-colors">
+                          {localizedContent.name}
                         </h3>
+                        {localizedContent.subtitle && (
+                          <p className="text-base text-white/80 mb-3">
+                            {localizedContent.subtitle}
+                          </p>
+                        )}
                       </Link>
 
-                      {/* Features */}
-                      <div className="flex gap-4 mb-4">
-                        {offer.validUntil && (
-                          <div className="flex items-center gap-1.5 text-sm text-white/90 font-bold">
-                            <Calendar className="h-4 w-4 text-white" />
-                            <span>
-                              {new Date(offer.validUntil).toLocaleDateString(
-                                lang === "pl" ? "pl-PL" : "en-US",
-                                { month: "long", day: "numeric" }
-                              )}
-                            </span>
-                          </div>
-                        )}
-                        {offer.people && (
-                          <div className="flex items-center gap-1.5 text-sm text-white/90 font-bold">
-                            <Users className="h-4 w-4 text-white" />
-                            <span>{offer.people}</span>
+                      <div className="flex flex-col gap-2 mb-4">
+                        <div className="flex gap-4">
+                          {localizedContent.daysNights && (
+                            <div className="flex items-center gap-1.5 text-sm text-white/90 font-bold">
+                              <Calendar className="h-4 w-4 text-avangarda" />
+                              <span>{localizedContent.daysNights}</span>
+                            </div>
+                          )}
+                          {offer.meals && (
+                            <div className="flex items-center gap-1.5 text-sm text-white/90 font-bold">
+                              <Clock className="h-4 w-4 text-avangarda" />
+                              <span>{offer.meals}</span>
+                            </div>
+                          )}
+                        </div>
+                        {localizedContent.validityPeriod && (
+                          <div className="flex items-center gap-1.5 text-sm text-white/70 font-medium">
+                            <CalendarDays className="h-4 w-4 text-avangarda" />
+                            <span>{localizedContent.validityPeriod}</span>
                           </div>
                         )}
                       </div>
 
-                      {/* Description - Hidden by default, visible on hover */}
                       <div className="overflow-hidden transition-all duration-300 max-h-0 group-hover:max-h-24">
                         <p className="text-white/90 text-sm md:text-base mb-6">
-                          {lang === "pl"
-                            ? (
-                                offer.pldescription
-                                  ?.map((block) =>
-                                    block._type === "block"
-                                      ? block.children
-                                          ?.map((child) => child.text)
-                                          .join("")
-                                      : ""
-                                  )
-                                  .join("") || ""
-                              ).substring(0, 150) + "..."
-                            : (
-                                offer.endescription
-                                  ?.map((block) =>
-                                    block._type === "block"
-                                      ? block.children
-                                          ?.map((child) => child.text)
-                                          .join("")
-                                      : ""
-                                  )
-                                  .join("") || ""
-                              ).substring(0, 150) + "..."}
+                          {localizedContent.description.length > 150
+                            ? `${localizedContent.description.substring(0, 150)}...`
+                            : localizedContent.description}
                         </p>
                       </div>
 
-                      {/* Button - Hidden by default, visible on hover */}
                       <div className="transform transition-all duration-300 opacity-0 translate-y-4 group-hover:opacity-100 group-hover:translate-y-0">
                         <Link
                           href={`/${lang}/pakiety/${offer.slug?.current}`}
@@ -329,21 +369,17 @@ function OfferGrid({ offers, lang = "en" }: OfferGridProps) {
                       </div>
                     </div>
 
-                    {/* Price badge */}
-                    {offer.price && (
+                    {localizedContent.price && (
                       <div className="absolute top-4 right-4 bg-white text-pink-600 px-4 py-2 rounded-lg shadow-lg flex items-center gap-2 font-medium">
                         <Tag className="h-4 w-4" />
-                        <span>
-                          {new Intl.NumberFormat(
-                            lang === "pl" ? "pl-PL" : "en-US",
-                            {
-                              style: "currency",
-                              currency: "PLN",
-                              minimumFractionDigits: 0,
-                              maximumFractionDigits: 2,
-                            }
-                          ).format(offer.price)}{" "}
-                          {lang === "pl" ? " / os / noc" : " / pers / night"}
+                        <span className="flex flex-col text-center leading-tight">
+                          <span className="text-sm">
+                            {lang === "pl" ? "Od" : "From"}:
+                          </span>
+                          <span className="font-bold">
+                            {localizedContent.price}
+                            {localizedContent.perPersonPerNight}
+                          </span>
                         </span>
                       </div>
                     )}
@@ -354,7 +390,6 @@ function OfferGrid({ offers, lang = "en" }: OfferGridProps) {
           })}
         </div>
 
-        {/* Scroll Indicators */}
         <div className="flex justify-center gap-2 mt-4">
           {filteredOffers?.map((_, index) => (
             <button
@@ -378,15 +413,6 @@ function OfferGrid({ offers, lang = "en" }: OfferGridProps) {
             />
           ))}
         </div>
-
-        {/* Mobile scroll hint */}
-        {/* <div className="sm:hidden flex items-center justify-center mt-4 text-sm text-gray-500">
-          <ChevronLeft className="h-4 w-4" />
-          <span className="mx-1">
-            {lang === "pl" ? "Przewiń w lewo i prawo" : "Swipe left and right"}
-          </span>
-          <ChevronRight className="h-4 w-4" />
-        </div> */}
       </div>
     );
   }
@@ -394,7 +420,6 @@ function OfferGrid({ offers, lang = "en" }: OfferGridProps) {
   // Desktop grid view
   return (
     <>
-      {/* Category Filter */}
       <CategoryFilter />
 
       <motion.div
@@ -404,6 +429,8 @@ function OfferGrid({ offers, lang = "en" }: OfferGridProps) {
         className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-12"
       >
         {filteredOffers?.map((offer) => {
+          const localizedContent = localizedContentFunction(offer);
+
           return (
             <motion.div
               key={offer._id}
@@ -419,79 +446,60 @@ function OfferGrid({ offers, lang = "en" }: OfferGridProps) {
                         ? imageUrl(offer.image).url()
                         : "/placeholder.svg"
                     }
-                    alt={
-                      lang === "pl" ? offer.plname || "" : offer.enname || ""
-                    }
+                    alt={localizedContent.name}
                     fill
                     className="object-cover"
                     sizes="(max-width: 768px) 85vw, (max-width: 1200px) 48vw, 32vw"
                   />
 
-                  {/* Enhanced gradient overlay */}
                   <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 to-transparent opacity-70 transition-opacity duration-300 group-hover:opacity-90"></div>
 
-                  {/* Content overlay */}
                   <div className="absolute bottom-0 left-0 right-0 p-6 text-white transform transition-all duration-300">
                     <Link
                       href={`/${lang}/pakiety/${offer.slug?.current}`}
                       className="block"
                     >
-                      <h3 className="text-xl md:text-2xl font-semibold mb-3 group-hover:text-white transition-colors">
-                        {lang === "pl" ? offer.plname : offer.enname}
+                      <h3 className="text-xl md:text-2xl font-semibold mb-2 group-hover:text-white transition-colors">
+                        {localizedContent.name}
                       </h3>
+                      {localizedContent.subtitle && (
+                        <p className="text-base text-white/80 mb-3">
+                          {localizedContent.subtitle}
+                        </p>
+                      )}
                     </Link>
 
-                    {/* Features */}
-                    <div className="flex gap-4 mb-4">
-                      {offer.validUntil && (
-                        <div className="flex items-center gap-1.5 text-sm text-white/90 font-bold">
-                          <Calendar className="h-4 w-4 text-white" />
-                          <span>
-                            {new Date(offer.validUntil).toLocaleDateString(
-                              lang === "pl" ? "pl-PL" : "en-US",
-                              { month: "long", day: "numeric" }
-                            )}
-                          </span>
-                        </div>
-                      )}
-                      {offer.people && (
-                        <div className="flex items-center gap-1.5 text-sm text-white/90 font-bold">
-                          <Users className="h-4 w-4 text-white" />
-                          <span>{offer.people}</span>
+                    <div className="flex flex-col gap-2 mb-4">
+                      <div className="flex gap-4">
+                        {localizedContent.daysNights && (
+                          <div className="flex items-center gap-1.5 text-sm text-white/90 font-bold">
+                            <Calendar className="h-4 w-4 text-avangarda" />
+                            <span>{localizedContent.daysNights}</span>
+                          </div>
+                        )}
+                        {offer.meals && (
+                          <div className="flex items-center gap-1.5 text-sm text-white/90 font-bold">
+                            <Clock className="h-4 w-4 text-avangarda" />
+                            <span>{offer.meals}</span>
+                          </div>
+                        )}
+                      </div>
+                      {localizedContent.validityPeriod && (
+                        <div className="flex items-center gap-1.5 text-sm text-white/70 font-medium">
+                          <CalendarDays className="h-4 w-4 text-avangarda" />
+                          <span>{localizedContent.validityPeriod}</span>
                         </div>
                       )}
                     </div>
 
-                    {/* Description - Hidden by default, visible on hover */}
                     <div className="overflow-hidden transition-all duration-300 max-h-0 group-hover:max-h-24">
                       <p className="text-white/90 text-sm md:text-base mb-6">
-                        {lang === "pl"
-                          ? (
-                              offer.pldescription
-                                ?.map((block) =>
-                                  block._type === "block"
-                                    ? block.children
-                                        ?.map((child) => child.text)
-                                        .join("")
-                                    : ""
-                                )
-                                .join("") || ""
-                            ).substring(0, 150) + "..."
-                          : (
-                              offer.endescription
-                                ?.map((block) =>
-                                  block._type === "block"
-                                    ? block.children
-                                        ?.map((child) => child.text)
-                                        .join("")
-                                    : ""
-                                )
-                                .join("") || ""
-                            ).substring(0, 150) + "..."}
+                        {localizedContent.description.length > 150
+                          ? `${localizedContent.description.substring(0, 150)}...`
+                          : localizedContent.description}
                       </p>
                     </div>
 
-                    {/* Button - Hidden by default, visible on hover */}
                     <div className="transform transition-all duration-300 opacity-0 translate-y-4 group-hover:opacity-100 group-hover:translate-y-0">
                       <Link
                         href={`/${lang}/pakiety/${offer.slug?.current}`}
@@ -508,21 +516,17 @@ function OfferGrid({ offers, lang = "en" }: OfferGridProps) {
                     </div>
                   </div>
 
-                  {/* Price badge */}
-                  {offer.price && (
+                  {localizedContent.price && (
                     <div className="absolute top-4 right-4 bg-white text-pink-600 px-4 py-2 rounded-lg shadow-lg flex items-center gap-2 font-medium">
                       <Tag className="h-4 w-4" />
-                      <span>
-                        {new Intl.NumberFormat(
-                          lang === "pl" ? "pl-PL" : "en-US",
-                          {
-                            style: "currency",
-                            currency: "PLN",
-                            minimumFractionDigits: 0,
-                            maximumFractionDigits: 2,
-                          }
-                        ).format(offer.price)}
-                        {lang === "pl" ? " / os / noc" : " / pers / night"}
+                      <span className="flex flex-col text-center leading-tight">
+                        <span className="text-sm">
+                          {lang === "pl" ? "Od" : "From"}:
+                        </span>
+                        <span className="font-bold">
+                          {localizedContent.price}
+                          {localizedContent.perPersonPerNight}
+                        </span>
                       </span>
                     </div>
                   )}

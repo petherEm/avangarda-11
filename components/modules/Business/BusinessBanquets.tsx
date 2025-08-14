@@ -7,10 +7,13 @@ import { useRef } from "react";
 import Link from "next/link";
 import BackgroundLogoBottomDark from "@/components/background-logo-bottom-dark";
 import { AnimatedDecorativeBar } from "@/components/animated-decorative-bar";
+import { Download } from "lucide-react";
+import { fileUrl } from "@/lib/fileUrl";
 
 interface BusinessBanquetsProps {
   lang?: string;
   dict?: any;
+  banquetOffer?: any;
 }
 
 const fadeInUp = {
@@ -28,10 +31,12 @@ const slideInFromRight = {
   animate: { opacity: 1, x: 0 },
 };
 
-const BusinessBanquets = ({ lang = "pl", dict }: BusinessBanquetsProps) => {
+const BusinessBanquets = ({
+  lang = "pl",
+  dict,
+  banquetOffer,
+}: BusinessBanquetsProps) => {
   const sectionRef = useRef<HTMLDivElement>(null);
-  const banquetsUrl =
-    lang === "en" ? "/en/business-banquets" : "/pl/biznes-bankiety";
 
   // Parallax scroll effects
   const { scrollYProgress } = useScroll({
@@ -220,15 +225,31 @@ const BusinessBanquets = ({ lang = "pl", dict }: BusinessBanquetsProps) => {
                   transition={{ delay: 0.7, duration: 0.6 }}
                   className="col-span-1 sm:col-span-2 flex justify-center pt-4 sm:pt-6"
                 >
-                  <Link href={banquetsUrl}>
+                  {banquetOffer && banquetOffer.offerFile ? (
+                    <Link
+                      href={fileUrl(banquetOffer.offerFile)}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      <Button
+                        size="lg"
+                        variant="fillRight"
+                        className="px-6 sm:px-8 py-2 sm:py-3"
+                      >
+                        <Download className="h-3 w-3 sm:h-4 sm:w-4 mr-2" />
+                        Pobierz ofertę
+                      </Button>
+                    </Link>
+                  ) : (
                     <Button
                       size="lg"
                       variant="fillRight"
                       className="px-6 sm:px-8 py-2 sm:py-3"
+                      disabled
                     >
-                      Pobierz ofertę
+                      Oferta niedostępna
                     </Button>
-                  </Link>
+                  )}
                 </motion.div>
               </motion.div>
             </div>
@@ -317,15 +338,31 @@ const BusinessBanquets = ({ lang = "pl", dict }: BusinessBanquetsProps) => {
                         variants={fadeInLeft}
                         transition={{ delay: 0.5, duration: 0.6 }}
                       >
-                        <Link href={banquetsUrl}>
+                        {banquetOffer && banquetOffer.offerFile ? (
+                          <Link
+                            href={fileUrl(banquetOffer.offerFile)}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                          >
+                            <Button
+                              size="lg"
+                              variant="fillRight"
+                              className="border-none"
+                            >
+                              <Download className="h-4 w-4 mr-2" />
+                              Pobierz ofertę
+                            </Button>
+                          </Link>
+                        ) : (
                           <Button
                             size="lg"
                             variant="fillRight"
                             className="border-none"
+                            disabled
                           >
-                            Pobierz ofertę
+                            Oferta niedostępna
                           </Button>
-                        </Link>
+                        )}
                       </motion.div>
                     </motion.div>
                   </motion.div>

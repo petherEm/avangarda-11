@@ -13,7 +13,7 @@ import {
   Tag,
   Calendar,
   Clock,
-  Users,
+  CalendarDays,
 } from "lucide-react";
 import { useRef, useState, useEffect } from "react";
 import { AnimatedDecorativeBar } from "@/components/animated-decorative-bar";
@@ -33,6 +33,7 @@ interface OffersProps {
       details: string;
       items: OfferType[];
       from: string;
+      perPersonPerNight: string;
     };
   };
   lang: string;
@@ -107,9 +108,22 @@ const Offers = ({ dict, lang, offers }: OffersProps) => {
     return () => observer.disconnect();
   }, [offers.length, activeIndex]);
 
+  // Function to format dates
+  const formatDate = (dateString: string) => {
+    if (!dateString) return null;
+    const date = new Date(dateString);
+    return date.toLocaleDateString(lang === "pl" ? "pl-PL" : "en-US", {
+      day: "2-digit",
+      month: "2-digit",
+      year: "numeric",
+    });
+  };
+
   // Function to get localized content
   const getLocalizedContent = (offer: OffersType) => {
     const name = lang === "pl" ? offer.plname : offer.enname;
+    const subtitle = lang === "pl" ? offer.subtitle : offer.ensubtitle;
+    const daysNights = lang === "pl" ? offer.daysNights : offer.endaysNights;
     const description =
       lang === "pl" ? offer.pldescription : offer.endescription;
     const currency = "PLN";
@@ -122,8 +136,19 @@ const Offers = ({ dict, lang, offers }: OffersProps) => {
         }).format(offer.price)
       : null;
 
+    // Format validity dates
+    const validFrom = offer.validFrom ? formatDate(offer.validFrom) : null;
+    const validUntil = offer.validUntil ? formatDate(offer.validUntil) : null;
+    const validityPeriod =
+      validFrom && validUntil ? `${validFrom} - ${validUntil}` : null;
+
+    // Get per person per night text
+    const perPersonPerNight = lang === "pl" ? "/os./noc" : "/person/night";
+
     return {
       name: name || "No title available",
+      subtitle: subtitle || "",
+      daysNights: daysNights || "",
       description:
         description
           ?.map((block) =>
@@ -133,20 +158,9 @@ const Offers = ({ dict, lang, offers }: OffersProps) => {
           )
           .join("") || "No description available",
       price: formattedPrice,
+      validityPeriod,
+      perPersonPerNight,
     };
-  };
-
-  // Generate random offer features for visual appeal
-  const getRandomFeatures = (index: number) => {
-    const featureSets = [
-      { icon: Calendar, text: "3 dni / 2 noce" },
-      { icon: Users, text: "Dla 2 osób" },
-      { icon: Clock, text: "Dostępne cały rok" },
-      { icon: Calendar, text: "5 dni / 4 noce" },
-      { icon: Users, text: "Dla rodziny" },
-      { icon: Clock, text: "Sezon letni" },
-    ];
-    return [featureSets[index % 3], featureSets[(index + 3) % 6]];
   };
 
   // Enhanced scroll to index function
@@ -218,7 +232,6 @@ const Offers = ({ dict, lang, offers }: OffersProps) => {
             >
               {offers.map((offer, index) => {
                 const localizedContent = getLocalizedContent(offer);
-                const features = getRandomFeatures(index);
 
                 return (
                   <motion.div
@@ -247,20 +260,36 @@ const Offers = ({ dict, lang, offers }: OffersProps) => {
                             href={`/${lang}/${lang === "pl" ? "pakiety" : "offers"}/${offer.slug?.current}`}
                             className="block"
                           >
-                            <h3 className="text-lg font-semibold mb-2 group-hover:text-white transition-colors">
+                            <h3 className="text-lg font-semibold mb-1 group-hover:text-white transition-colors">
                               {localizedContent.name}
                             </h3>
+                            {localizedContent.subtitle && (
+                              <p className="text-sm text-white/80 mb-2">
+                                {localizedContent.subtitle}
+                              </p>
+                            )}
                           </Link>
-                          <div className="flex gap-3 mb-3">
-                            {features.map((feature, i) => (
-                              <div
-                                key={i}
-                                className="flex items-center gap-1 text-xs text-white/90 font-bold"
-                              >
-                                <feature.icon className="h-3 w-3 text-avangarda" />
-                                <span>{feature.text}</span>
+                          <div className="flex flex-col gap-2 mb-3">
+                            <div className="flex gap-3">
+                              {localizedContent.daysNights && (
+                                <div className="flex items-center gap-1 text-xs text-white/90 font-bold">
+                                  <Calendar className="h-3 w-3 text-avangarda" />
+                                  <span>{localizedContent.daysNights}</span>
+                                </div>
+                              )}
+                              {offer.meals && (
+                                <div className="flex items-center gap-1 text-xs text-white/90 font-bold">
+                                  <Clock className="h-3 w-3 text-avangarda" />
+                                  <span>{offer.meals}</span>
+                                </div>
+                              )}
+                            </div>
+                            {localizedContent.validityPeriod && (
+                              <div className="flex items-center gap-1 text-xs text-white/70 font-medium">
+                                <CalendarDays className="h-3 w-3 text-avangarda" />
+                                <span>{localizedContent.validityPeriod}</span>
                               </div>
-                            ))}
+                            )}
                           </div>
                           <div className="overflow-hidden transition-all duration-300 max-h-0 group-hover:max-h-20">
                             <p className="text-white/90 text-sm mb-4">
@@ -287,9 +316,14 @@ const Offers = ({ dict, lang, offers }: OffersProps) => {
                         {localizedContent.price && (
                           <div className="absolute top-3 right-3 bg-white text-pink-600 px-3 py-1 rounded-lg shadow-lg flex items-center gap-1 text-sm font-medium">
                             <Tag className="h-3 w-3" />
-                            <span>
-                              {dict.offers.from || "From"}:{" "}
-                              {localizedContent.price}
+                            <span className="flex flex-col text-center leading-tight">
+                              <span className="text-xs">
+                                {dict.offers.from || "From"}:
+                              </span>
+                              <span className="font-bold">
+                                {localizedContent.price}
+                                {localizedContent.perPersonPerNight}
+                              </span>
                             </span>
                           </div>
                         )}
@@ -342,7 +376,6 @@ const Offers = ({ dict, lang, offers }: OffersProps) => {
             >
               {offers.map((offer, index) => {
                 const localizedContent = getLocalizedContent(offer);
-                const features = getRandomFeatures(index);
 
                 return (
                   <motion.div
@@ -371,20 +404,36 @@ const Offers = ({ dict, lang, offers }: OffersProps) => {
                             href={`/${lang}/${lang === "pl" ? "pakiety" : "offers"}/${offer.slug?.current}`}
                             className="block"
                           >
-                            <h3 className="text-xl xl:text-2xl font-semibold mb-3 group-hover:text-white transition-colors">
+                            <h3 className="text-xl xl:text-2xl font-semibold mb-2 group-hover:text-white transition-colors">
                               {localizedContent.name}
                             </h3>
+                            {localizedContent.subtitle && (
+                              <p className="text-base text-white/80 mb-3">
+                                {localizedContent.subtitle}
+                              </p>
+                            )}
                           </Link>
-                          <div className="flex gap-4 mb-4">
-                            {features.map((feature, i) => (
-                              <div
-                                key={i}
-                                className="flex items-center gap-1.5 text-sm text-white/90 font-bold"
-                              >
-                                <feature.icon className="h-4 w-4 text-avangarda" />
-                                <span>{feature.text}</span>
+                          <div className="flex flex-col gap-2 mb-4">
+                            <div className="flex gap-4">
+                              {localizedContent.daysNights && (
+                                <div className="flex items-center gap-1.5 text-sm text-white/90 font-bold">
+                                  <Calendar className="h-4 w-4 text-avangarda" />
+                                  <span>{localizedContent.daysNights}</span>
+                                </div>
+                              )}
+                              {offer.meals && (
+                                <div className="flex items-center gap-1.5 text-sm text-white/90 font-bold">
+                                  <Clock className="h-4 w-4 text-avangarda" />
+                                  <span>{offer.meals}</span>
+                                </div>
+                              )}
+                            </div>
+                            {localizedContent.validityPeriod && (
+                              <div className="flex items-center gap-1.5 text-sm text-white/70 font-medium">
+                                <CalendarDays className="h-4 w-4 text-avangarda" />
+                                <span>{localizedContent.validityPeriod}</span>
                               </div>
-                            ))}
+                            )}
                           </div>
                           <div className="overflow-hidden transition-all duration-300 max-h-0 group-hover:max-h-24">
                             <p className="text-white/90 text-sm xl:text-base mb-6">
@@ -411,9 +460,14 @@ const Offers = ({ dict, lang, offers }: OffersProps) => {
                         {localizedContent.price && (
                           <div className="absolute top-4 right-4 bg-white text-pink-600 px-4 py-2 rounded-lg shadow-lg flex items-center gap-2 font-medium">
                             <Tag className="h-4 w-4" />
-                            <span>
-                              {dict.offers.from || "From"}:{" "}
-                              {localizedContent.price}
+                            <span className="flex flex-col text-center leading-tight">
+                              <span className="text-sm">
+                                {dict.offers.from || "From"}:
+                              </span>
+                              <span className="font-bold">
+                                {localizedContent.price}
+                                {localizedContent.perPersonPerNight}
+                              </span>
                             </span>
                           </div>
                         )}

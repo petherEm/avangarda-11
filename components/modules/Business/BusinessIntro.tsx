@@ -20,19 +20,21 @@ interface BusinessIntroProps {
   dict: any;
   lang: string;
   businessOffers: any[];
+  conferenceOffer?: any;
 }
 
 export default function BusinessIntro({
   dict,
   lang,
   businessOffers,
+  conferenceOffer,
 }: BusinessIntroProps) {
   const phoneNumber = "+48 574 383 282";
 
   const t = (key: string) => getNestedValue(dict, key) || key;
 
-  // Get the first business offer for download (or you can implement logic to select specific offer)
-  const primaryBusinessOffer = businessOffers?.[0];
+  // Use the specific conference offer or fallback to the first business offer
+  const primaryBusinessOffer = conferenceOffer || businessOffers?.[0];
 
   return (
     <Container className="mt-6 sm:mt-6 md:mt-4 lg:mt-0 mb-6 lg:mb-0 bg-white w-full text-primary lg:py-20">

@@ -3,7 +3,7 @@ import { defineField, defineType } from "sanity";
 
 export const eventType = defineType({
   name: 'event',
-  title: 'Menu Eventowe',
+  title: 'Uroczystości-oferta',
   type: 'document',
   icon: CalendarIcon,
   fields: [

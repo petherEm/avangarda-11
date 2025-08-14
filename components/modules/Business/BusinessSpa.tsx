@@ -15,11 +15,14 @@ import {
   ArrowRight,
   SmilePlus,
   Waves,
+  Download,
 } from "lucide-react";
+import { fileUrl } from "@/lib/fileUrl";
 
 interface BusinessSpaProps {
   lang?: string;
   dict?: any;
+  spaOffer?: any;
 }
 
 const fadeInUp = {
@@ -47,7 +50,7 @@ const slideInFromRight = {
   animate: { opacity: 1, x: 0 },
 };
 
-const BusinessSpa = ({ lang = "pl", dict }: BusinessSpaProps) => {
+const BusinessSpa = ({ lang = "pl", dict, spaOffer }: BusinessSpaProps) => {
   const [windowWidth, setWindowWidth] = useState(0);
   const contentRef = useRef<HTMLDivElement>(null);
   const sectionRef = useRef<HTMLDivElement>(null);
@@ -300,16 +303,31 @@ const BusinessSpa = ({ lang = "pl", dict }: BusinessSpaProps) => {
                 whileInView="animate"
                 viewport={{ once: true }}
               >
-                <Link href={spaUrl}>
+                {spaOffer && spaOffer.offerFile ? (
+                  <Link
+                    href={fileUrl(spaOffer.offerFile)}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <Button
+                      size="lg"
+                      variant="fillRight"
+                      className="px-6 sm:px-8 py-2 sm:py-3"
+                    >
+                      <Download className="h-3 w-3 sm:h-4 sm:w-4 mr-2" />
+                      Pobierz ofertę
+                    </Button>
+                  </Link>
+                ) : (
                   <Button
                     size="lg"
                     variant="fillRight"
                     className="px-6 sm:px-8 py-2 sm:py-3"
+                    disabled
                   >
-                    Więcej o Wellness & Spa
-                    <ArrowRight className="ml-2 h-4 w-4" />
+                    Oferta niedostępna
                   </Button>
-                </Link>
+                )}
               </motion.div>
             </div>
 
@@ -371,16 +389,31 @@ const BusinessSpa = ({ lang = "pl", dict }: BusinessSpaProps) => {
                       variants={fadeInLeft}
                       transition={{ delay: 0.5, duration: 0.6 }}
                     >
-                      <Link href={spaUrl}>
+                      {spaOffer && spaOffer.offerFile ? (
+                        <Link
+                          href={fileUrl(spaOffer.offerFile)}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                        >
+                          <Button
+                            size="lg"
+                            variant="fillRight"
+                            className="border-none"
+                          >
+                            <Download className="h-4 w-4 mr-2" />
+                            Pobierz ofertę
+                          </Button>
+                        </Link>
+                      ) : (
                         <Button
                           size="lg"
                           variant="fillRight"
                           className="border-none"
+                          disabled
                         >
-                          Więcej o Wellness & Spa
-                          <ArrowRight className="ml-2 h-4 w-4" />
+                          Oferta niedostępna
                         </Button>
-                      </Link>
+                      )}
                     </motion.div>
                   </motion.div>
 
@@ -493,16 +526,31 @@ const BusinessSpa = ({ lang = "pl", dict }: BusinessSpaProps) => {
                       variants={fadeInLeft}
                       transition={{ delay: 0.5, duration: 0.6 }}
                     >
-                      <Link href={spaUrl}>
+                      {spaOffer && spaOffer.offerFile ? (
+                        <Link
+                          href={fileUrl(spaOffer.offerFile)}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                        >
+                          <Button
+                            size="lg"
+                            variant="fillRight"
+                            className="border-none"
+                          >
+                            <Download className="h-4 w-4 mr-2" />
+                            Pobierz ofertę
+                          </Button>
+                        </Link>
+                      ) : (
                         <Button
                           size="lg"
                           variant="fillRight"
                           className="border-none"
+                          disabled
                         >
-                          Więcej o Wellness & Spa
-                          <ArrowRight className="ml-2 h-4 w-4" />
+                          Oferta niedostępna
                         </Button>
-                      </Link>
+                      )}
                     </motion.div>
                   </motion.div>
 

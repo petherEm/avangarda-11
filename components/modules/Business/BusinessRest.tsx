@@ -1,8 +1,10 @@
 "use client";
 import { useState } from "react";
 import Image from "next/image";
+import Link from "next/link";
 import { motion } from "framer-motion";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { Button } from "@/components/ui/button";
 import {
   Wine,
   Clock,
@@ -17,18 +19,29 @@ import {
   VibrateIcon as Volleyball,
   Bike,
   Cherry,
+  Download,
 } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import { AnimatedDecorativeBar } from "@/components/animated-decorative-bar";
+import { fileUrl } from "@/lib/fileUrl";
 
 interface BusinessEntertainmentProps {
   dict?: any;
   lang?: string;
+  entertainmentOffers?: {
+    club?: any;
+    outdoor?: any;
+    fort?: any;
+    dymna?: any;
+    przystan?: any;
+    mediterranean?: any; // Add Mediterranean offer
+  };
 }
 
 export default function BusinessEntertainment({
   dict,
   lang = "pl",
+  entertainmentOffers,
 }: BusinessEntertainmentProps) {
   const [selectedTab, setSelectedTab] = useState<string>("club");
   const phoneNumber = "+48 29 752 50 34";
@@ -196,6 +209,21 @@ export default function BusinessEntertainment({
                       <p className="text-xs">DJ lub koncerty</p>
                     </div>
                   </div>
+                  {entertainmentOffers?.club &&
+                    entertainmentOffers.club.offerFile && (
+                      <div className="mt-4">
+                        <Link
+                          href={fileUrl(entertainmentOffers.club.offerFile)}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                        >
+                          <Button variant="avangarda" size="lg">
+                            <Download className="h-3 w-3 sm:h-4 sm:w-4" />
+                            POBIERZ OFERTĘ
+                          </Button>
+                        </Link>
+                      </div>
+                    )}
                 </div>
                 <div className="space-y-6">
                   <div className="relative aspect-video w-full h-[500px] overflow-hidden ">
@@ -268,6 +296,21 @@ export default function BusinessEntertainment({
                       <p className="text-xs">Bo warto pomagać</p>
                     </div>
                   </div>
+                  {entertainmentOffers?.outdoor &&
+                    entertainmentOffers.outdoor.offerFile && (
+                      <div className="mt-4">
+                        <Link
+                          href={fileUrl(entertainmentOffers.outdoor.offerFile)}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                        >
+                          <Button variant="avangarda" size="lg">
+                            <Download className="h-3 w-3 sm:h-4 sm:w-4" />
+                            POBIERZ OFERTĘ
+                          </Button>
+                        </Link>
+                      </div>
+                    )}
                 </div>
                 <div className="space-y-6">
                   {/* Full-width image for outdoor tab */}
@@ -342,6 +385,21 @@ export default function BusinessEntertainment({
                       <p className="text-xs">DJ lub muzyka na żywo</p>
                     </div>
                   </div>
+                  {entertainmentOffers?.fort &&
+                    entertainmentOffers.fort.offerFile && (
+                      <div className="mt-4">
+                        <Link
+                          href={fileUrl(entertainmentOffers.fort.offerFile)}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                        >
+                          <Button variant="avangarda" size="lg">
+                            <Download className="h-3 w-3 sm:h-4 sm:w-4" />
+                            POBIERZ OFERTĘ
+                          </Button>
+                        </Link>
+                      </div>
+                    )}
                 </div>
                 <div className="space-y-6">
                   <div className="relative aspect-video w-full h-[500px] overflow-hidden">
@@ -410,12 +468,27 @@ export default function BusinessEntertainment({
                       <p className="text-xs">Przyroda w zasięgu ręki</p>
                     </div>
                   </div>
+                  {entertainmentOffers?.dymna &&
+                    entertainmentOffers.dymna.offerFile && (
+                      <div className="mt-4">
+                        <Link
+                          href={fileUrl(entertainmentOffers.dymna.offerFile)}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                        >
+                          <Button variant="avangarda" size="lg">
+                            <Download className="h-3 w-3 sm:h-4 sm:w-4" />
+                            POBIERZ OFERTĘ
+                          </Button>
+                        </Link>
+                      </div>
+                    )}
                 </div>
                 <div className="space-y-6">
                   <div className="relative aspect-video w-full h-[500px] overflow-hidden">
                     <Image
                       src="/outdoor/room-barbec-01.jpeg"
-                      alt="Bar Przystań"
+                      alt="Dymna Polana"
                       fill
                       className="object-cover"
                     />
@@ -430,7 +503,7 @@ export default function BusinessEntertainment({
                   <div>
                     <div className="flex items-center gap-2 mb-2">
                       <h3 className="text-2xl font-semibold">
-                        Przystań Avangarda - tu czasz płynie wolniej...
+                        Przystań Avangarda - tu czas płynie wolniej...
                       </h3>
                     </div>
                     <p className="main-paragraph-light">
@@ -476,6 +549,42 @@ export default function BusinessEntertainment({
                       <p className="text-sm font-medium">Muzyka</p>
                       <p className="text-xs">DJ lub na żywo</p>
                     </div>
+                  </div>
+                  <div className="flex gap-4">
+                    {entertainmentOffers?.przystan &&
+                      entertainmentOffers.przystan.offerFile && (
+                        <div className="mt-4">
+                          <Link
+                            href={fileUrl(
+                              entertainmentOffers.przystan.offerFile
+                            )}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                          >
+                            <Button variant="avangarda" size="lg">
+                              <Download className="h-3 w-3 sm:h-4 sm:w-4" />
+                              POBIERZ OFERTĘ
+                            </Button>
+                          </Link>
+                        </div>
+                      )}
+                    {entertainmentOffers?.mediterranean &&
+                      entertainmentOffers.mediterranean.offerFile && (
+                        <div className="mt-4">
+                          <Link
+                            href={fileUrl(
+                              entertainmentOffers.mediterranean.offerFile
+                            )}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                          >
+                            <Button variant="avangarda" size="lg">
+                              <Download className="h-3 w-3 sm:h-4 sm:w-4" />
+                              Kolacja śródziemnomorska
+                            </Button>
+                          </Link>
+                        </div>
+                      )}
                   </div>
                 </div>
                 <div className="space-y-6">

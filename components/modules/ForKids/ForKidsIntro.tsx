@@ -2,6 +2,8 @@
 import { Container } from "@/components/container";
 import { motion } from "framer-motion";
 import Image from "next/image";
+import Link from "next/link";
+import { Button } from "@/components/ui/button";
 import {
   Waves,
   Trees,
@@ -22,17 +24,28 @@ import {
   MapPin,
   Bike,
   Dumbbell,
+  Download,
 } from "lucide-react";
 import { AnimatedDecorativeBar } from "@/components/animated-decorative-bar";
 import BackgroundLogoBottomDark from "@/components/background-logo-bottom-dark";
+import { fileUrl } from "@/lib/fileUrl";
+
+interface ForKidsIntroProps {
+  dict: any;
+  lang: string;
+  kidsOffers?: {
+    familijnaNiedziela?: any;
+    kidsSpa?: any;
+    kidsAtrakcjeSezonowe?: any;
+    kidsDziecieceUrodzinki?: any;
+  };
+}
 
 export default function ForKidsIntro({
   dict,
   lang,
-}: {
-  dict: any;
-  lang: string;
-}) {
+  kidsOffers,
+}: ForKidsIntroProps) {
   return (
     <>
       <Container className="mt-6 sm:mt-6 md:mt-4 lg:mt-0 mb-6 lg:mb-0 bg-white w-full text-primary lg:py-20">
@@ -413,6 +426,80 @@ export default function ForKidsIntro({
                   rodzinny obiad z rodzinną atmosferą. To doskonały sposób na
                   wspólne chwile i dobre samopoczucie całej rodziny!
                 </motion.p>
+
+                {/* Download Buttons Section */}
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: 0.3 }}
+                  className="mt-6"
+                >
+                  <div className="mb-4">
+                    <h3 className="text-sm font-medium text-slate-600 mb-3">
+                      Pobierz informacje o ofertach:
+                    </h3>
+                  </div>
+
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                    {kidsOffers?.familijnaNiedziela &&
+                    kidsOffers.familijnaNiedziela.offerFile ? (
+                      <Link
+                        href={fileUrl(kidsOffers.familijnaNiedziela.offerFile)}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="flex items-center gap-2"
+                      >
+                        <Button
+                          variant="avangarda"
+                          size="sm"
+                          className="w-full text-xs"
+                        >
+                          <Download className="h-3 w-3" />
+                          Familijna Niedziela
+                        </Button>
+                      </Link>
+                    ) : (
+                      <Button
+                        variant="avangarda"
+                        size="sm"
+                        className="w-full text-xs"
+                        disabled
+                      >
+                        <Download className="h-3 w-3" />
+                        Familijna Niedziela
+                      </Button>
+                    )}
+
+                    {kidsOffers?.kidsSpa && kidsOffers.kidsSpa.offerFile ? (
+                      <Link
+                        href={fileUrl(kidsOffers.kidsSpa.offerFile)}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="flex items-center gap-2"
+                      >
+                        <Button
+                          variant="avangarda"
+                          size="sm"
+                          className="w-full text-xs"
+                        >
+                          <Download className="h-3 w-3" />
+                          Kids SPA
+                        </Button>
+                      </Link>
+                    ) : (
+                      <Button
+                        variant="avangarda"
+                        size="sm"
+                        className="w-full text-xs"
+                        disabled
+                      >
+                        <Download className="h-3 w-3" />
+                        Kids SPA
+                      </Button>
+                    )}
+                  </div>
+                </motion.div>
               </div>
 
               {/* Kids Features */}
@@ -561,6 +648,54 @@ export default function ForKidsIntro({
                   świeżym powietrzu! Atrakcje sezonowe są również dostępne jako
                   zorganizowane warsztaty dla szkół i przedszkoli.
                 </motion.p>
+
+                {/* Download Button for Seasonal Attractions */}
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: 0.3 }}
+                  className="mt-6"
+                >
+                  <div className="mb-4">
+                    <h3 className="text-sm font-medium text-slate-600 mb-3">
+                      Pobierz informacje o atrakcjach:
+                    </h3>
+                  </div>
+
+                  <div className="flex justify-start">
+                    {kidsOffers?.kidsAtrakcjeSezonowe &&
+                    kidsOffers.kidsAtrakcjeSezonowe.offerFile ? (
+                      <Link
+                        href={fileUrl(
+                          kidsOffers.kidsAtrakcjeSezonowe.offerFile
+                        )}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="flex items-center gap-2"
+                      >
+                        <Button
+                          variant="avangarda"
+                          size="sm"
+                          className="text-xs"
+                        >
+                          <Download className="h-3 w-3" />
+                          Atrakcje sezonowe
+                        </Button>
+                      </Link>
+                    ) : (
+                      <Button
+                        variant="avangarda"
+                        size="sm"
+                        className="text-xs"
+                        disabled
+                      >
+                        <Download className="h-3 w-3" />
+                        Atrakcje sezonowe
+                      </Button>
+                    )}
+                  </div>
+                </motion.div>
               </div>
 
               {/* Activity Features */}
@@ -740,6 +875,54 @@ export default function ForKidsIntro({
                   z poczęstunkiem. Zorganizuj z nami urodziny dla swojej
                   pociechy!
                 </motion.p>
+
+                {/* Download Button for Kids Birthday */}
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: 0.3 }}
+                  className="mt-6"
+                >
+                  <div className="mb-4">
+                    <h3 className="text-sm font-medium text-slate-600 mb-3">
+                      Pobierz informacje o urodzinkach:
+                    </h3>
+                  </div>
+
+                  <div className="flex justify-start">
+                    {kidsOffers?.kidsDziecieceUrodzinki &&
+                    kidsOffers.kidsDziecieceUrodzinki.offerFile ? (
+                      <Link
+                        href={fileUrl(
+                          kidsOffers.kidsDziecieceUrodzinki.offerFile
+                        )}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="flex items-center gap-2"
+                      >
+                        <Button
+                          variant="avangarda"
+                          size="sm"
+                          className="text-xs"
+                        >
+                          <Download className="h-3 w-3" />
+                          Dziecięce urodzinki
+                        </Button>
+                      </Link>
+                    ) : (
+                      <Button
+                        variant="avangarda"
+                        size="sm"
+                        className="text-xs"
+                        disabled
+                      >
+                        <Download className="h-3 w-3" />
+                        Dziecięce urodzinki
+                      </Button>
+                    )}
+                  </div>
+                </motion.div>
               </div>
 
               {/* Weekend Features */}
