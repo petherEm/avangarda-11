@@ -19,7 +19,7 @@
   },
   "about": {
     "title": "Hotel Avangarda",
-    "description": "Hotel Avangarda znajduje się w samym sercu urokliwego Różana, oferując harmonijne połączenie spokoju, komfortu i bliskości lokalnych atrakcji. To miejsce, w którym tradycja spotyka nowoczesność, tworząc wyjątkową przestrzeń do wypoczynku, pracy i odkrywania okolicy.",
+    "description": "Hotel Avangarda znajduje się na obrzeżach urokliwego Różana nad Narwią , około 100 km od Warszawy. Starannie zaprojektowana infrastruktura wraz z naturalnym, zielonym otoczeniem oferuje harmonijne połączenie spokoju, komfortu i bliskości lokalnych atrakcji. To miejsce, w którym tradycja spotyka nowoczesność, tworząc wyjątkową przestrzeń do wypoczynku, pracy i odkrywania okolicy. ",
     "address": "ul. Przykładowa 1, 07-300 Różan",
     "phone": "+48 29 7525034",
     "email": "recepcja@avangarda.pl",
@@ -85,7 +85,7 @@
   },
   "rooms": {
     "title": "Nasze pokoje",
-    "description": "Hotel Avangarda oferuje 42 komfortowe pokoje rozmieszczone w dwóch budynkach – głównym i zewnętrznym. Do dyspozycji Gości oddajemy eleganckie pokoje jedno- i dwuosobowe, przestronne studia rodzinne oraz apartamenty o podwyższonym standardzie. W budynku głównym znajduje się winda, a wybrane pokoje posiadają balkon z widokiem na ogród lub rzekę Narew. W budynku zewnętrznym przygotowaliśmy komfortowe pokoje dla 2, 3 i 5 osób – idealne na rodzinny lub grupowy wypoczynek.",
+    "description": "Hotel Avangarda oferuje 43 komfortowo wyposażone pokoje rozmieszczone w dwóch budynkach hotelowych – głównym i zewnętrznym. Do dyspozycji Gości oddajemy wygodne pokoje jedno- i dwuosobowe, przestronne, rodzinne studia oraz luksusowy apartament. Wszystkie pokoje wyposażone są w klimatyzację, niektóre posiadają balkon z widokiem na zieloną okolicę doliny dolnej Narwi lub historyczną drogę carską. W budynku głównym znajduje się winda z dostępem do wszystkich poziomów hotelu, budynek jest w pełni przystosowany dla osób z niepełnosprawnością.",
     "everyRoomHas": "Każdy pokój wyposażony jest w:",
     "roomAmenities": {
       "ac": "klimatyzacja",
@@ -101,7 +101,7 @@
       "apartment": "Apartamenty"
     },
     "standard": {
-      "name": "Pokój Standardowy",
+      "name": "Pokój Dwuosobowy",
       "description": "Komfortowy pokój z widokiem na ogród, idealny dla par lub osób podróżujących służbowo.",
       "price": "od 250 zł / noc",
       "capacity": "1-2 osoby"

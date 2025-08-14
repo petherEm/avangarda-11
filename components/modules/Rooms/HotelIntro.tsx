@@ -228,18 +228,6 @@ const About = ({ dict, lang }: AboutProps) => {
                 >
                   {dict.about.description}
                 </motion.p>
-                <motion.p
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: 0.4 }}
-                  className="main-paragraph-light"
-                >
-                  Hotel Avangarda oferuje 42 komfortowe pokoje rozmieszczone w
-                  dwóch budynkach – głównym i zewnętrznym. Do dyspozycji Gości
-                  oddajemy eleganckie pokoje jedno- i dwuosobowe, przestronne
-                  studia rodzinne oraz apartamenty o podwyższonym standardzie.
-                </motion.p>
               </motion.div>
             </div>
           </div>
@@ -293,7 +281,7 @@ const About = ({ dict, lang }: AboutProps) => {
                       </h3>
                       <p className="text-gray-600 text-md">
                         Nowoczesna strefa relaksu z basenem, saunami, jacuzzi
-                        oraz bogatą ofertą zabiegów odnowy biologicznej.
+                        oraz bogatą ofertą zabiegów pielęgnacyjnych.
                       </p>
                     </div>
                   </li>
@@ -305,11 +293,11 @@ const About = ({ dict, lang }: AboutProps) => {
                     </div>
                     <div>
                       <h3 className="text-primary font-semibold text-lg mb-0.5">
-                        Wyjątkowa restauracja
+                        Autorska kuchnia
                       </h3>
                       <p className="text-gray-600 text-md">
-                        Autorska kuchnia inspirowana lokalnymi smakami, sezonowe
-                        menu i elegancka atmosfera.
+                        Prawdziwy smak potraw, naturalność inspirowana lokalnymi
+                        tradycjami, sezonowość, elegancja podania
                       </p>
                     </div>
                   </li>
@@ -321,7 +309,7 @@ const About = ({ dict, lang }: AboutProps) => {
                     </div>
                     <div>
                       <h3 className="text-primary font-semibold text-lg mb-0.5">
-                        Przestrzeń eventowa
+                        Przestrzeń dla rodzin i biznesu
                       </h3>
                       <p className="text-gray-600 text-md">
                         Stylowe wnętrza i profesjonalna obsługa – doskonałe
@@ -338,11 +326,11 @@ const About = ({ dict, lang }: AboutProps) => {
                     </div>
                     <div>
                       <h3 className="text-primary font-semibold text-lg mb-0.5">
-                        Jesteśmy tylko dla Ciebie
+                        Jesteśmy tu dla Ciebie
                       </h3>
                       <p className="text-gray-600 text-md">
-                        Każdy Gość jest dla nas najważniejszy – stawiamy na
-                        serdeczną atmosferę, komfort i dbałość o detale.
+                        Każdy Gość jest dla nas ważny – stawiamy na serdeczną
+                        atmosferę, komfort i dbałość o detale.
                       </p>
                     </div>
                   </li>

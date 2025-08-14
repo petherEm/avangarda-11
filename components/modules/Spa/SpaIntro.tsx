@@ -88,10 +88,10 @@ export default function SpaIntro({
               className="relative aspect-square w-full overflow-hidden"
             >
               <Image
-                src="/spa/spa-main-02.jpeg"
+                src="/spa/spa-main-03.jpeg"
                 alt="Spa Avangarda - zabiegi wellness"
                 fill
-                className="object-cover object-left"
+                className="object-cover object-[60%_40%]"
                 quality={100}
               />
             </motion.div>
@@ -719,7 +719,7 @@ export default function SpaIntro({
               {/* Fourth image - hidden on mobile */}
               <div className="relative aspect-[16/10] overflow-hidden hidden sm:block">
                 <Image
-                  src="/spa/spa-salt-01.jpeg"
+                  src="/spa/spa-salt-04.jpeg"
                   alt="Oświetlenie w grocie"
                   fill
                   className="object-cover"

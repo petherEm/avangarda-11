@@ -130,7 +130,7 @@ const conferenceRoomsData: ConferenceRoom[] = [
   {
     id: "foyer-sali-bankietowej",
     name: "Foyer Sali Bankietowej",
-    imageSrc: "/conference/bankietowa-a-room-03.jpeg",
+    imageSrc: "/conference/conf-main.png",
     description:
       "Idealna przestrzeń wystawiennicza i komfortowe miejsce na organizację strefy powitalnej z serwisem kawowym. Reprezentacyjna powierzchrzeń dla stoisk wystawienniczych, ekspozycji produktowych czy prezentacji multimedialnych. Posiada własne szatnie, przestronne łazienki oraz wygodne kanapy zapewniające możliwość swobodnych rozmów.",
     area: 200,
