@@ -135,6 +135,13 @@
     -webkit-overflow-scrolling: touch;
     overscroll-behavior-y: contain;
   }
+
+  .line-clamp-4 {
+  display: -webkit-box;
+  -webkit-line-clamp: 4;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
   
   /* Reduce transition delays on touch devices */
   @media (hover: none) and (pointer: coarse) {
@@ -143,3 +150,5 @@
     }
   }
 }
+
+

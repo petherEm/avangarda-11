@@ -85,76 +85,123 @@
   },
   "rooms": {
     "title": "Nasze pokoje",
-    "description": "Hotel Avangarda oferuje 43 komfortowo wyposażone pokoje rozmieszczone w dwóch budynkach hotelowych – głównym i zewnętrznym. Do dyspozycji Gości oddajemy wygodne pokoje jedno- i dwuosobowe, przestronne, rodzinne studia oraz luksusowy apartament. Wszystkie pokoje wyposażone są w klimatyzację, niektóre posiadają balkon z widokiem na zieloną okolicę doliny dolnej Narwi lub historyczną drogę carską. W budynku głównym znajduje się winda z dostępem do wszystkich poziomów hotelu, budynek jest w pełni przystosowany dla osób z niepełnosprawnością.",
-    "everyRoomHas": "Każdy pokój wyposażony jest w:",
-    "roomAmenities": {
-      "ac": "klimatyzacja",
-      "tv": "TV z kanałami cyfrowymi i radiowymi",
-      "bathroom": "łazienka z prysznicem, suszarką i zestawem kosmetyków",
-      "beverages": "zestaw do kawy i herbaty oraz woda mineralna"
-    },
+    "description": "Nasz hotel mieści się w dwóch budynkach i oferuje 42 komfortowe pokoje, w tym pokoje jednoosobowe i dwuosobowe, studia rodzinne oraz apartamenty. Budynek główny posiada windę, a niektóre pokoje posiadają balkon z widokiem na ogród lub rzekę Narew. W budynku zewnętrznym dostępne są przestronne pokoje dla dwóch, trzech i pięciu osób.",
+    "everyRoomHas": "Każdy pokój jest wyposażony w:",
     "chooseRoom": "Wybierz swój pokój",
-    "tabs": {
-      "all": "Wszystkie",
-      "standard": "Standardowe",
-      "family": "Rodzinne",
-      "apartment": "Apartamenty"
+    "bookNow": "Rezerwuj teraz",
+    "amenitiesTitle": "Udogodnienia w pokoju",
+    "whatsIncluded": {
+      "title": "Co jest wliczone",
+      "breakfast": "Śniadanie",
+      "poolSaunaJacuzzi": "Basen, sauny, jacuzzi",
+      "saltCave": "Grota solna",
+      "gym": "Siłownia",
+      "playroom": "Sala zabaw dla dzieci",
+      "dailyHousekeeping": "Codzienne sprzątanie pokoju",
+      "parking": "Parking"
+    },
+    "roomAmenities": {
+      "wifi": "Bezpłatne Wi-Fi",
+      "ac": "Klimatyzacja"
+    },
+    "single": {
+      "name": "Pokój jednoosobowy",
+      "description": "Klimatyzowany pokój z jednym podwójnym łóżkiem dla lepszego komfortu snu, znajdujący się na drugim piętrze hotelu. W pokoju znajdują się skosy. Pokój nie posiada balkonu.",
+      "price": "od 280 zł / noc",
+      "capacity": "1-2 osoby",
+      "size": "17m²",
+      "beds": "1 x łóżko pojedyncze"
     },
     "standard": {
-      "name": "Pokój Dwuosobowy",
-      "description": "Komfortowy pokój z widokiem na ogród, idealny dla par lub osób podróżujących służbowo.",
-      "price": "od 250 zł / noc",
-      "capacity": "1-2 osoby"
+      "name": "Pokój dwuosobowy",
+      "description": "Klimatyzowany pokój z dwoma pojedynczymi łóżkami, znajdujący się na pierwszym piętrze hotelu. Wybór dziecka w wieku 0-3 lata nie zawiera noclegu na dodatkowym łóżku. Niektóre pokoje posiadają balkon.",
+      "price": "od 380 zł / noc",
+      "capacity": "1-2 osoby",
+      "size": "21m²",
+      "beds": "2 x łóżko pojedyncze"
+    },
+    "standardPremium": {
+      "name": "Pokój dwuosobowy premium",
+      "description": "Przestronny, klimatyzowany pokój rodzinny ze złączonymi lub rozłączonymi łóżkami oraz sofą (pow. spania 140x200 cm). Wybór dziecka w wieku 0-3 lata nie zawiera noclegu na dodatkowym łóżku lub sofie. Pokój znajduje się na pierwszym piętrze hotelu. Niektóre pokoje posiadają balkon. Niektóre pokoje posiadają dodatkowe ułatwienia dla osób z niepełnosprawnościami.",
+      "price": "od 480 zł / noc",
+      "capacity": "1-4 osoby",
+      "size": "31m²",
+      "beds": "1 x łóżko podwójne lub 2 x łóżko pojedyncze + 1 x rozkładana podwójna sofa"
     },
     "family": {
-      "name": "Pokój Rodzinny",
-      "description": "Przestronny pokój zaprojektowany z myślą o rodzinach, z dodatkową przestrzenią i udogodnieniami dla dzieci.",
-      "price": "od 450 zł / noc",
-      "capacity": "2-4 osoby"
+      "name": "Pokój rodzinne studio",
+      "description": "Klimatyzowany pokój rodzinny z sypialnią, w której znajdują się dwa pojedyncze łóżka, oraz salonem z rozkładana kanapa (pow. spania 140x200 cm) Wybór dziecka w wieku 0-3 lat nie zawiera noclegu na dodatkowym łóżku lub sofie. W pokoju znajdują się skosy. Pokój nie posiada balkonu. Pokój znajduje się na drugim piętrze hotelu.",
+      "price": "od 620 zł / noc",
+      "capacity": "1-4 osoby",
+      "size": "37m²",
+      "beds": "2 x łóżko pojedyncze + 1 x rozkładana podwójna kanapa"
     },
     "apartment": {
       "name": "Apartament",
-      "description": "Luksusowy apartament z oddzielną sypialnią, salonem i aneksem kuchennym, oferujący najwyższy standard pobytu i przestrzeń do życia.",
-      "price": "od 650 zł / noc",
-      "capacity": "2-5 osób"
+      "description": "Klimatyzowany luksusowy pokój z salonem i oddzielną sypialnią z dużym podwójnym łóżkiem (pow. spania 220x200 cm). W sypialni znajdują się skosy. Pokój posiada umeblowany taras o powierzchni 15 m2, z widokiem na zalesioną okolicę doliny dolnej Narwi. Pokój znajduje się na drugim piętrze hotelu.",
+      "price": "od 620 zł / noc",
+      "capacity": "1-2 osoby",
+      "size": "77m²",
+      "beds": "1 x łóżko king-size"
+    },
+    "externalSingle": {
+      "name": "Pokój jednoosobowy",
+      "description": "Klimatyzowany pokój z jednym pojedynczym łóżkiem, znajdujący się na pierwszym lub drugim piętrze hotelu. W pokoju znajdują się skosy. Pokój nie posiada balkonu. Pokój znajduje się w osobnym budynku w odległości 100m od Hotelu. Zameldowanie oraz wymeldowanie odbywa się w budynku głównym Hotelu. Posiłki wchodzące w skład wykupionej oferty serwowane są w budynku głównym Hotelu. Atrakcje dostępne są w budynku głównym Hotelu. W budynku zewnętrznym nie ma windy, dojście do pokoju odbywa się schodami. Pokój z widokiem na zabytkową drogę carską.",
+      "price": "od 220 zł / noc",
+      "capacity": "1 osoba",
+      "size": "16m²",
+      "beds": "1 x łóżko pojedyncze"
+    },
+    "externalDouble": {
+      "name": "Pokój dwuosobowy",
+      "description": "Klimatyzowany pokój z dwoma pojedynczymi łóżkami, znajdujący się na pierwszym lub drugim piętrze hotelu. Wybór dziecka w wieku 0-3 lata nie zawiera noclegu na dodatkowym łóżku. Pokój nie posiada balkonu. W pokoju znajdują się skosy. Pokój znajduje się w osobnym budynku w odległości 100m od Hotelu. Zameldowanie oraz wymeldowanie odbywa się w budynku głównym Hotelu. Posiłki wchodzące w skład wykupionej oferty serwowane są w budynku głównym Hotelu. Atrakcje dostępne są w budynku głównym Hotelu. W budynku zewnętrznym nie ma windy, dojście do pokoju odbywa się schodami. Część pokoi z widokiem na zabytkową drogę carską.",
+      "price": "od 320 zł / noc",
+      "capacity": "1-2 osoby",
+      "size": "18-25m²",
+      "beds": "2 x łóżko pojedyncze"
+    },
+    "externalTriple": {
+      "name": "Pokój 3-osobowy",
+      "description": "Klimatyzowany pokój z trzema pojedynczymi łóżkami, znajdujący się na pierwszym lub drugim piętrze hotelu. Wybór dziecka w wieku 0-3 lata nie zawiera noclegu na dodatkowym łóżku. W pokoju znajdują się skosy. Pokój nie posiada balkonu. Pokój znajduje się w osobnym budynku w odległości 100m od Hotelu. Zameldowanie oraz wymeldowanie odbywa się w budynku głównym Hotelu. Posiłki wchodzące w skład wykupionej oferty serwowane są w budynku głównym Hotelu. Atrakcje dostępne są w budynku głównym Hotelu. W budynku zewnętrznym nie ma windy, dojście do pokoju odbywa się schodami. Część pokoi z widokiem na zabytkową drogę carską.",
+      "price": "od 440 zł / noc",
+      "capacity": "1-3 osoby",
+      "size": "23-45m²",
+      "beds": "3 x łóżko pojedyncze"
+    },
+    "externalFamily": {
+      "name": "Pokój rodzinne studio",
+      "description": "Klimatyzowany pokój rodzinny z dwiema sypialniami: w jednej znajdują się dwa pojedyncze łóżka, w drugiej – trzy.  Wybór dziecka w wieku 0-3 lat nie zawiera noclegu na dodatkowym łóżku. W pokoju mogą znajdować się skosy. Pokój nie posiada balkonu. Pokój znajduje się na pierwszym lub drugim piętrze hotelu. Pokój znajduje się w osobnym budynku w odległości 100m od Hotelu. Zameldowanie oraz wymeldowanie odbywa się w budynku głównym Hotelu. Posiłki wchodzące w skład wykupionej oferty serwowane są w budynku głównym Hotelu. Atrakcje dostępne są w budynku głównym Hotelu. W budynku zewnętrznym nie ma windy, dojście do pokoju odbywa się schodami.",
+      "price": "od 560 zł / noc",
+      "capacity": "1-5 osób",
+      "size": "38m²",
+      "beds": "5 x łóżko pojedyncze"
     },
     "features": {
-      "doubleBed": "Łóżko podwójne",
-      "privateBathroom": "Prywatna łazienka",
-      "flatScreenTV": "TV z płaskim ekranem",
-      "freeWifi": "Bezpłatne Wi-Fi",
+      "bathroom": "Łazienka z prysznicem",
+      "towels": "Ręczniki",
+      "toiletries": "Zestaw kosmetyków",
+      "hairdryer": "Suszarka do włosów",
+      "bathrobe": "Szlafrok (dostępny w recepcji na życzenie)",
+      "teaCoffee": "Zestaw do parzenia kawy i herbaty",
+      "fridge": "Chłodziarka",
+      "tvChannels": "TV z kanałami naziemnymi i satelitarnymi",
       "airConditioning": "Klimatyzacja",
-      "familyBeds": "Łóżko podwójne i dwa pojedyncze",
-      "largeBathroom": "Duża łazienka z wanną",
-      "fridgeMicrowave": "Lodówka i mikrofalówka",
-      "loungeArea": "Strefa wypoczynkowa",
-      "kingSizeBed": "Oddzielna sypialnia z łóżkiem king-size",
-      "sofaBed": "Salon z rozkładaną sofą",
-      "kitchenette": "W pełni wyposażony aneks kuchenny",
-      "diningArea": "Jadalnia z miejscem dla 4 osób",
-      "luxuryBathroom": "Luksusowa łazienka z wanną i prysznicem",
-      "balcony": "Duży balkon lub taras",
-      "smartTV": "Smart TV i system audio",
-      "coffeeMachine": "Ekspres do kawy"
-    },
-    "gallery": {
-      "title": "Galeria zdjęć",
-      "image": "Zdjęcie",
-      "of": "z",
-      "viewAll": "Zobacz wszystkie"
-    },
-    "amenitiesTitle": "Udogodnienia:",
-    "whatsIncluded": {
-      "title": "Co jest wliczone",
-      "dailyHousekeeping": "Codzienna obsługa pokoju",
-      "roomService24": "Obsługa pokoju 24/7",
-      "welcomeAmenities": "Powitalne udogodnienia",
-      "qualityLinens": "Wysokiej jakości pościel",
-      "toiletries": "Przybory łazienkowe",
-      "roomSafe": "Sejf w pokoju"
-    },
-    "details": "Szczegóły",
-    "bookNow": "Rezerwuj teraz"
+      "freeWifi": "Bezpłatny internet",
+      "familyBeds": "Łóżka rodzinne",
+      "largeBathroom": "Duża łazienka",
+      "fridgeMicrowave": "Lodówka z mikrofalą",
+      "loungeArea": "Część wypoczynkowa",
+      "kingSizeBed": "Łóżko typu king-size",
+      "sofaBed": "Rozkładana sofa",
+      "kitchenette": "Aneks kuchenny",
+      "diningArea": "Jadalnia",
+      "luxuryBathroom": "Luksusowa łazienka",
+      "balcony": "Balkon",
+      "smartTV": "Smart TV",
+      "coffeeMachine": "Ekspres do kawy",
+      "bathroomWithTub": "Łazienka z prysznicem i wanną",
+      "twoTVs": "2 x TV z internetem i kanałami naziemnymi i satelitarnymi"
+    }
   },
   "gastro": {
     "tags": {

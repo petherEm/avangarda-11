@@ -27,6 +27,7 @@ import {
   Star,
   Home,
   Utensils,
+  Bed, // Add this import
 } from "lucide-react";
 import type { RoomType } from "@/constants";
 import { AnimatedDecorativeBar } from "@/components/animated-decorative-bar";
@@ -298,17 +299,15 @@ export default function RoomDetails({ room, dict, lang }: RoomDetailsProps) {
           </h3>
           <div className="space-y-3">
             {[
-              t("rooms.roomAmenities.wifi") || "Bezpłatne Wi-Fi",
+              t("rooms.whatsIncluded.breakfast") || "Śniadanie",
+              t("rooms.whatsIncluded.poolSaunaJacuzzi") ||
+                "Basen, sauny, jacuzzi",
+              t("rooms.whatsIncluded.saltCave") || "Grota solna",
+              t("rooms.whatsIncluded.gym") || "Siłownia",
+              t("rooms.whatsIncluded.playroom") || "Sala zabaw dla dzieci",
               t("rooms.whatsIncluded.dailyHousekeeping") ||
-                "Codzienna obsługa pokoju",
-              t("rooms.whatsIncluded.roomService24") || "Obsługa pokoju 24/7",
-              t("rooms.whatsIncluded.welcomeAmenities") ||
-                "Powitalne udogodnienia",
-              t("rooms.roomAmenities.ac") || "Klimatyzacja",
-              t("rooms.whatsIncluded.qualityLinens") ||
-                "Wysokiej jakości pościel",
-              t("rooms.whatsIncluded.toiletries") || "Przybory łazienkowe",
-              t("rooms.whatsIncluded.roomSafe") || "Sejf w pokoju",
+                "Codzienne sprzątanie pokoju",
+              t("rooms.whatsIncluded.parking") || "Parking",
             ].map((feature, index) => (
               <div key={index} className="flex items-center gap-3">
                 <Check className="h-4 w-4 text-avangarda flex-shrink-0" />
@@ -366,14 +365,13 @@ export default function RoomDetails({ room, dict, lang }: RoomDetailsProps) {
                 <span className="font-medium">{t(room.capacityKey)}</span>
               </div>
               <div className="flex items-center gap-2">
+                <Bed className="h-5 w-5 text-avangarda" />
+                <span className="font-medium">{t(room.bedsKey)}</span>
+              </div>
+              <div className="flex items-center gap-2">
                 <Square className="h-5 w-5 text-avangarda" />
                 <span className="font-medium">
-                  {room.id === "standard"
-                    ? "25"
-                    : room.id === "family"
-                      ? "35"
-                      : "45"}{" "}
-                  m²
+                  {t(`rooms.${room.id}.size`) || "21m²"}
                 </span>
               </div>
               <div className="flex items-center gap-2">
@@ -448,10 +446,10 @@ export default function RoomDetails({ room, dict, lang }: RoomDetailsProps) {
                         Zameldowanie / Wymeldowanie
                       </h3>
                       <p className="text-sm text-gray-600">
-                        Zameldowanie: 15:00
+                        Zameldowanie: 14:00
                       </p>
                       <p className="text-sm text-gray-600">
-                        Wymeldowanie: 11:00
+                        Wymeldowanie: 10:00 / 11:00 w weekendy i Święta
                       </p>
                     </div>
                     <div>
@@ -459,7 +457,7 @@ export default function RoomDetails({ room, dict, lang }: RoomDetailsProps) {
                         Polityka anulowania
                       </h3>
                       <p className="text-sm text-gray-600">
-                        Bezpłatne anulowanie do 24 godzin przed przyjazdem
+                        W zależności od wybranej opcji przy rezerwacji
                       </p>
                     </div>
                     <div>
@@ -470,15 +468,7 @@ export default function RoomDetails({ room, dict, lang }: RoomDetailsProps) {
                         Płatność wymagana przy zameldowaniu
                       </p>
                       <p className="text-sm text-gray-600">
-                        Gotówka, karta i przelew bankowy
-                      </p>
-                    </div>
-                    <div>
-                      <h3 className="font-semibold text-gray-900 mb-2">
-                        Ograniczenia wiekowe
-                      </h3>
-                      <p className="text-sm text-gray-600">
-                        Minimalny wiek do zameldowania: 18 lat
+                        Gotówka / karta płatnicza
                       </p>
                     </div>
                   </div>
@@ -487,12 +477,9 @@ export default function RoomDetails({ room, dict, lang }: RoomDetailsProps) {
                       Dodatkowe informacje
                     </h3>
                     <ul className="text-sm text-gray-600 space-y-1">
-                      <li>• Palenie zabronione we wszystkich pokojach</li>
-                      <li>• Cisza nocna: 22:00 - 8:00</li>
+                      <li>• Palenie zabronione na terenie całego obiektu</li>
+                      <li>• Cisza nocna: 22:00 - 7:00</li>
                       <li>• Wymagany dokument tożsamości przy zameldowaniu</li>
-                      <li>
-                        • Dostawka dostępna na życzenie (dodatkowe opłaty)
-                      </li>
                     </ul>
                   </div>
                 </div>
@@ -567,7 +554,6 @@ export default function RoomDetails({ room, dict, lang }: RoomDetailsProps) {
                       </li>
                       <li>• Właściciele odpowiadają za wszelkie szkody</li>
                       <li>• Może być wymagane poświadczenie szczepień</li>
-                      <li>• Zwierzęta muszą być wyszkolone</li>
                     </ul>
                   </div>
                 </div>

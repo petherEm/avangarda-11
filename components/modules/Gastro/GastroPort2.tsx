@@ -90,7 +90,7 @@ export default function GastroBarPrzystan({
                   viewport={{ once: true }}
                   className="title-light"
                 >
-                  Bar Przystań Avangarda
+                  Przystań Avangarda
                 </motion.h1>
                 <motion.div
                   initial={{ opacity: 0, x: 20 }}
@@ -114,11 +114,12 @@ export default function GastroBarPrzystan({
                 transition={{ delay: 0.2 }}
                 className="main-paragraph-light"
               >
-                Zapraszamy do Bar Przystań Avangarda – miejsca, gdzie smak
-                świeżych ryb z Narwi łączy się z aromatem tradycyjnej kuchni
-                grillowej. Serwujemy dania przygotowywane z lokalnych,
-                sezonowych składników, które zachwycają prostotą i autentycznym
-                smakiem.
+                Przystań Avangarda to smak lata nad samą Narwią – świeże ryby,
+                lekkie sałatki i dania inspirowane sezonem. W naszym barze
+                czekają orzeźwiające drinki, kolorowe koktajle i aromatyczna
+                kawa idealna na leniwe popołudnie. Kameralny, nadwodny klimat
+                sprawia, że każdy posiłek zamienia się w chwilę relaksu z
+                widokiem na rzekę.
               </motion.p>
 
               <motion.div
@@ -176,9 +177,17 @@ export default function GastroBarPrzystan({
                     </h3>
                   </div>
                   <p className="text-sm text-slate-600">
-                    Maj - Wrzesień: 11:00 – 22:00
+                    Maj, czerwiec i wrzesień
                   </p>
-                  <p className="text-sm text-slate-600">Sezon letni</p>
+                  <p className="text-sm text-slate-600">
+                    Sob-Ndz: 14:00 – 20:00
+                  </p>
+                  <p className="mt-2 text-sm text-slate-600">
+                    Lipiec i sierpień
+                  </p>
+                  <p className="text-sm text-slate-600">
+                    codziennie 12:00 - 21:00
+                  </p>
                 </div>
                 <div className="bg-avangarda/10 p-4 ">
                   <div className="flex items-center gap-2 mb-2">
@@ -189,7 +198,7 @@ export default function GastroBarPrzystan({
                     Tel: 29 752 50 34 (recepcja hotelu)
                   </p>
                   <p className="text-sm text-slate-600">
-                    przystan@hotelavangarda.pl
+                    info@hotelavangarda.pl
                   </p>
                 </div>
               </motion.div>
@@ -212,7 +221,7 @@ export default function GastroBarPrzystan({
 
             <p className="text-center max-w-3xl mx-auto mb-12 text-lg leading-relaxed text-slate-600">
               Poznaj opinie naszych gości o niezapomnianych chwilach spędzonych
-              w Bar Przystań Avangarda
+              w Przystań Avangarda
             </p>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">

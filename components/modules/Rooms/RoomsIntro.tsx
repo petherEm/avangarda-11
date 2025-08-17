@@ -347,7 +347,7 @@ function ModernRoomCard({
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
         transition={{ delay: 0.1 * index, duration: 0.6 }}
-        className="bg-white overflow-hidden shadow-xl border border-gray-100 hover:shadow-2xl transition-all duration-500 w-full"
+        className="bg-white overflow-hidden shadow-xl border border-gray-100 hover:shadow-2xl transition-all duration-500 w-full h-full flex flex-col"
       >
         {/* Large Image Slider */}
         <div className="w-full">
@@ -359,7 +359,7 @@ function ModernRoomCard({
         </div>
 
         {/* Room Details */}
-        <div className="p-6">
+        <div className="p-6 flex-1 flex flex-col">
           <div className="mb-4">
             <h3 className="text-2xl font-bold text-gray-900 mb-2">
               {t(room.nameKey)}
@@ -373,22 +373,17 @@ function ModernRoomCard({
                   {t(room.capacityKey)}
                 </p>
                 <p className="text-sm text-gray-500 font-medium">
-                  {room.id === "standard"
-                    ? "25"
-                    : room.id === "family"
-                      ? "35"
-                      : "45"}{" "}
-                  m²
+                  {t(room.sizeKey)}
                 </p>
               </div>
             </div>
           </div>
 
-          <p className="text-gray-600 mb-6 leading-relaxed">
+          <p className="text-gray-600 mb-6 leading-relaxed flex-1 line-clamp-4">
             {t(room.descriptionKey)}
           </p>
 
-          <div className="flex flex-col gap-3">
+          <div className="flex flex-col gap-3 mt-auto">
             <Link href={`/${lang}/hotel/${room.id}`}>
               <Button variant="fillRight" className="w-full">
                 Szczegóły
@@ -426,12 +421,12 @@ interface RoomsIntroProps {
 export default function RoomsIntro({ dict, lang }: RoomsIntroProps) {
   const t = (key: string) => getNestedValue(dict, key) || key;
 
-  // Main building rooms - all rooms
-  const mainBuildingRooms = ROOMS_DATA;
-
-  // External building rooms - same as main but exclude apartments
+  // Filter rooms by building type
+  const mainBuildingRooms = ROOMS_DATA.filter(
+    (room) => room.building === "main"
+  );
   const externalBuildingRooms = ROOMS_DATA.filter(
-    (room) => room.id !== "apartment"
+    (room) => room.building === "external"
   );
 
   return (
@@ -541,7 +536,7 @@ export default function RoomsIntro({ dict, lang }: RoomsIntroProps) {
             </TabsList>
 
             <TabsContent value="main" className="space-y-0">
-              <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+              <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-stretch">
                 {mainBuildingRooms.map((room, index) => (
                   <ModernRoomCard
                     key={room.id}
@@ -555,7 +550,7 @@ export default function RoomsIntro({ dict, lang }: RoomsIntroProps) {
             </TabsContent>
 
             <TabsContent value="external" className="space-y-0">
-              <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+              <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-stretch">
                 {externalBuildingRooms.map((room, index) => (
                   <ModernRoomCard
                     key={room.id}

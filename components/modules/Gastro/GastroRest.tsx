@@ -111,7 +111,7 @@ const RestauracjaDzikaRoza = ({
                 Zapraszamy do Restauracji Dzika Róża – miejsca, gdzie tradycja
                 polskiej kuchni zyskuje nowoczesne oblicze. Autorskie menu łączy
                 klasyczne smaki z nowatorską formą podania, a stylowe wnętrze i
-                dopracowana atmosfera sprawiają, że każda wizyta staje się
+                przytulna atmosfera sprawiają, że każda wizyta staje się
                 wyjątkowym doświadczeniem kulinarnym.
               </motion.p>
 
@@ -137,7 +137,7 @@ const RestauracjaDzikaRoza = ({
                   <Button
                     variant="outline"
                     disabled
-                    className="flex items-center gap-2 bg-transparent"
+                    className="flex items-center gap-2 bg-transparent text-black"
                   >
                     <Utensils className="h-4 w-4" />
                     Menu niedostępne
@@ -170,10 +170,7 @@ const RestauracjaDzikaRoza = ({
                     </h3>
                   </div>
                   <p className="text-sm text-slate-600">
-                    Pon-Pt: 12:00 – 22:00
-                  </p>
-                  <p className="text-sm text-slate-600">
-                    Sob-Ndz: 11:00 – 23:00
+                    Pon-Ndz: 12:00 – 22:00
                   </p>
                 </div>
                 <div className="bg-avangarda/10 p-4">
@@ -183,7 +180,7 @@ const RestauracjaDzikaRoza = ({
                   </div>
                   <p className="text-sm text-slate-600">Tel: 29 752 50 34</p>
                   <p className="text-sm text-slate-600">
-                    dzika@hotelavangarda.pl
+                    info@hotelavangarda.pl
                   </p>
                 </div>
               </motion.div>

@@ -8,12 +8,56 @@ import Image from "next/image";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Tag } from "lucide-react";
-import { imageUrl } from "@/lib/imageUrl";
 
 interface VouchersGridProps {
   vouchers: Voucher[];
   lang?: string;
 }
+
+// Mapping voucher images to specific voucher types
+const getVoucherImage = (voucher: Voucher, lang: string = "en") => {
+  const voucherName =
+    (lang === "pl" ? voucher.plname : voucher.enname)?.toLowerCase() || "";
+
+  // Check for children/games voucher
+  if (
+    voucherName.includes("gry") ||
+    voucherName.includes("atrakcje") ||
+    voucherName.includes("dzieci") ||
+    voucherName.includes("children") ||
+    voucherName.includes("games") ||
+    voucherName.includes("attractions")
+  ) {
+    return "/vouchers/voucher-coola.jpeg";
+  }
+
+  // Check for restaurant voucher
+  if (
+    voucherName.includes("restauracja") ||
+    voucherName.includes("restauracji") ||
+    voucherName.includes("restaurant")
+  ) {
+    return "/vouchers/voucher-rest.jpeg";
+  }
+
+  // Check for spa voucher
+  if (voucherName.includes("spa")) {
+    return "/vouchers/voucher-spa.jpeg";
+  }
+
+  // Check for hotel voucher
+  if (
+    voucherName.includes("hotel") ||
+    voucherName.includes("kwotowy") ||
+    voucherName.includes("usługi hotelowe") ||
+    voucherName.includes("hotel services")
+  ) {
+    return "/vouchers/voucher-hotel.jpeg";
+  }
+
+  // Default fallback - cycle through images if no match
+  return "/vouchers/voucher-hotel.jpeg";
+};
 
 const container = {
   hidden: { opacity: 0 },
@@ -85,7 +129,7 @@ function VouchersGrid({ vouchers, lang = "en" }: VouchersGridProps) {
     }
   };
 
-  // If on mobile or tablet, show the carousel view
+  // If on mobile, show the carousel view
   if (isMobile) {
     return (
       <div className="relative">
@@ -122,6 +166,7 @@ function VouchersGrid({ vouchers, lang = "en" }: VouchersGridProps) {
           }}
         >
           {vouchers?.map((voucher, index) => {
+            const voucherImage = getVoucherImage(voucher, lang);
             return (
               <motion.div
                 key={voucher._id}
@@ -129,16 +174,12 @@ function VouchersGrid({ vouchers, lang = "en" }: VouchersGridProps) {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.1 }}
-                className="flex-none w-[85%] sm:w-[75%] md:w-[48%] snap-start group"
+                className="flex-none w-[90%] snap-start group"
               >
                 <div className="bg-white overflow-hidden shadow-md hover:shadow-lg transition-shadow duration-300 h-full">
-                  <div className="relative w-full aspect-[3/4] overflow-hidden">
+                  <div className="relative w-full aspect-[4/3] overflow-hidden">
                     <Image
-                      src={
-                        voucher.voucherImage
-                          ? imageUrl(voucher.voucherImage).url()
-                          : "/placeholder.svg"
-                      }
+                      src={voucherImage}
                       alt={
                         lang === "pl"
                           ? voucher.plname || ""
@@ -146,7 +187,6 @@ function VouchersGrid({ vouchers, lang = "en" }: VouchersGridProps) {
                       }
                       fill
                       className="object-cover"
-                      sizes="(max-width: 768px) 85vw, (max-width: 1200px) 48vw, 32vw"
                     />
 
                     {/* Enhanced gradient overlay */}
@@ -154,15 +194,6 @@ function VouchersGrid({ vouchers, lang = "en" }: VouchersGridProps) {
 
                     {/* Content overlay */}
                     <div className="absolute bottom-0 left-0 right-0 p-6 text-white transform transition-all duration-300">
-                      <Link
-                        href={`/${lang}/vouchery/${voucher.slug?.current}`}
-                        className="block"
-                      >
-                        <h3 className="text-xl md:text-2xl font-semibold mb-3 group-hover:text-white transition-colors">
-                          {lang === "pl" ? voucher.plname : voucher.enname}
-                        </h3>
-                      </Link>
-
                       {/* Description - Hidden by default, visible on hover */}
                       <div className="overflow-hidden transition-all duration-300 max-h-0 group-hover:max-h-24">
                         <p className="text-white/90 text-sm md:text-base mb-6">
@@ -191,9 +222,9 @@ function VouchersGrid({ vouchers, lang = "en" }: VouchersGridProps) {
                       </div>
                     </div>
 
-                    {/* Value badge */}
+                    {/* Value badge - moved to top left */}
                     {voucher.voucherValue && (
-                      <div className="absolute top-4 right-4 bg-white text-pink-600 px-4 py-2 rounded-lg shadow-lg flex items-center gap-2 font-medium">
+                      <div className="absolute top-4 left-4 bg-white text-pink-600 px-4 py-2 rounded-lg shadow-lg flex items-center gap-2 font-medium">
                         <Tag className="h-4 w-4" />
                         <span>
                           {new Intl.NumberFormat(
@@ -243,15 +274,16 @@ function VouchersGrid({ vouchers, lang = "en" }: VouchersGridProps) {
     );
   }
 
-  // Desktop grid view
+  // Desktop grid view - 2 columns with larger width
   return (
     <motion.div
       variants={container}
       initial="hidden"
       animate="show"
-      className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 md:gap-8"
+      className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-6xl mx-auto"
     >
-      {vouchers?.map((voucher) => {
+      {vouchers?.map((voucher, index) => {
+        const voucherImage = getVoucherImage(voucher, lang);
         return (
           <motion.div
             key={voucher._id}
@@ -260,41 +292,27 @@ function VouchersGrid({ vouchers, lang = "en" }: VouchersGridProps) {
             className="group"
           >
             <div className="bg-white overflow-hidden shadow-md hover:shadow-lg transition-shadow duration-300 h-full">
-              <div className="relative w-full aspect-[3/4] overflow-hidden">
+              <div className="relative w-full aspect-[6/3] overflow-hidden">
                 <Image
-                  src={
-                    voucher.voucherImage
-                      ? imageUrl(voucher.voucherImage).url()
-                      : "/placeholder.svg"
-                  }
+                  src={voucherImage}
                   alt={
                     lang === "pl" ? voucher.plname || "" : voucher.enname || ""
                   }
                   fill
                   className="object-cover"
-                  sizes="(max-width: 640px) 100vw, (max-width: 768px) 50vw, (max-width: 1024px) 33vw, 25vw"
                 />
 
                 {/* Enhanced gradient overlay */}
                 <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 to-transparent opacity-70 transition-opacity duration-300 group-hover:opacity-90"></div>
 
                 {/* Content overlay */}
-                <div className="absolute bottom-0 left-0 right-0 p-6 text-white transform transition-all duration-300">
-                  <Link
-                    href={`/${lang}/vouchery/${voucher.slug?.current}`}
-                    className="block"
-                  >
-                    <h3 className="text-xl md:text-2xl font-semibold mb-3 group-hover:text-white transition-colors">
-                      {lang === "pl" ? voucher.plname : voucher.enname}
-                    </h3>
-                  </Link>
-
+                <div className="absolute bottom-0 left-0 right-0 p-8 text-white transform transition-all duration-300">
                   {/* Description - Hidden by default, visible on hover */}
-                  <div className="overflow-hidden transition-all duration-300 max-h-0 group-hover:max-h-24">
-                    <p className="text-white/90 text-sm md:text-base mb-6">
+                  <div className="overflow-hidden transition-all duration-300 max-h-0 group-hover:max-h-32">
+                    <p className="text-white/90 text-base md:text-lg mb-6">
                       {lang === "pl"
-                        ? voucher.pldescription?.substring(0, 150) + "..." || ""
-                        : voucher.endescription?.substring(0, 150) + "..." ||
+                        ? voucher.pldescription?.substring(0, 200) + "..." || ""
+                        : voucher.endescription?.substring(0, 200) + "..." ||
                           ""}
                     </p>
                   </div>
@@ -306,20 +324,20 @@ function VouchersGrid({ vouchers, lang = "en" }: VouchersGridProps) {
                       className="block w-full"
                     >
                       <Button
-                        size="default"
-                        className="mt-3 w-full bg-avangarda hover:bg-avangarda/90 text-white shadow-md transition-all"
+                        size="lg"
+                        className="mt-4 w-full bg-avangarda hover:bg-avangarda/90 text-white shadow-md transition-all"
                       >
                         {lang === "pl" ? "Szczegóły" : "Details"}
-                        <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
+                        <ArrowRight className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1" />
                       </Button>
                     </Link>
                   </div>
                 </div>
 
-                {/* Value badge */}
+                {/* Value badge - moved to top left */}
                 {voucher.voucherValue && (
-                  <div className="absolute top-4 right-4 bg-white text-pink-600 px-4 py-2 rounded-lg shadow-lg flex items-center gap-2 font-medium">
-                    <Tag className="h-4 w-4" />
+                  <div className="absolute top-6 left-6 bg-white text-pink-600 px-6 py-3 rounded-lg shadow-lg flex items-center gap-2 font-medium text-lg">
+                    <Tag className="h-5 w-5" />
                     <span>
                       {new Intl.NumberFormat(
                         lang === "pl" ? "pl-PL" : "en-US",

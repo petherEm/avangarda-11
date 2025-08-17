@@ -105,10 +105,13 @@ export default function GastroClub({
                 transition={{ delay: 0.2 }}
                 className="main-paragraph-dark"
               >
-                Klub Coola to miejsce, gdzie rozrywka spotyka się z kuchnią dla
-                każdego. W swobodnej, przyjaznej atmosferze serwujemy dania,
-                które trafiają w różne gusta – od klasycznych przekąsek po
-                nowoczesne propozycje idealne na wspólny wieczór.
+                Klub Coola to miejsce pełne smaku i dobrej energii. W swobodnej,
+                przyjaznej atmosferze czekają na Ciebie aromatyczna pizza prosto
+                z pieca, soczyste rzemieślnicze burgery i pyszne ciasta z
+                hotelowej cukierni. W barze serwujemy autorskie drinki,
+                klasyczne koktajle i orzeźwiające napoje, które doskonale
+                uzupełniają wspólne chwile z przyjaciółmi. To przestrzeń, w
+                której smak i rozrywka tworzą idealny duet.
               </motion.p>
 
               <motion.div
@@ -133,7 +136,7 @@ export default function GastroClub({
                   <Button
                     variant="outline"
                     disabled
-                    className="flex items-center gap-2"
+                    className="flex items-center gap-2 text-black"
                   >
                     <Utensils className="h-4 w-4" />
                     Menu niedostępne
@@ -164,10 +167,10 @@ export default function GastroClub({
                     <h3 className="font-medium text-white">Godziny otwarcia</h3>
                   </div>
                   <p className="text-sm text-white/80">
-                    Poniedziałek – Piątek: 12:00 – 22:00
+                    Pon – Pią: 16:00 – 22:00
                   </p>
                   <p className="text-sm text-white/80">
-                    Sobota - Niedziela: 11:00 – 23:00
+                    Sob - Ndz: 10:00 – 22:00
                   </p>
                 </div>
                 <div className="bg-white/10 backdrop-blur-sm p-4">
@@ -179,7 +182,7 @@ export default function GastroClub({
                     Tel: 29 752 50 34 (recepcja hotelu)
                   </p>
                   <p className="text-sm text-white/80">
-                    klubcoola@hotelavangarda.pl
+                    info@hotelavangarda.pl
                   </p>
                 </div>
               </motion.div>

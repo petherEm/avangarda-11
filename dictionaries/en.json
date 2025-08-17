@@ -88,74 +88,121 @@
     "title": "Our Rooms",
     "description": "Our hotel is located in two buildings and offers 42 comfortable rooms, including single and double rooms, family studios, and apartments. The main building has an elevator, and some rooms have a balcony with a view of the garden or the Narew River. In the external building, spacious rooms for two, three, and five people are available.",
     "everyRoomHas": "Each room is equipped with:",
-    "roomAmenities": {
-      "ac": "air conditioning",
-      "tv": "TV with digital and radio channels",
-      "bathroom": "bathroom with shower, hairdryer, and toiletries",
-      "beverages": "tea and coffee making facilities and mineral water"
-    },
     "chooseRoom": "Choose your room",
-    "tabs": {
-      "all": "All",
-      "standard": "Standard",
-      "family": "Family",
-      "apartment": "Apartments"
+    "bookNow": "Book now",
+    "amenitiesTitle": "Room Amenities",
+    "whatsIncluded": {
+      "title": "What's Included",
+      "breakfast": "Breakfast",
+      "poolSaunaJacuzzi": "Pool, saunas, jacuzzi",
+      "saltCave": "Salt cave",
+      "gym": "Gym",
+      "playroom": "Children's playroom",
+      "dailyHousekeeping": "Daily housekeeping",
+      "parking": "Parking"
+    },
+    "roomAmenities": {
+      "wifi": "Free Wi-Fi",
+      "ac": "Air conditioning"
+    },
+    "single": {
+      "name": "Single Room",
+      "description": "Comfortable single room perfect for solo travelers. Despite its compact size, it offers all necessary amenities for a comfortable stay.",
+      "price": "from 280 PLN / night",
+      "capacity": "1-2 people",
+      "size": "17m²",
+      "beds": "1 x single bed"
     },
     "standard": {
       "name": "Standard Room",
       "description": "Comfortable room with garden view, perfect for couples or business travelers.",
-      "price": "from 250 PLN / night",
-      "capacity": "1-2 people"
+      "price": "from 380 PLN / night",
+      "capacity": "1-2 people",
+      "size": "21m²",
+      "beds": "2 x single bed"
+    },
+    "standardPremium": {
+      "name": "Premium Room",
+      "description": "Spacious premium room with flexible bed options and additional sofa bed. Perfect for families or groups of friends seeking comfort and extra space.",
+      "price": "from 480 PLN / night",
+      "capacity": "1-4 people",
+      "size": "31m²",
+      "beds": "1 x double bed or 2 x single beds + 1 x double sofa bed"
     },
     "family": {
       "name": "Family Room",
-      "description": "Spacious room designed with families in mind, with additional space and amenities for children.",
-      "price": "from 450 PLN / night",
-      "capacity": "2-4 people"
+      "description": "Spacious family room ideal for families with children. Comfortable and functional, providing all necessary amenities for a comfortable stay for the whole family.",
+      "price": "from 620 PLN / night",
+      "capacity": "1-4 people",
+      "size": "37m²",
+      "beds": "2 x single beds + 1 x double sofa bed"
     },
     "apartment": {
       "name": "Apartment",
-      "description": "Luxurious apartment with separate bedroom, living room, and kitchenette, offering the highest standard of stay and living space.",
-      "price": "from 650 PLN / night",
-      "capacity": "2-5 people"
+      "description": "Luxury apartment with separate bedroom and living room, perfect for couples seeking exceptional comfort and space.",
+      "price": "from 620 PLN / night",
+      "capacity": "1-2 people",
+      "size": "77m²",
+      "beds": "1 x king-size bed"
+    },
+    "externalSingle": {
+      "name": "1-Person Room",
+      "description": "Compact, air-conditioned room with one single bed, located on the first or second floor of the hotel. The room does not have a balcony and has sloped ceilings. Located in a separate building 100m from the main hotel. Check-in and check-out take place in the main hotel building. Meals included in packages are served in the main hotel building. Attractions are available in the main hotel building. The external building has no elevator, access to rooms is via stairs. Some rooms have views of the historic Tsar's road.",
+      "price": "from 220 PLN / night",
+      "capacity": "1 person",
+      "size": "16m²",
+      "beds": "1 x single bed"
+    },
+    "externalDouble": {
+      "name": "2-Person Room",
+      "description": "Comfortable double room in the external building, offering a peaceful atmosphere and all necessary amenities. Perfect for couples seeking a cozy place to relax.",
+      "price": "from 320 PLN / night",
+      "capacity": "1-2 people",
+      "size": "18-25m²",
+      "beds": "2 x single beds"
+    },
+    "externalTriple": {
+      "name": "3-Person Room",
+      "description": "Spacious triple room in the external building, perfect for small groups or families. Equipped with all necessary amenities for a comfortable stay in a peaceful setting.",
+      "price": "from 440 PLN / night",
+      "capacity": "1-3 people",
+      "size": "23-45m²",
+      "beds": "3 x single beds"
+    },
+    "externalFamily": {
+      "name": "Family Studio Room",
+      "description": "Spacious, air-conditioned family room with five single beds, located on the first or second floor of the hotel. Perfect for larger families or groups of friends. Children aged 0-3 do not include accommodation on an additional bed. The room does not have a balcony and has sloped ceilings. Located in a separate building 100m from the main hotel. Check-in and check-out take place in the main hotel building. Meals included in packages are served in the main hotel building. Attractions are available in the main hotel building. The external building has no elevator, access to rooms is via stairs. Some rooms have views of the historic Tsar's road.",
+      "price": "from 560 PLN / night",
+      "capacity": "1-5 people",
+      "size": "38m²",
+      "beds": "5 x single beds"
     },
     "features": {
-      "doubleBed": "Double bed",
-      "privateBathroom": "Private bathroom",
-      "flatScreenTV": "Flat-screen TV",
-      "freeWifi": "Free Wi-Fi",
+      "bathroom": "Bathroom with shower",
+      "towels": "Towels",
+      "toiletries": "Toiletries set",
+      "hairdryer": "Hair dryer",
+      "bathrobe": "Bathrobe (available at reception on request)",
+      "teaCoffee": "Tea and coffee making facilities",
+      "fridge": "Refrigerator",
+      "tvChannels": "TV with terrestrial and satellite channels",
       "airConditioning": "Air conditioning",
-      "familyBeds": "Double bed and two single beds",
-      "largeBathroom": "Large bathroom with bathtub",
-      "fridgeMicrowave": "Fridge and microwave",
+      "freeWifi": "Free internet",
+      "familyBeds": "Family beds",
+      "largeBathroom": "Large bathroom",
+      "fridgeMicrowave": "Fridge with microwave",
       "loungeArea": "Lounge area",
-      "kingSizeBed": "Separate bedroom with king-size bed",
-      "sofaBed": "Living room with sofa bed",
-      "kitchenette": "Fully equipped kitchenette",
-      "diningArea": "Dining area for 4 people",
-      "luxuryBathroom": "Luxury bathroom with bathtub and shower",
-      "balcony": "Large balcony or terrace",
-      "smartTV": "Smart TV and audio system",
-      "coffeeMachine": "Coffee machine"
-    },
-    "gallery": {
-      "title": "Photo Gallery",
-      "image": "Image",
-      "of": "of",
-      "viewAll": "View all"
-    },
-    "amenitiesTitle": "Amenities:",
-    "whatsIncluded": {
-      "title": "What's included",
-      "dailyHousekeeping": "Daily housekeeping",
-      "roomService24": "24/7 room service",
-      "welcomeAmenities": "Welcome amenities",
-      "qualityLinens": "High-quality linens",
-      "toiletries": "Bathroom amenities",
-      "roomSafe": "In-room safe"
-    },
-    "details": "Details",
-    "bookNow": "Book now"
+      "kingSizeBed": "King-size bed",
+      "sofaBed": "Sofa bed",
+      "kitchenette": "Kitchenette",
+      "diningArea": "Dining area",
+      "luxuryBathroom": "Luxury bathroom",
+      "balcony": "Balcony",
+      "smartTV": "Smart TV",
+      "coffeeMachine": "Coffee machine",
+      "bathroomWithTub": "Bathroom with shower and bathtub",
+      "twoTVs": "2 x TV with internet and terrestrial and satellite channels"
+    }
   },
   "gastro": {
     "tags": {
